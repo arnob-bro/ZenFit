@@ -1,45 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:zenfit/homepage.dart';
+import 'package:zenfit/settings.dart';
 import 'package:zenfit/trainingProgram.dart';
-import 'package:zenfit/graph.dart';
 
-class Settings extends StatefulWidget{
-  const Settings({super.key});
+class Graph extends StatefulWidget {
+  const Graph({super.key});
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<Graph> createState() => _GraphState();
 }
-class _SettingsState extends State<Settings> {
+
+class _GraphState extends State<Graph> {
   @override
-  Widget build (BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white60,
       appBar: AppBar(
-        title: Text("Settings"),
+        title: Text("My Graphs"),
         backgroundColor: Colors.black26,
+
       ),
       body: ListView(
-        children: const [
+        children: [
           Card(
             child: ListTile(
-              title: Text("Calculators"),
+              title: Text("Measurement Graph"),
+              onTap: () {
+
+              },
             ),
           ),
           Card(
             child: ListTile(
-              title: Text("Calculators"),
+              title: Text("Strength Graph"),
+              onTap: () {
+
+              },
             ),
           ),
-          Card(
-            child: ListTile(
-              title: Text("Calculators"),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text("Calculators"),
-            ),
-          ),
+
+
         ],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -55,9 +55,6 @@ class _SettingsState extends State<Settings> {
               );
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Graph()),
-              );
 
             }, icon: const Icon(Icons.show_chart)),
             IconButton(onPressed:(){
@@ -70,12 +67,16 @@ class _SettingsState extends State<Settings> {
 
             }, icon: const Icon(Icons.note_alt)),
             IconButton(onPressed:(){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Settings()),
+              );
 
             }, icon: const Icon(Icons.settings)),
 
           ],
         ),
       ),
+
     );
   }
 }
