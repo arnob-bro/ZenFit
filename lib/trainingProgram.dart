@@ -1,45 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:zenfit/homepage.dart';
-import 'package:zenfit/trainingProgram.dart';
+import 'package:zenfit/settings.dart';
 import 'package:zenfit/graph.dart';
 
-class Settings extends StatefulWidget{
-  const Settings({super.key});
+
+class TrainingProgram extends StatefulWidget {
+  const TrainingProgram({super.key});
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<TrainingProgram> createState() => _TrainingProgramState();
 }
-class _SettingsState extends State<Settings> {
+
+class _TrainingProgramState extends State<TrainingProgram> {
   @override
-  Widget build (BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white60,
       appBar: AppBar(
-        title: Text("Settings"),
+        title: Text("Training Programs"),
         backgroundColor: Colors.black26,
+
       ),
       body: ListView(
-        children: const [
+        children: [
           Card(
             child: ListTile(
-              title: Text("Calculators"),
+              title: Text("Mine"),
+              onTap: () {
+
+              },
             ),
           ),
           Card(
             child: ListTile(
-              title: Text("Calculators"),
+              title: Text("Programs"),
+              onTap: () {
+
+              },
             ),
           ),
-          Card(
-            child: ListTile(
-              title: Text("Calculators"),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text("Calculators"),
-            ),
-          ),
+
+
         ],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -64,12 +65,12 @@ class _SettingsState extends State<Settings> {
 
             }, icon: const Icon(Icons.add_circle_outlined)),
             IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const TrainingProgram()),
-              );
 
             }, icon: const Icon(Icons.note_alt)),
             IconButton(onPressed:(){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Settings()),
+              );
 
             }, icon: const Icon(Icons.settings)),
 

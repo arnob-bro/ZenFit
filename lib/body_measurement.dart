@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zenfit/settings.dart';
+import 'package:zenfit/trainingProgram.dart';
+import 'package:zenfit/graph.dart';
 
 class Body_Measurement extends StatefulWidget{
   const Body_Measurement({super.key});
@@ -28,12 +30,20 @@ class _Body_MeasurementState extends State<Body_Measurement> {
 
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Graph()),
+              );
 
             }, icon: const Icon(Icons.show_chart)),
             IconButton(onPressed:(){
 
             }, icon: const Icon(Icons.add_circle_outlined)),
             IconButton(onPressed:(){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const TrainingProgram()),
+              );
+
+
 
             }, icon: const Icon(Icons.note_alt)),
             IconButton(onPressed:(){
