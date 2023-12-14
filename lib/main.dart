@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zenfit/homepage.dart';
-import 'package:zenfit/account.dart';
+import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/account.dart';
 void main() {
   runApp( const MyApp());
 }

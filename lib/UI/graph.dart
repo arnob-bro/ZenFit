@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zenfit/homepage.dart';
-import 'package:zenfit/settings.dart';
-import 'package:zenfit/trainingProgram.dart';
+import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/settings.dart';
+import 'package:zenfit/UI/trainingProgram.dart';
 
 class Graph extends StatefulWidget {
   const Graph({super.key});

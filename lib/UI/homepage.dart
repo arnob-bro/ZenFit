@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zenfit/account.dart';
-import 'package:zenfit/body_measurement.dart';
-import 'package:zenfit/graph.dart';
-import 'package:zenfit/settings.dart';
-import 'package:zenfit/trainingProgram.dart';
+import 'package:zenfit/UI/account.dart';
+import 'package:zenfit/UI/body_measurement.dart';
+import 'package:zenfit/UI/graph.dart';
+import 'package:zenfit/UI/settings.dart';
+import 'package:zenfit/UI/trainingProgram.dart';
 
 class Home extends StatefulWidget{
   const Home({super.key});

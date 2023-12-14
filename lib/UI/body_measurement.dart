@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zenfit/settings.dart';
-import 'package:zenfit/trainingProgram.dart';
-import 'package:zenfit/graph.dart';
+import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/settings.dart';
+import 'package:zenfit/UI/trainingProgram.dart';
+import 'package:zenfit/UI/graph.dart';
 
 class Body_Measurement extends StatefulWidget{
   const Body_Measurement({super.key});
@@ -27,7 +28,10 @@ class _Body_MeasurementState extends State<Body_Measurement> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(onPressed:(){
-
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Home()),
+              );
+              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,

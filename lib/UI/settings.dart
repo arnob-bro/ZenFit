@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zenfit/homepage.dart';
-import 'package:zenfit/trainingProgram.dart';
-import 'package:zenfit/graph.dart';
+import 'package:zenfit/UI/calculators.dart';
+import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/trainingProgram.dart';
+import 'package:zenfit/UI/graph.dart';
+import 'package:zenfit/UI/account.dart';
 
 class Settings extends StatefulWidget{
   const Settings({super.key});
@@ -19,25 +21,35 @@ class _SettingsState extends State<Settings> {
         backgroundColor: Colors.black26,
       ),
       body: ListView(
-        children: const [
+        children: [
           Card(
             child: ListTile(
-              title: Text("Calculators"),
+              title: Text("Account"),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Account()),
+                );
+              }
             ),
           ),
           Card(
             child: ListTile(
               title: Text("Calculators"),
+              onTap: (){
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Calculators()),
+                );
+              }
             ),
           ),
           Card(
             child: ListTile(
-              title: Text("Calculators"),
+              title: Text("3"),
             ),
           ),
           Card(
             child: ListTile(
-              title: Text("Calculators"),
+              title: Text("4"),
             ),
           ),
         ],
@@ -53,6 +65,7 @@ class _SettingsState extends State<Settings> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
+              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,

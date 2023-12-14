@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zenfit/body_measurement.dart';
-import 'package:zenfit/settings.dart';
+import 'package:zenfit/UI/graph.dart';
+import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/settings.dart';
+import 'package:zenfit/UI/trainingProgram.dart';
 
 class Account extends StatefulWidget{
   const Account({super.key});
@@ -26,15 +28,25 @@ class _AccountState extends State<Account> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(onPressed:(){
-
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Home()),
+              );
+              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Graph()),
+              );
 
             }, icon: const Icon(Icons.show_chart)),
             IconButton(onPressed:(){
 
+
             }, icon: const Icon(Icons.add_circle_outlined)),
             IconButton(onPressed:(){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const TrainingProgram()),
+              );
 
             }, icon: const Icon(Icons.note_alt)),
             IconButton(onPressed:(){

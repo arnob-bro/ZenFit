@@ -1,46 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:zenfit/homepage.dart';
-import 'package:zenfit/settings.dart';
-import 'package:zenfit/graph.dart';
+import 'package:zenfit/UI/calorieCalculator.dart';
+import 'package:zenfit/UI/graph.dart';
+import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/settings.dart';
+import 'package:zenfit/UI/trainingProgram.dart';
+import 'package:zenfit/UI/1rmCalculator.dart';
 
-
-class TrainingProgram extends StatefulWidget {
-  const TrainingProgram({super.key});
+class Calculators extends StatefulWidget {
+  const Calculators({super.key});
 
   @override
-  State<TrainingProgram> createState() => _TrainingProgramState();
+  State<Calculators> createState() => _CalculatorsState();
 }
 
-class _TrainingProgramState extends State<TrainingProgram> {
+class _CalculatorsState extends State<Calculators> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white60,
       appBar: AppBar(
-        title: Text("Training Programs"),
+        title: Text("Calculators"),
         backgroundColor: Colors.black26,
-
       ),
       body: ListView(
-        children: [
+        children:  [
           Card(
             child: ListTile(
-              title: Text("Mine"),
-              onTap: () {
-
-              },
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text("Programs"),
-              onTap: () {
-
-              },
+                title: Text("Calorie Calculator"),
+                onTap: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Calorie_Calculator()),
+                  );
+                }
             ),
           ),
 
-
+          Card(
+            child: ListTile(
+                title: Text("1RM Calculator"),
+                onTap: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const RM_Calculator()),
+                  );
+                }
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -54,6 +58,7 @@ class _TrainingProgramState extends State<TrainingProgram> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
+              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,
@@ -63,15 +68,18 @@ class _TrainingProgramState extends State<TrainingProgram> {
             }, icon: const Icon(Icons.show_chart)),
             IconButton(onPressed:(){
 
+
             }, icon: const Icon(Icons.add_circle_outlined)),
             IconButton(onPressed:(){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const TrainingProgram()),
+              );
 
             }, icon: const Icon(Icons.note_alt)),
             IconButton(onPressed:(){
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Settings()),
               );
-
             }, icon: const Icon(Icons.settings)),
 
           ],
