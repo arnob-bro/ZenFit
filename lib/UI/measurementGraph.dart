@@ -2,55 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
-import 'package:zenfit/UI/measurementGraph.dart';
-import 'package:zenfit/UI/strengthGraph.dart';
+import 'package:zenfit/UI/graph.dart';
 
-class Graph extends StatefulWidget {
-  const Graph({super.key});
+class MeasurementGraph extends StatefulWidget {
+  const MeasurementGraph({super.key});
 
   @override
-  State<Graph> createState() => _GraphState();
+  State<MeasurementGraph> createState() => _MeasurementGraphState();
 }
 
-class _GraphState extends State<Graph> {
+class _MeasurementGraphState extends State<MeasurementGraph> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white60,
       appBar: AppBar(
-        title: Text("My Graphs"),
+        title: Text("Measurement Graph"),
         backgroundColor: Colors.black26,
 
       ),
-      body: ListView(
-        children: [
-          Card(
-            child: ListTile(
-              title: Text("Measurement Graph"),
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MeasurementGraph()),
-                );
 
-
-              },
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text("Strength Graph"),
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const StrengthGraph()),
-                );
-
-              },
-            ),
-          ),
-
-
-        ],
-      ),
       bottomNavigationBar: BottomAppBar(
         elevation: 20,
         height: 60,
@@ -64,7 +35,9 @@ class _GraphState extends State<Graph> {
               );
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
-
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Graph()),
+              );
 
             }, icon: const Icon(Icons.show_chart)),
             IconButton(onPressed:(){

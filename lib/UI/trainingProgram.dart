@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/graph.dart';
+import 'package:zenfit/UI/mine.dart';
+import 'package:zenfit/UI/programs.dart';
 
 
 class TrainingProgram extends StatefulWidget {
@@ -27,6 +29,9 @@ class _TrainingProgramState extends State<TrainingProgram> {
             child: ListTile(
               title: Text("Mine"),
               onTap: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Mine()),
+                );
 
               },
             ),
@@ -35,6 +40,9 @@ class _TrainingProgramState extends State<TrainingProgram> {
             child: ListTile(
               title: Text("Programs"),
               onTap: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Programs()),
+                );
 
               },
             ),
