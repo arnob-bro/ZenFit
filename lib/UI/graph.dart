@@ -22,34 +22,36 @@ class _GraphState extends State<Graph> {
         backgroundColor: Colors.black26,
 
       ),
-      body: ListView(
-        children: [
-          Card(
-            child: ListTile(
-              title: Text("Measurement Graph"),
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MeasurementGraph()),
-                );
-
-
-              },
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Card(
+              child: ListTile(
+                title: Text("Measurement Graph"),
+                onTap: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const MeasurementGraph()),
+                  );
+        
+        
+                },
+              ),
             ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text("Strength Graph"),
-              onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const StrengthGraph()),
-                );
-
-              },
+            Card(
+              child: ListTile(
+                title: Text("Strength Graph"),
+                onTap: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const StrengthGraph()),
+                  );
+        
+                },
+              ),
             ),
-          ),
-
-
-        ],
+        
+        
+          ],
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
         elevation: 20,

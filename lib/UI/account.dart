@@ -80,7 +80,9 @@ class _UsernameState extends State<Username> {
           child: TextField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Name (example: John Doe)',
+              labelText: "Name",
+              hintText: '(example: John Doe)',
+
             ),
           ),
         ),
@@ -90,7 +92,8 @@ class _UsernameState extends State<Username> {
           child: TextField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'User Name (example: @john_doe)',
+              labelText: "Username",
+              hintText: '(example: @john_doe)',
             ),
           ),
         ),

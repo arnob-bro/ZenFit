@@ -35,39 +35,41 @@ class _HomeState extends State<Home>{
 
           }, icon: const Icon(Icons.person)),
         ),
-        body: ListView(
-          children:  [
-            Card(
-              child: ListTile(
-                title: const Text("Training Log"),
-                onTap: (){
-
-                }
-              ),
-            ),
-
-            Card(
-              child: ListTile(
-                title: const Text("My Goals"),
+        body: SafeArea(
+          child: ListView(
+            children:  [
+              Card(
+                child: ListTile(
+                  title: const Text("Training Log"),
                   onTap: (){
-                    Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => My_Goals()),
-                    );
-                  }
-              ),
-            ),
 
-            Card(
-              child: ListTile(
-                title: const Text("Followed Programs"),
-                  onTap: (){
-                    Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Followed_Programs()),
-                    );
                   }
+                ),
               ),
-            ),
-          ],
+
+              Card(
+                child: ListTile(
+                  title: const Text("My Goals"),
+                    onTap: (){
+                      Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => My_Goals()),
+                      );
+                    }
+                ),
+              ),
+
+              Card(
+                child: ListTile(
+                  title: const Text("Followed Programs"),
+                    onTap: (){
+                      Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Followed_Programs()),
+                      );
+                    }
+                ),
+              ),
+            ],
+          ),
         ),
         bottomNavigationBar: BottomAppBar(
           elevation: 20,
