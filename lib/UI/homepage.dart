@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/account.dart';
 import 'package:zenfit/UI/body_measurement.dart';
+import 'package:zenfit/UI/followedPrograms.dart';
 import 'package:zenfit/UI/graph.dart';
+import 'package:zenfit/UI/myGoals.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 
@@ -37,7 +39,7 @@ class _HomeState extends State<Home>{
           children:  [
             Card(
               child: ListTile(
-                title: Text("Training Log"),
+                title: const Text("Training Log"),
                 onTap: (){
 
                 }
@@ -46,18 +48,22 @@ class _HomeState extends State<Home>{
 
             Card(
               child: ListTile(
-                title: Text("My Goals"),
+                title: const Text("My Goals"),
                   onTap: (){
-
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => My_Goals()),
+                    );
                   }
               ),
             ),
 
             Card(
               child: ListTile(
-                title: Text("Followed Programs"),
+                title: const Text("Followed Programs"),
                   onTap: (){
-
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Followed_Programs()),
+                    );
                   }
               ),
             ),

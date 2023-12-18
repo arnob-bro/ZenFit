@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "992900993650",
+    "project_id": "zenfit-e4c1f",
+    "storage_bucket": "zenfit-e4c1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992900993650:android:1168ddc9a49da27e2fe8eb",
+        "android_client_info": {
+          "package_name": "com.example.zenfit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPOWVySQNnsUyA-8vRnX0HZp1d0wVla_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
