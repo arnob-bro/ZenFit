@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
+import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
-import 'package:zenfit/UI/measurementGraph.dart';
-import 'package:zenfit/UI/strengthGraph.dart';
+import 'package:zenfit/UI/mine.dart';
 
-class Graph extends StatefulWidget {
-  const Graph({super.key});
+
+class AddProgram extends StatefulWidget {
+  const AddProgram({super.key});
 
   @override
-  State<Graph> createState() => _GraphState();
+  State<AddProgram> createState() => _AddProgramState();
 }
 
-class _GraphState extends State<Graph> {
+class _AddProgramState extends State<AddProgram> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white60,
       appBar: AppBar(
-        title: Text("My Graphs"),
+        title: Text("Add Program"),
         backgroundColor: Colors.black26,
 
       ),
@@ -26,31 +27,27 @@ class _GraphState extends State<Graph> {
         children: [
           Card(
             child: ListTile(
-              title: Text("Measurement Graph"),
+              title: Text("1"),
               onTap: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MeasurementGraph()),
-                );
-
 
               },
             ),
           ),
           Card(
             child: ListTile(
-              title: Text("Strength Graph"),
+              title: Text("2"),
               onTap: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const StrengthGraph()),
+                  MaterialPageRoute(builder: (context) => const AddProgram()),
                 );
 
               },
             ),
           ),
 
-
         ],
       ),
+
       bottomNavigationBar: BottomAppBar(
         elevation: 20,
         height: 60,
@@ -64,7 +61,9 @@ class _GraphState extends State<Graph> {
               );
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
-
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Graph()),
+              );
 
             }, icon: const Icon(Icons.show_chart)),
             IconButton(onPressed:(){
@@ -86,7 +85,6 @@ class _GraphState extends State<Graph> {
           ],
         ),
       ),
-
     );
   }
 }
