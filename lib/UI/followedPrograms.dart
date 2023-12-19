@@ -15,10 +15,15 @@ class _Followed_ProgramsState extends State<Followed_Programs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text("Follwed Programs"),
-        backgroundColor: Colors.black26,
+        title: Text(
+            "Follwed Programs",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.black12,
       ),
       body: ListView(
         children:  [
@@ -52,7 +57,6 @@ class _Followed_ProgramsState extends State<Followed_Programs> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
-              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,

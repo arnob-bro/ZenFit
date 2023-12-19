@@ -18,10 +18,15 @@ class _MineState extends State<Mine> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text("Mine"),
-        backgroundColor: Colors.black26,
+        title: Text(
+            "Mine",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.black12,
 
       ),
       body: ListView(

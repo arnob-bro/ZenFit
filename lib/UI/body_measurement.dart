@@ -17,7 +17,12 @@ class _Body_MeasurementState extends State<Body_Measurement> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text("Body Measurement"),
+        title: const Text(
+            "Body Measurement",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: const Measurements(),
       bottomNavigationBar: BottomAppBar(
@@ -31,7 +36,6 @@ class _Body_MeasurementState extends State<Body_Measurement> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
-              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,

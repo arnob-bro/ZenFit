@@ -15,10 +15,15 @@ class _RM_CalculatorState extends State<RM_Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text("1RM Calculator"),
-        backgroundColor: Colors.black26,
+        title: Text(
+            "1RM Calculator",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.black12,
 
       ),
 
@@ -33,7 +38,6 @@ class _RM_CalculatorState extends State<RM_Calculator> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
-              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,

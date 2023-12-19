@@ -15,9 +15,15 @@ class _AccountState extends State<Account> {
   @override
   Widget build (BuildContext context){
     return Scaffold(
+
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: const Text("Account"),
+          title: const Text(
+              "Account",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         body: const Username(),
       bottomNavigationBar: BottomAppBar(
@@ -31,7 +37,6 @@ class _AccountState extends State<Account> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
-              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,

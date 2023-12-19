@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zenfit/UI/loginPage.dart';
 import 'package:zenfit/UI/newlogin.dart';
 
 
@@ -13,7 +14,7 @@ class _welcomePageState extends State<welcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white60,
+        backgroundColor: Color(0xff37393D),
 
         body:Column(
           children: [
@@ -82,7 +83,7 @@ class _welcomePageState extends State<welcomePage> {
                           ),
                           ),
                           onTap: (){
-
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const loginPage()));
 
                           }
                       ),

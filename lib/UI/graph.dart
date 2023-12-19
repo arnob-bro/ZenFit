@@ -16,10 +16,15 @@ class _GraphState extends State<Graph> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text("My Graphs"),
-        backgroundColor: Colors.black26,
+        title: Text(
+            "My Graphs",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.black12,
 
       ),
       body: SafeArea(

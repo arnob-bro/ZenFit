@@ -17,10 +17,15 @@ class _My_GoalsState extends State<My_Goals> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text("My Goals"),
-        backgroundColor: Colors.black26,
+        title: Text(
+            "My Goals",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.black12,
       ),
       bottomNavigationBar: BottomAppBar(
         elevation: 20,
@@ -33,7 +38,6 @@ class _My_GoalsState extends State<My_Goals> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
-              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,

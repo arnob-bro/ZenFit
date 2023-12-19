@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/calculators.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/account.dart';
+import 'package:zenfit/UI/loginPage.dart';
+import 'package:zenfit/UI/welcome.dart';
 
 class Settings extends StatefulWidget{
   const Settings({super.key});
@@ -15,10 +18,15 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build (BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text("Settings"),
-        backgroundColor: Colors.black26,
+        title: Text(
+            "Settings",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.black12,
       ),
       body: ListView(
         children: [
@@ -49,7 +57,14 @@ class _SettingsState extends State<Settings> {
           ),
           Card(
             child: ListTile(
-              title: Text("4"),
+              title: Text("Log out"),
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) =>  welcomePage()),
+                );
+
+              },
             ),
           ),
         ],
@@ -62,10 +77,11 @@ class _SettingsState extends State<Settings> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(onPressed:(){
+              Navigator.of(context).popUntil((route) => route.isFirst);
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
-              Navigator.of(context).popUntil((route) => route.isFirst);
+
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,

@@ -17,10 +17,15 @@ class _CalculatorsState extends State<Calculators> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text("Calculators"),
-        backgroundColor: Colors.black26,
+        title: Text(
+            "Calculators",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.black12,
       ),
       body: ListView(
         children:  [
@@ -58,7 +63,6 @@ class _CalculatorsState extends State<Calculators> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
-              Navigator.of(context).popUntil((route) => route.isFirst);
             }, icon: const Icon(Icons.home)),
             IconButton(onPressed:(){
               Navigator.push(context,

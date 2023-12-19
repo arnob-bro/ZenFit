@@ -1,7 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/welcome.dart';
+import 'firebase_options.dart';
 
-void main() {
+
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp( const MyApp());
 }
 
@@ -13,11 +22,16 @@ class MyApp extends StatefulWidget{
 }
 
 class _MyAppState extends State<MyApp> {
+
    @override
   Widget build (BuildContext context) {
+     bool isLoggedIn= false;
+     final user = FirebaseAuth.instance.currentUser;
+     if(user!=null) isLoggedIn = true;
+
      return MaterialApp(
        debugShowCheckedModeBanner: false,
-       home: Home(),
+       home: isLoggedIn ? Home() : welcomePage(),
      );
    }
 }

@@ -17,10 +17,15 @@ class _TrainingProgramState extends State<TrainingProgram> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text("Training Programs"),
-        backgroundColor: Colors.black26,
+        title: Text(
+            "Training Programs",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.black12,
 
       ),
       body: ListView(

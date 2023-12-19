@@ -16,10 +16,15 @@ class _ProgramsState extends State<Programs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text("Programs"),
-        backgroundColor: Colors.black26,
+        title: Text(
+            "Programs",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.black12,
 
       ),
 
