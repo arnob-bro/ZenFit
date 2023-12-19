@@ -12,15 +12,27 @@ class RM_Calculator extends StatefulWidget {
 }
 
 class _RM_CalculatorState extends State<RM_Calculator> {
+
+  final weightController = TextEditingController();
+  final repsController = TextEditingController();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    weightController.dispose();
+    repsController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff37393D),
+      backgroundColor: const Color(0xff37393D),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
             "1RM Calculator",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white54,
           ),
         ),
         backgroundColor: Colors.black12,
@@ -29,17 +41,18 @@ class _RM_CalculatorState extends State<RM_Calculator> {
       body: SafeArea(
         child: ListView(
           children: [
-            Padding(
+            const Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   'Estimated 1RM',
                   style: TextStyle(
                     fontSize: 22.0,
+                    color: Colors.white54,
                     //fontWeight: FontWeight.bold,
                   ),
                 )
             ),
-            Card(
+            const Card(
               color: Colors.white10,
               child: ListTile(
 
@@ -48,99 +61,90 @@ class _RM_CalculatorState extends State<RM_Calculator> {
             ),
             Card(
               color: Colors.white10,
-              child:Container(
+              child: SizedBox(
                 height: 100,
                 child: Row(
                   children: [
-                    Container(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 10),
-                            child: Text(
-                              'Weight(kg)',
-                              style: TextStyle(
-                                fontSize: 22.0,
-                              ),
+                    Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Text(
+                            'Weight',
+                            style: TextStyle(
+                              fontSize: 22.0,
+                              color: Colors.white54,
                             ),
                           ),
-                          Padding(
-                              padding: EdgeInsets.only( left: 10,right: 10),
-                              child: Container(
-                                height: 50,
-                                width: 170,
-                                child: Padding(
-                                  padding: EdgeInsets.all(10),
-                                  child: TextField(
-                                    decoration: InputDecoration(
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.only( left: 10,right: 10),
+                            child: Container(
+                              height: 50,
+                              width: 170,
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: TextField(
+                                  controller: weightController,
+                                    keyboardType: TextInputType.number,
+                                    cursorHeight: 18,
+                                    decoration: const InputDecoration(
                                       border: OutlineInputBorder(),
-
-
+                                      suffixText: "kg",
+                                      suffixStyle: TextStyle(color: Colors.white54,),
                                     ),
                                   ),
-                                ),
-
-                              )
-                          ),
-
-                        ],
-                      ),
-
-                    ),
-                    Container(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 10),
-                            child: Text(
-                              'Reps',
-                              style: TextStyle(
-                                fontSize: 22.0,
                               ),
+
+                            )
+                        ),
+
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Text(
+                            'Reps',
+                            style: TextStyle(
+                              fontSize: 22.0,
+                              color: Colors.white54,
                             ),
                           ),
-                          Padding(
-                              padding: EdgeInsets.only( left: 10,right: 10),
-                              child: Container(
-                                height: 50,
-                                width: 170,
-                                child: Padding(
-                                  padding: EdgeInsets.all(10),
-                                  child: TextField(
-                                    decoration: InputDecoration(
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.only( left: 10,right: 10),
+                            child: Container(
+                              height: 50,
+                              width: 170,
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: TextField(
+                                  controller: repsController,
+                                  keyboardType: TextInputType.number,
+                                  cursorHeight: 18,
+                                    decoration: const InputDecoration(
                                       border: OutlineInputBorder(),
 
                                     ),
-                                  ),
                                 ),
-
-                              )
-                          ),
-
-                        ],
-
-                      ),
-
+                              ),
+                            )
+                        ),
+                      ],
                     ),
-
-
                   ],
                 ),
-
               ) ,
             ),
             Card(
               color: Colors.white10,
               child: ListTile(
-                title: Center(child: Text("Calculate")),
-                onTap: () {
-
-
-                },
+                title: Center(child: Text("Calculate",style: TextStyle(color: Colors.white54,),)),
+                onTap: () {},
               ),
             ),
-
-
           ],
         ),
       ),

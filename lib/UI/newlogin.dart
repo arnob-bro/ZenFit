@@ -32,6 +32,7 @@ class _NewLoginState extends State<NewLogin> {
       );
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign up complete")));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
 
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -164,11 +165,12 @@ class _NewLoginState extends State<NewLogin> {
             Padding(
               padding: EdgeInsets.only(right: 10,left: 10),
               child: TextField(
+                controller: emailController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'write email',
                 ),
-                controller: emailController,
+
               ),
             ),
 
@@ -195,7 +197,7 @@ class _NewLoginState extends State<NewLogin> {
 
             TextButton(onPressed: (){
               signUpToFirebase();
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
+
             }, child: const Text("Submit")),
           ],
        ),
