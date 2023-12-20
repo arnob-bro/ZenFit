@@ -17,10 +17,10 @@ class _Followed_ProgramsState extends State<Followed_Programs> {
     return Scaffold(
       backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
             "Follwed Programs",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white54,
           ),
         ),
         backgroundColor: Colors.black12,

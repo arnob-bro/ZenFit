@@ -19,10 +19,10 @@ class _My_GoalsState extends State<My_Goals> {
     return Scaffold(
       backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
             "My Goals",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white54,
           ),
         ),
         backgroundColor: Colors.black12,

@@ -63,78 +63,80 @@ class _RM_CalculatorState extends State<RM_Calculator> {
               color: Colors.white10,
               child: SizedBox(
                 height: 100,
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: Text(
-                            'Weight',
-                            style: TextStyle(
-                              fontSize: 22.0,
-                              color: Colors.white54,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                            padding: const EdgeInsets.only( left: 10,right: 10),
-                            child: Container(
-                              height: 50,
-                              width: 170,
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: TextField(
-                                  controller: weightController,
-                                    keyboardType: TextInputType.number,
-                                    cursorHeight: 18,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      suffixText: "kg",
-                                      suffixStyle: TextStyle(color: Colors.white54,),
-                                    ),
-                                  ),
+                child: Expanded(
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Text(
+                              'Weight',
+                              style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white54,
                               ),
-
-                            )
-                        ),
-
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: Text(
-                            'Reps',
-                            style: TextStyle(
-                              fontSize: 22.0,
-                              color: Colors.white54,
                             ),
                           ),
-                        ),
-                        Padding(
-                            padding: const EdgeInsets.only( left: 10,right: 10),
-                            child: Container(
-                              height: 50,
-                              width: 170,
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: TextField(
-                                  controller: repsController,
-                                  keyboardType: TextInputType.number,
-                                  cursorHeight: 18,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
-
+                          Padding(
+                              padding: const EdgeInsets.only( left: 10,right: 10),
+                              child: Container(
+                                height: 50,
+                                width: 165,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: TextField(
+                                    controller: weightController,
+                                      keyboardType: TextInputType.number,
+                                      cursorHeight: 18,
+                                      decoration: const InputDecoration(
+                                        border: OutlineInputBorder(),
+                                        suffixText: "kg",
+                                        suffixStyle: TextStyle(color: Colors.white54,),
+                                      ),
                                     ),
                                 ),
+
+                              )
+                          ),
+                  
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Text(
+                              'Reps',
+                              style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white54,
                               ),
-                            )
-                        ),
-                      ],
-                    ),
-                  ],
+                            ),
+                          ),
+                          Padding(
+                              padding: const EdgeInsets.only( left: 10,right: 10),
+                              child: Container(
+                                height: 50,
+                                width: 170,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: TextField(
+                                    controller: repsController,
+                                    keyboardType: TextInputType.number,
+                                    cursorHeight: 18,
+                                      decoration: const InputDecoration(
+                                        border: OutlineInputBorder(),
+
+                                      ),
+                                  ),
+                                ),
+                              )
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ) ,
             ),

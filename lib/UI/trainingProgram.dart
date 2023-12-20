@@ -19,10 +19,10 @@ class _TrainingProgramState extends State<TrainingProgram> {
     return Scaffold(
       backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
             "Training Programs",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white54,
           ),
         ),
         backgroundColor: Colors.black12,

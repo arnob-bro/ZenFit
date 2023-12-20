@@ -22,7 +22,7 @@ class _AddProgramState extends State<AddProgram> {
         title: Text(
             "Add Program",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white54,
           ),
         ),
         backgroundColor: Colors.black12,

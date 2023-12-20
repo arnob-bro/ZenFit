@@ -23,17 +23,24 @@ class _HomeState extends State<Home>{
           appBar: AppBar(
             backgroundColor: Colors.black12,
             actions: [
-              IconButton(onPressed:(){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Body_Measurement()),
-                );
-              }, icon: const Icon(Icons.accessibility_sharp)),
+             ElevatedButton(onPressed: (){
+               Navigator.push(context,
+                 MaterialPageRoute(builder: (context) => const Body_Measurement()),
+               );
+             },
+               style: ElevatedButton.styleFrom(
+                 shape: const CircleBorder(),
+                 side: const BorderSide(width: 3),
+               ),
+               child: const Icon(Icons.accessibility_sharp,color: Color(0xff37393D),),
+             )
+
             ],
             leading: IconButton(onPressed:(){
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Account()),
               );
-      
+
             }, icon: const Icon(Icons.person_sharp)),
           ),
           body: SafeArea(

@@ -17,7 +17,7 @@ class _MeasurementGraphState extends State<MeasurementGraph> {
     return Scaffold(
       backgroundColor: Colors.white60,
       appBar: AppBar(
-        title: Text("Measurement Graph"),
+        title: const Text("Measurement Graph"),
         backgroundColor: Colors.black26,
 
       ),

@@ -18,10 +18,10 @@ class _GraphState extends State<Graph> {
     return Scaffold(
       backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
             "My Graphs",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white54,
           ),
         ),
         backgroundColor: Colors.black12,

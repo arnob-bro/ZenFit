@@ -20,10 +20,10 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
       backgroundColor: Color(0xff37393D),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
             "Settings",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white54,
           ),
         ),
         backgroundColor: Colors.black12,

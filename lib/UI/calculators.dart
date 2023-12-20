@@ -22,7 +22,7 @@ class _CalculatorsState extends State<Calculators> {
         title: Text(
             "Calculators",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white54,
           ),
         ),
         backgroundColor: Colors.black12,

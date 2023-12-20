@@ -15,12 +15,13 @@ class _Body_MeasurementState extends State<Body_Measurement> {
   @override
   Widget build (BuildContext context){
     return Scaffold(
+      backgroundColor: const Color(0xff37393D),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black12,
         title: const Text(
             "Body Measurement",
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.white54,
           ),
         ),
       ),
@@ -81,137 +82,179 @@ class _MeasurementsState extends State<Measurements> {
 
       children: [
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Body Weight',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Neck',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Shoulders',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Left Upper Arm',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Right Upper Arm',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Left Forearm',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Right Forearm',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Chest',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Waist',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Hips',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Left Thigh',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Right Thigh',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Left Calf',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Right Calf',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
             ),
           ),
         ),
