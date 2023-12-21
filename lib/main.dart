@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:zenfit/UI/exercise.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/welcome.dart';
 import 'firebase_options.dart';
@@ -29,9 +30,10 @@ class _MyAppState extends State<MyApp> {
      final user = FirebaseAuth.instance.currentUser;
      if(user!=null) isLoggedIn = true;
 
-     return MaterialApp(
+     return const MaterialApp(
        debugShowCheckedModeBanner: false,
-       home: isLoggedIn ? Home() : welcomePage(),
+       //home: isLoggedIn ? Home() : welcomePage(),
+       home:  Home(),
      );
    }
 }

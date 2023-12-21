@@ -13,6 +13,8 @@ class RM_Calculator extends StatefulWidget {
 
 class _RM_CalculatorState extends State<RM_Calculator> {
 
+  bool isCalculated = false;
+  double? oneRM;
   final weightController = TextEditingController();
   final repsController = TextEditingController();
 
@@ -22,6 +24,93 @@ class _RM_CalculatorState extends State<RM_Calculator> {
     super.dispose();
     weightController.dispose();
     repsController.dispose();
+  }
+
+  void calculate1RM(){
+    double weight = double.parse(weightController.text.toString());
+    int rep = int.parse(repsController.text.toString());
+
+    if(rep == 1)
+      {
+        double oneRM = weight;
+        setState(() {
+          this.oneRM = oneRM;
+          isCalculated =true;
+        });
+      }
+    else if(rep == 2)
+    {
+      double oneRM = weight/0.97;
+      setState(() {
+        this.oneRM = oneRM;
+        isCalculated =true;
+      });
+    }
+    else if(rep == 3)
+    {
+      double oneRM = weight/.94;
+      setState(() {
+        this.oneRM = oneRM;
+        isCalculated =true;
+      });
+    }
+    else if(rep == 4)
+    {
+      double oneRM = weight/.92;
+      setState(() {
+        this.oneRM = oneRM;
+        isCalculated =true;
+      });
+    }
+    else if(rep == 5)
+    {
+      double oneRM = weight/.89;
+      setState(() {
+        this.oneRM = oneRM;
+        isCalculated =true;
+      });
+    }
+    else if(rep == 6)
+    {
+      double oneRM = weight/.86;
+      setState(() {
+        this.oneRM = oneRM;
+        isCalculated =true;
+      });
+    }
+    else if(rep == 7)
+    {
+      double oneRM = weight/.83;
+      setState(() {
+        this.oneRM = oneRM;
+        isCalculated =true;
+      });
+    }
+    else if(rep == 8)
+    {
+      double oneRM = weight/.81;
+      setState(() {
+        this.oneRM = oneRM;
+        isCalculated =true;
+      });
+    }
+    else if(rep == 9)
+    {
+      double oneRM = weight/.78;
+      setState(() {
+        this.oneRM = oneRM;
+        isCalculated =true;
+      });
+    }
+    else if(rep == 10)
+    {
+      double oneRM = weight/.75;
+      setState(() {
+        this.oneRM = oneRM;
+        isCalculated =true;
+      });
+    }
+
   }
 
   @override
@@ -52,18 +141,17 @@ class _RM_CalculatorState extends State<RM_Calculator> {
                   ),
                 )
             ),
-            const Card(
+             Card(
               color: Colors.white10,
-              child: ListTile(
-
-
+              child: SizedBox(
+                height: 50,
+                child: isCalculated ? Center(child: Text("$oneRM kg",style: const TextStyle(fontSize: 22.0,color: Colors.white54,),)) : const Center(child: Text("00 kg",style: TextStyle(fontSize: 22.0,color: Colors.white54,),)),
               ),
             ),
             Card(
               color: Colors.white10,
               child: SizedBox(
                 height: 100,
-                child: Expanded(
                   child: Row(
                     children: [
                       Column(
@@ -73,14 +161,14 @@ class _RM_CalculatorState extends State<RM_Calculator> {
                             child: Text(
                               'Weight',
                               style: TextStyle(
-                                fontSize: 22.0,
+                                fontSize: 18.0,
                                 color: Colors.white54,
                               ),
                             ),
                           ),
                           Padding(
                               padding: const EdgeInsets.only( left: 10,right: 10),
-                              child: Container(
+                              child: SizedBox(
                                 height: 50,
                                 width: 165,
                                 child: Padding(
@@ -109,14 +197,14 @@ class _RM_CalculatorState extends State<RM_Calculator> {
                             child: Text(
                               'Reps',
                               style: TextStyle(
-                                fontSize: 22.0,
+                                fontSize: 18.0,
                                 color: Colors.white54,
                               ),
                             ),
                           ),
                           Padding(
                               padding: const EdgeInsets.only( left: 10,right: 10),
-                              child: Container(
+                              child: SizedBox(
                                 height: 50,
                                 width: 170,
                                 child: Padding(
@@ -127,7 +215,6 @@ class _RM_CalculatorState extends State<RM_Calculator> {
                                     cursorHeight: 18,
                                       decoration: const InputDecoration(
                                         border: OutlineInputBorder(),
-
                                       ),
                                   ),
                                 ),
@@ -137,16 +224,20 @@ class _RM_CalculatorState extends State<RM_Calculator> {
                       ),
                     ],
                   ),
-                ),
+
               ) ,
             ),
             Card(
               color: Colors.white10,
               child: ListTile(
-                title: Center(child: Text("Calculate",style: TextStyle(color: Colors.white54,),)),
-                onTap: () {},
+                title: const Center(child: Text("Calculate",style: TextStyle(color: Colors.white54,),)),
+                onTap: () {
+                  calculate1RM();
+                },
               ),
             ),
+            const SizedBox(height: 11,),
+            const Center(child: Text("Maximum reps can be 10",style: TextStyle(fontSize: 18.0,color: Colors.white54,),)),
           ],
         ),
       ),

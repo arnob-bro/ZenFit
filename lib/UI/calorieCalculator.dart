@@ -15,9 +15,60 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
 
   int? selectedValue;
   int? selectedGender;
+  bool isCalculated =false;
+  double? calorie;
   final weightController = TextEditingController();
   final ageController = TextEditingController();
   final heightController = TextEditingController();
+
+  void calculateCalorie(){
+    double constant=0;
+    double weight,age,height;
+
+    weight = double.parse(weightController.text.toString());
+    age = double.parse(ageController.text);
+    height = double.parse(heightController.text);
+
+    if(selectedValue == 1) {
+      constant = 1.2;
+    } else if(selectedValue == 2)
+      {
+        constant =1.37;
+      }
+    else if(selectedValue == 3)
+      {
+        constant =1.465;
+      }
+    else if(selectedValue == 4)
+      {
+        constant =1.725;
+      }
+    else if(selectedValue == 5)
+    {
+      constant = 1.9;
+    }
+      if(selectedGender == 1)
+      {
+         double calorie = constant*(10*weight + 6.25*height - 5*age +5);
+         setState(() {
+           this.calorie=calorie;
+           isCalculated = true;
+         });
+
+      }
+      else
+      {
+        double calorie = constant*(10*weight + 6.25*height - 5*age -161);
+        setState(() {
+          this.calorie=calorie;
+          isCalculated = true;
+        });
+      }
+
+
+
+
+  }
 
   @override
   void dispose() {
@@ -56,35 +107,37 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                   ),
                 )
             ),
-            const Card(
+             Card(
               color: Colors.white10,
-              child: ListTile(
+              child: SizedBox(
+                        height: 50,
+                        child: isCalculated ? Center(child: Text("$calorie kcal",style: const TextStyle(fontSize: 22.0,color: Colors.white54,),)) : const Center(child: Text("00 kcal",style: TextStyle(fontSize: 22.0,color: Colors.white54,),)),
 
 
               ),
             ),
             Card(
               color: Colors.white10,
-              child:Container(
+              child:SizedBox(
                 height: 290,
                 child: Row(
                   children: [
-                    Expanded(
-                      child: Column(
+
+                      Column(
                         children: [
                              const Padding(
                               padding: EdgeInsets.only(top: 10),
                               child: Text(
                                 'Weight',
                                 style: TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize: 18.0,
                                   color: Colors.white54,
                                 ),
                               ),
                             ),
 
-                          Expanded(
-                            child: Padding(
+
+                            Padding(
                                 padding: const EdgeInsets.only( left: 10,right: 10),
                                 child: SizedBox(
                                   height: 50,
@@ -106,27 +159,27 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                                   
                                 )
                             ),
-                          ),
-                          Expanded(
-                            child: const Padding(
+
+
+                            const Padding(
                               padding: EdgeInsets.only(top: 10),
                               child: Text(
                                 'Height',
                                 style: TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize: 18.0,
                                   color: Colors.white54,
                                 ),
                               ),
                             ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                                padding: EdgeInsets.only( left: 10,right: 10),
-                                child: Container(
+
+
+                            Padding(
+                                padding: const EdgeInsets.only( left: 10,right: 10),
+                                child: SizedBox(
                                   height: 50,
                                   width: 170,
                                   child: Padding(
-                                    padding: EdgeInsets.all(10),
+                                    padding: const EdgeInsets.all(10),
                                     child: TextField(
                                       controller: heightController,
                                       keyboardType: TextInputType.number,
@@ -142,21 +195,21 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                                   
                                 )
                             ),
-                          ),
-                          Expanded(
-                            child: const Padding(
+
+
+                            const Padding(
                               padding: EdgeInsets.only(top: 10),
                               child: Text(
                                 'Training days/week',
                                 style: TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize: 18.0,
                                   color: Colors.white54,
                                 ),
                               ),
                             ),
-                          ),
-                          Expanded(
-                            child: Padding(
+
+
+                            Padding(
                                 padding: const EdgeInsets.only( left: 10,right: 10),
                                 child: DropdownButton(
                                                   
@@ -193,26 +246,26 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                   },
                                 ),
                             ),
-                          ),
+
                         ],
                       ),
-                    ),
-                    Expanded(
-                      child: Column(
+
+
+                    Column(
                         children: [
                           const Padding(
                             padding: EdgeInsets.only(top: 10),
                             child: Text(
                               'Age',
                               style: TextStyle(
-                                fontSize: 22.0,
+                                fontSize: 18.0,
                                 color: Colors.white54,
                               ),
                             ),
                           ),
                           Padding(
                               padding: const EdgeInsets.only( left: 10,right: 10),
-                              child: Container(
+                              child: SizedBox(
                                 height: 50,
                                 width: 170,
                                 child: Padding(
@@ -236,7 +289,7 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                             child: Text(
                               'Gender',
                               style: TextStyle(
-                                fontSize: 22.0,
+                                fontSize: 18.0,
                                 color: Colors.white54,
                               ),
                             ),
@@ -269,7 +322,7 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                         ],
                       
                       ),
-                    ),
+
 
 
                   ],
@@ -280,8 +333,10 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
             Card(
               color: Colors.white10,
               child: ListTile(
-                title: Center(child: Text("Calculate",style: TextStyle(color: Colors.white54,),)),
-                onTap: () {},
+                title: const Center(child: Text("Calculate",style: TextStyle(color: Colors.white54,),)),
+                onTap: () {
+                  calculateCalorie();
+                },
               ),
             ),
 

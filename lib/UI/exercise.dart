@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zenfit/UI/createGoal.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/settings.dart';
@@ -40,7 +39,7 @@ class _ExerciseState extends State<Exercise> {
         backgroundColor: Colors.black12,
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {
 
             },
@@ -55,16 +54,15 @@ class _ExerciseState extends State<Exercise> {
               color: Colors.white10,
               child: SizedBox(
                 //height: 550,
-                child: Expanded(
-                  child: (Column(
+                child: (Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Abs'),
+                          hint: const Text('Abs'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -86,11 +84,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Back'),
+                          hint: const Text('Back'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -112,11 +110,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Biceps'),
+                          hint: const Text('Biceps'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -138,11 +136,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Chest'),
+                          hint: const Text('Chest'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -164,11 +162,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Forearms'),
+                          hint: const Text('Forearms'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -190,11 +188,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Glutes'),
+                          hint: const Text('Glutes'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -216,11 +214,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Hamstrings'),
+                          hint: const Text('Hamstrings'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -241,11 +239,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Lower legs'),
+                          hint: const Text('Lower legs'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -266,11 +264,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Quads'),
+                          hint: const Text('Quads'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -292,11 +290,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Shoulders'),
+                          hint: const Text('Shoulders'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -318,11 +316,11 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Triceps'),
+                          hint: const Text('Triceps'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -345,23 +343,22 @@ class _ExerciseState extends State<Exercise> {
 
                     ],
                   )),
-                ),
+
               ) ,
             ),
             Card(
               color: Colors.white10,
               child: SizedBox(
                 //height: 70,
-                child: Expanded(
-                  child: (Column(
+                child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
                         child: DropdownButton(
-                          hint: Text('Cardio'),
+                          hint: const Text('Cardio'),
                           isExpanded: true,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: 1,
                               child: Text('1'),
@@ -382,8 +379,8 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       )
                     ],
-                  )),
-                ),
+                  ),
+
               ) ,
             ),
 
