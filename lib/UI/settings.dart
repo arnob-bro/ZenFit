@@ -7,6 +7,7 @@ import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/account.dart';
 import 'package:zenfit/UI/loginPage.dart';
 import 'package:zenfit/UI/welcome.dart';
+import 'package:zenfit/UI/exercise.dart';
 
 class Settings extends StatefulWidget{
   const Settings({super.key});
@@ -53,6 +54,11 @@ class _SettingsState extends State<Settings> {
           Card(
             child: ListTile(
               title: Text("3"),
+                onTap: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Exercise()),
+                  );
+                }
             ),
           ),
           Card(

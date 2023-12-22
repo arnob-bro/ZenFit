@@ -3,6 +3,19 @@ import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
+import 'package:zenfit/UI/Abs.dart';
+import 'package:zenfit/UI/Back.dart';
+import 'package:zenfit/UI/Biceps.dart';
+import 'package:zenfit/UI/Chest.dart';
+import 'package:zenfit/UI/Forearms.dart';
+import 'package:zenfit/UI/Glutes.dart';
+import 'package:zenfit/UI/Hamstrings.dart';
+import 'package:zenfit/UI/LowerLegs.dart';
+import 'package:zenfit/UI/Quads.dart';
+import 'package:zenfit/UI/Shoulders.dart';
+import 'package:zenfit/UI/Triceps.dart';
+import 'package:zenfit/UI/Cardio.dart';
+
 
 class Exercise extends StatefulWidget {
   const Exercise({super.key});
@@ -27,7 +40,9 @@ class _ExerciseState extends State<Exercise> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DefaultTabController(
+      length:3,
+    child:Scaffold(
       backgroundColor: const Color(0xff37393D),
       appBar: AppBar(
         title: const Text(
@@ -37,356 +52,45 @@ class _ExerciseState extends State<Exercise> {
           ),
         ),
         backgroundColor: Colors.black12,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
+        bottom:TabBar(
+          tabs: [
+            Tab(child: Text("Abs")),
+            Tab(child: Text("Back")),
+            Tab(child: Text("Biceps")),
+            Tab(child: Text("Chest")),
+            Tab(child: Text("Forearms")),
+            Tab(child: Text("Glutes")),
+            Tab(child: Text("Hamstrings")),
+            Tab(child: Text("Lower Legs")),
+            Tab(child: Text("Quads")),
+            Tab(child: Text("Shoulders")),
+            Tab(child: Text("Triceps")),
+            Tab(child: Text("Cardio")),
+          ],
+          isScrollable: true,
 
-            },
-          ),
+        )
+
+      ),
+
+      body: TabBarView(
+        children: [
+          Abs(),
+          Back(),
+          Biceps(),
+          Chest(),
+          Forearms(),
+          Glutes(),
+          Hamstrings(),
+          LowerLegs(),
+          Quads(),
+          Shoulders(),
+          Triceps(),
+          Cardio(),
 
         ],
       ),
-      body: SafeArea(
-        child: ListView(
-          children: [
-            Card(
-              color: Colors.white10,
-              child: SizedBox(
-                //height: 550,
-                child: (Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Abs'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ], onChanged: (int? newAbs) {
-                          setState(() {
-                            selectedAbs = newAbs;
-                          });
-                        },
 
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Back'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ],  onChanged: (int? newBack) {
-                          setState(() {
-                            selectedBack = newBack;
-                          });
-                        },
-
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Biceps'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ],  onChanged: (int? newBiceps) {
-                          setState(() {
-                            selectedBiceps = newBiceps;
-                          });
-                        },
-
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Chest'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ],  onChanged: (int? newChest) {
-                          setState(() {
-                            selectedChest = newChest;
-                          });
-                        },
-
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Forearms'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ], onChanged: (int? newForearms) {
-                          setState(() {
-                            selectedForearms = newForearms;
-                          });
-                        },
-
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Glutes'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ],  onChanged: (int? newGlutes) {
-                          setState(() {
-                            selectedGlutes = newGlutes;
-                          });
-                        },
-
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Hamstrings'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ],  onChanged: (int? newHamstrings) {
-                          setState(() {
-                            selectedHamstrings = newHamstrings;
-                          });
-                        },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Lower legs'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ],  onChanged: (int? newLowerLegs) {
-                          setState(() {
-                            selectedLowerLegs = newLowerLegs;
-                          });
-                        },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Quads'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ], onChanged: (int? newQuads) {
-                          setState(() {
-                            selectedQuads = newQuads;
-                          });
-                        },
-
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Shoulders'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ],  onChanged: (int? newShoulders) {
-                          setState(() {
-                            selectedShoulders = newShoulders;
-                          });
-                        },
-
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Triceps'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ],  onChanged: (int? newTriceps) {
-                          setState(() {
-                            selectedTriceps = newTriceps;
-                          });
-                        },
-                        ),
-                      ),
-
-                    ],
-                  )),
-
-              ) ,
-            ),
-            Card(
-              color: Colors.white10,
-              child: SizedBox(
-                //height: 70,
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10,left:10,right:10),
-                        child: DropdownButton(
-                          hint: const Text('Cardio'),
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(
-                              value: 1,
-                              child: Text('1'),
-                            ),
-                            DropdownMenuItem(
-                              value: 2,
-                              child: Text('2'),
-                            ),
-                            DropdownMenuItem(
-                              value: 3,
-                              child: Text('3'),
-                            )
-                          ],  onChanged: (int? newCardio) {
-                          setState(() {
-                            selectedCardio = newCardio;
-                          });
-                        },
-                        ),
-                      )
-                    ],
-                  ),
-
-              ) ,
-            ),
-
-          ],
-        ),
-      ),
       bottomNavigationBar: BottomAppBar(
         elevation: 20,
         height: 60,
@@ -423,6 +127,7 @@ class _ExerciseState extends State<Exercise> {
         ),
       ),
 
+    ),
     );
   }
 
