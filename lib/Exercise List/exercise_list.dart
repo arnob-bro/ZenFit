@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
-List<String>Triceps = [
+
+List<String>triceps = [
   'Bar Muscle-Up',
   'Barbell Standing Tricep Extension',
   'Bench Dip',
@@ -13,7 +13,7 @@ List<String>Triceps = [
   'Tricep Pushdown with Bar',
   'Tricep Pushdown With Rope',
 ];
-List<String>Biceps = [
+List<String>biceps = [
   'Barbell Curl',
   'Barbel Preacher Curl',
   'Bodyweight Curls',
@@ -29,7 +29,7 @@ List<String>Biceps = [
   'Seated Dumbbell Curl',
   'Spider Curl'
 ];
-List<String>Abs = [
+List<String>abs = [
   'Cable Crunch',
   'Crunch',
   'Hanging Knee Raise',
@@ -48,7 +48,7 @@ List<String>Abs = [
   'Vacuum Training'
 ];
 
-List<String>Back = [
+List<String>back = [
   'Back Extension',
   'Barbell Row',
   'Barbell Shrug',
@@ -71,7 +71,7 @@ List<String>Back = [
   ''
 ];
 
-List<String> Chest = [
+List<String> chest = [
   'Bench Press',
   'Cable Chest Press',
   'Close Grip Push Up',
@@ -92,7 +92,7 @@ List<String> Chest = [
   'Standing Cable Chest Fly'
 ];
 
-List<String> Forearms = [
+List<String> forearms = [
   'Barbell Wrist Curl',
   'Barbell Wrist Curl Behind The Back',
   'Barbell Wrist Extension',
@@ -104,7 +104,7 @@ List<String> Forearms = [
   'Wrist Curl With Cable'
 ];
 
-List<String> Glutes = [
+List<String> glutes = [
   'Barbell Lunge',
   'Barbell Walking Lunges',
   'Cable Glute Kickback',
@@ -118,7 +118,7 @@ List<String> Glutes = [
   'Machine Glute Kickback',
   'Romanian Deadlift',
 ];
-List<String> Hamstrings = [
+List<String> hamstrings = [
   'Bulgarian Split Squat',
   'Lying Leg Curl',
   'Lying Hamstring Machine',
@@ -126,7 +126,7 @@ List<String> Hamstrings = [
   'Seated Leg Curl',
   'Stiff-legged Deadlift',
 ];
-List<String> Quads = [
+List<String> quads = [
   'Hack Squat',
   'Hack Squat Machine',
   'Landmine Hack Squat',
@@ -137,7 +137,7 @@ List<String> Quads = [
   'Smith Machine Squat',
   'Squat'
 ];
-List<String> Shoulders = [
+List<String> shoulders = [
   'Arnold Press',
   'Barbell Upright Row',
   'Cable Front Raise',
@@ -158,7 +158,7 @@ List<String> Shoulders = [
   'Seated Smith Machine Shoulder Press',
   ''
 ];
-List<String> Lowerlegs = [
+List<String> lowerlegs = [
   'Seated Calf Raise',
   'Standing Calf Raise'
 ];

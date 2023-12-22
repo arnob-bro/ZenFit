@@ -17,22 +17,20 @@ class Home extends StatefulWidget{
 class _HomeState extends State<Home>{
   @override
   Widget build (BuildContext context){
-    return WillPopScope(
+    return PopScope(
+      canPop: false,
       child: Scaffold(
-          backgroundColor: Color(0xff37393D),
+          backgroundColor: const Color(0xff37393D),
           appBar: AppBar(
             backgroundColor: Colors.black12,
             actions: [
-             ElevatedButton(onPressed: (){
+             IconButton(onPressed: (){
                Navigator.push(context,
                  MaterialPageRoute(builder: (context) => const Body_Measurement()),
                );
              },
-               style: ElevatedButton.styleFrom(
-                 shape: const CircleBorder(),
-                 side: const BorderSide(width: 3),
-               ),
-               child: const Icon(Icons.accessibility_sharp,color: Color(0xff37393D),),
+                 icon: const Icon(Icons.accessibility_sharp),
+                 color: Colors.white54,
              )
 
             ],
@@ -41,7 +39,10 @@ class _HomeState extends State<Home>{
                   MaterialPageRoute(builder: (context) => const Account()),
               );
 
-            }, icon: const Icon(Icons.person_sharp)),
+            },
+                icon: const Icon(Icons.person_sharp),
+                color: Colors.white54,
+            ),
           ),
           body: SafeArea(
             child: ListView(
@@ -71,7 +72,7 @@ class _HomeState extends State<Home>{
                     title: const Text("Followed Programs"),
                       onTap: (){
                         Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Followed_Programs()),
+                          MaterialPageRoute(builder: (context) => const Followed_Programs()),
                         );
                       }
                   ),
@@ -115,16 +116,6 @@ class _HomeState extends State<Home>{
             ),
           ),
       ),
-      onWillPop: () async {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content:
-            Text('Home Screen'),
-            backgroundColor: Colors.red,
-          ),
-        );
-        return false;
-      },
     );
   }
 }

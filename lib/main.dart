@@ -30,10 +30,9 @@ class _MyAppState extends State<MyApp> {
      final user = FirebaseAuth.instance.currentUser;
      if(user!=null) isLoggedIn = true;
 
-     return const MaterialApp(
+     return MaterialApp(
        debugShowCheckedModeBanner: false,
-       //home: isLoggedIn ? Home() : welcomePage(),
-       home:  Home(),
+       home: isLoggedIn ? const Home() : const welcomePage(),
      );
    }
 }

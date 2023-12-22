@@ -87,6 +87,8 @@ class _MeasurementsState extends State<Measurements> {
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Body Weight',
+              suffixText: 'kg',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelStyle: TextStyle(
                 color: Colors.white54,
               ),
@@ -99,6 +101,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Neck',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -112,6 +116,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Shoulders',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -125,6 +131,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Left Upper Arm',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -138,6 +146,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Right Upper Arm',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -151,6 +161,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Left Forearm',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -164,6 +176,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Right Forearm',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -177,6 +191,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Chest',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -190,6 +206,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Waist',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -203,6 +221,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Hips',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -215,6 +235,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Left Thigh',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -227,6 +249,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Right Thigh',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -239,6 +263,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Left Calf',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -251,6 +277,8 @@ class _MeasurementsState extends State<Measurements> {
           child: TextFormField(
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
+              suffixText: 'cm',
+              suffixStyle: TextStyle(color: Colors.white54),
               labelText: 'Right Calf',
               labelStyle: TextStyle(
                 color: Colors.white54,
@@ -258,6 +286,23 @@ class _MeasurementsState extends State<Measurements> {
             ),
           ),
         ),
+
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: TextFormField(
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              labelText: 'DateAndTime',
+              labelStyle: TextStyle(
+                color: Colors.white54,
+              ),
+            ),
+          ),
+        ),
+
+        const SizedBox(height: 11,),
+        
+        Center(child: ElevatedButton(onPressed: (){}, child: const Text("Submit")))
       ],
     );
   }

@@ -101,6 +101,7 @@ class _loginPageState extends State<loginPage> {
                   padding: EdgeInsets.only(right: 10, left: 10),
                   child: TextField(
                     controller: passController,
+                    obscureText: true,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'write password',
