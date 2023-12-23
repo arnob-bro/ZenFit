@@ -20,9 +20,67 @@ class _HamstringsState extends State<Hamstrings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xff37393D),
+        body: SafeArea(
+          child: ListView(
+            children:  [
+              Card(
+                color: Colors.white10,
+                child: ListTile(
+                    title: const Text("Bulgarian Split Squat",style: TextStyle(color: Colors.white54),),
+                    onTap: (){
 
+                    }
+                ),
+              ),
+              Card(
+                color: Colors.white10,
+                child: ListTile(
+                    title: const Text("Lying Leg Curl",style: TextStyle(color: Colors.white54),),
+                    onTap: (){
 
+                    }
+                ),
+              ),
+              Card(
+                color: Colors.white10,
+                child: ListTile(
+                    title: const Text("Lying Hamstring Machine",style: TextStyle(color: Colors.white54),),
+                    onTap: (){
 
+                    }
+                ),
+              ),
+              Card(
+                color: Colors.white10,
+                child: ListTile(
+                    title: const Text("Nordic Hamstring",style: TextStyle(color: Colors.white54),),
+                    onTap: (){
+
+                    }
+                ),
+              ),
+              Card(
+                color: Colors.white10,
+                child: ListTile(
+                    title: const Text("Seated Leg Curl",style: TextStyle(color: Colors.white54),),
+                    onTap: (){
+
+                    }
+                ),
+              ),
+              Card(
+                color: Colors.white10,
+                child: ListTile(
+                    title: const Text("Stiff-legged Deadlift",style: TextStyle(color: Colors.white54),),
+                    onTap: (){
+
+                    }
+                ),
+              ),
+            ],
+          ),
+        )
     );
   }
 }

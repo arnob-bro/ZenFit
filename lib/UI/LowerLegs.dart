@@ -20,6 +20,33 @@ class _LowerLegsState extends State<LowerLegs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xff37393D),
+        body: SafeArea(
+          child: ListView(
+            children:  [
+              Card(
+                color: Colors.white10,
+                child: ListTile(
+                    title: const Text("Seated Calf Raise",style: TextStyle(color: Colors.white54),),
+                    onTap: (){
+
+                    }
+                ),
+              ),
+              Card(
+                color: Colors.white10,
+                child: ListTile(
+                    title: const Text("Standing Calf Raise",style: TextStyle(color: Colors.white54),),
+                    onTap: (){
+
+                    }
+                ),
+              ),
+
+
+            ],
+          ),
+        )
 
 
 
