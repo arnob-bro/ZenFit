@@ -25,23 +25,11 @@ class Exercise extends StatefulWidget {
 }
 
 class _ExerciseState extends State<Exercise> {
-  int? selectedAbs;
-  int? selectedBack;
-  int? selectedBiceps;
-  int? selectedChest;
-  int? selectedForearms;
-  int? selectedGlutes;
-  int? selectedHamstrings;
-  int? selectedLowerLegs;
-  int? selectedQuads;
-  int? selectedShoulders;
-  int? selectedTriceps;
-  int? selectedCardio;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length:3,
+      length:12,
     child:Scaffold(
       backgroundColor: const Color(0xff37393D),
       appBar: AppBar(
@@ -52,7 +40,7 @@ class _ExerciseState extends State<Exercise> {
           ),
         ),
         backgroundColor: Colors.black12,
-        bottom:TabBar(
+        bottom:const TabBar(
           tabs: [
             Tab(child: Text("Abs")),
             Tab(child: Text("Back")),
@@ -73,7 +61,7 @@ class _ExerciseState extends State<Exercise> {
 
       ),
 
-      body: TabBarView(
+      body: const TabBarView(
         children: [
           Abs(),
           Back(),
@@ -87,7 +75,6 @@ class _ExerciseState extends State<Exercise> {
           Shoulders(),
           Triceps(),
           Cardio(),
-
         ],
       ),
 
