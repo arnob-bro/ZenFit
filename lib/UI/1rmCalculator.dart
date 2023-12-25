@@ -3,7 +3,7 @@ import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
-
+import 'package:zenfit/UI/startWorkout.dart';
 class RM_Calculator extends StatefulWidget {
   const RM_Calculator({super.key});
 
@@ -12,6 +12,14 @@ class RM_Calculator extends StatefulWidget {
 }
 
 class _RM_CalculatorState extends State<RM_Calculator> {
+  bool isCardVisible= false;
+
+  void navigateTostartWorkout() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => startWorkout()),
+    );
+  }
 
   bool isCalculated = false;
   double? oneRM;
@@ -115,169 +123,213 @@ class _RM_CalculatorState extends State<RM_Calculator> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff37393D),
-      appBar: AppBar(
-        title: const Text(
-            "1RM Calculator",
-          style: TextStyle(
-            color: Colors.white54,
+    return GestureDetector(
+      onTap: () { setState(() {isCardVisible = false;
+      });
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xff37393D),
+        appBar: AppBar(
+          title: const Text(
+              "1RM Calculator",
+            style: TextStyle(
+              color: Colors.white54,
+            ),
           ),
+          backgroundColor: Colors.black12,
+
         ),
-        backgroundColor: Colors.black12,
-
-      ),
-      body: SafeArea(
-        child: ListView(
-          children: [
-            const Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Text(
-                  'Estimated 1RM',
-                  style: TextStyle(
-                    fontSize: 22.0,
-                    color: Colors.white54,
-                    //fontWeight: FontWeight.bold,
-                  ),
-                )
-            ),
-             Card(
-              color: Colors.white10,
-              child: SizedBox(
-                height: 50,
-                child: isCalculated ? Center(child: Text("$oneRM kg",style: const TextStyle(fontSize: 22.0,color: Colors.white54,),)) : const Center(child: Text("00 kg",style: TextStyle(fontSize: 22.0,color: Colors.white54,),)),
+        body: SafeArea(
+          child: ListView(
+            children: [
+              const Padding(
+                  padding: EdgeInsets.only(top: 10, left: 10),
+                  child: Text(
+                    'Estimated 1RM',
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      color: Colors.white54,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  )
               ),
-            ),
-            Card(
-              color: Colors.white10,
-              child: SizedBox(
-                height: 100,
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 10),
-                            child: Text(
-                              'Weight',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: Colors.white54,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                              padding: const EdgeInsets.only( left: 10,right: 10),
-                              child: SizedBox(
-                                height: 50,
-                                width: 165,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: TextField(
-                                    controller: weightController,
-                                      keyboardType: TextInputType.number,
-                                      cursorHeight: 18,
-                                      decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        suffixText: "kg",
-                                        suffixStyle: TextStyle(color: Colors.white54,),
-                                      ),
-                                    ),
+               Card(
+                color: Colors.white10,
+                child: SizedBox(
+                  height: 50,
+                  child: isCalculated ? Center(child: Text("$oneRM kg",style: const TextStyle(fontSize: 22.0,color: Colors.white54,),)) : const Center(child: Text("00 kg",style: TextStyle(fontSize: 22.0,color: Colors.white54,),)),
+                ),
+              ),
+              Card(
+                color: Colors.white10,
+                child: SizedBox(
+                  height: 100,
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 10),
+                              child: Text(
+                                'Weight',
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                  color: Colors.white54,
                                 ),
-
-                              )
-                          ),
-                  
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 10),
-                            child: Text(
-                              'Reps',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: Colors.white54,
                               ),
                             ),
-                          ),
-                          Padding(
-                              padding: const EdgeInsets.only( left: 10,right: 10),
-                              child: SizedBox(
-                                height: 50,
-                                width: 170,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: TextField(
-                                    controller: repsController,
-                                    keyboardType: TextInputType.number,
-                                    cursorHeight: 18,
-                                      decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
+                            Padding(
+                                padding: const EdgeInsets.only( left: 10,right: 10),
+                                child: SizedBox(
+                                  height: 50,
+                                  width: 165,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: TextField(
+                                      controller: weightController,
+                                        keyboardType: TextInputType.number,
+                                        cursorHeight: 18,
+                                        decoration: const InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          suffixText: "kg",
+                                          suffixStyle: TextStyle(color: Colors.white54,),
+                                        ),
                                       ),
                                   ),
+
+                                )
+                            ),
+
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 10),
+                              child: Text(
+                                'Reps',
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                  color: Colors.white54,
                                 ),
-                              )
+                              ),
+                            ),
+                            Padding(
+                                padding: const EdgeInsets.only( left: 10,right: 10),
+                                child: SizedBox(
+                                  height: 50,
+                                  width: 170,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: TextField(
+                                      controller: repsController,
+                                      keyboardType: TextInputType.number,
+                                      cursorHeight: 18,
+                                        decoration: const InputDecoration(
+                                          border: OutlineInputBorder(),
+                                        ),
+                                    ),
+                                  ),
+                                )
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+
+                ) ,
+              ),
+              Card(
+                color: Colors.white10,
+                child: ListTile(
+                  title: const Center(child: Text("Calculate",style: TextStyle(color: Colors.white54,),)),
+                  onTap: () {
+                    calculate1RM();
+                  },
+                ),
+              ),
+              const SizedBox(height: 11,),
+              const Center(child: Text("Maximum reps can be 10",style: TextStyle(fontSize: 18.0,color: Colors.white54,),)),
+            ],
+          ),
+        ),
+
+        bottomNavigationBar: BottomAppBar(
+          elevation: 20,
+          height: 60,
+          color: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(onPressed:(){
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Home()),
+                );
+              }, icon: const Icon(Icons.home)),
+              IconButton(onPressed:(){
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Graph()),
+                );
+
+              }, icon: const Icon(Icons.show_chart)),
+              IconButton(onPressed:(){
+                setState(() {
+                  isCardVisible = !isCardVisible;
+                });
+              }, icon: const Icon(Icons.add_circle_outlined)),
+              IconButton(onPressed:(){
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const TrainingProgram()),
+                );
+
+              }, icon: const Icon(Icons.note_alt)),
+              IconButton(onPressed:(){
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Settings()),
+                );
+              }, icon: const Icon(Icons.settings)),
+
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: isCardVisible
+            ? Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              height: 120,
+              color: Colors.grey,
+              child: Center(
+                child: Card(
+
+                  child: InkWell(
+                    onTap: () {
+                      print("tapped");
+                      navigateTostartWorkout();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.fitness_center, // Choose the workout icon
+                            size: 30.0,
+                            color: Colors.black, // Adjust the color as needed
+                          ),
+                          SizedBox(width: 10),
+                          Text('Start a new workout', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold,color: Colors.black),
                           ),
                         ],
                       ),
-                    ],
+                    ),
                   ),
-
-              ) ,
-            ),
-            Card(
-              color: Colors.white10,
-              child: ListTile(
-                title: const Center(child: Text("Calculate",style: TextStyle(color: Colors.white54,),)),
-                onTap: () {
-                  calculate1RM();
-                },
+                ),
               ),
             ),
-            const SizedBox(height: 11,),
-            const Center(child: Text("Maximum reps can be 10",style: TextStyle(fontSize: 18.0,color: Colors.white54,),)),
           ],
-        ),
-      ),
-
-      bottomNavigationBar: BottomAppBar(
-        elevation: 20,
-        height: 60,
-        color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Home()),
-              );
-            }, icon: const Icon(Icons.home)),
-            IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Graph()),
-              );
-
-            }, icon: const Icon(Icons.show_chart)),
-            IconButton(onPressed:(){
-
-
-            }, icon: const Icon(Icons.add_circle_outlined)),
-            IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const TrainingProgram()),
-              );
-
-            }, icon: const Icon(Icons.note_alt)),
-            IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Settings()),
-              );
-            }, icon: const Icon(Icons.settings)),
-
-          ],
-        ),
+        )
+            : null,
       ),
     );
   }
