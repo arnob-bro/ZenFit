@@ -126,7 +126,8 @@ class _RM_CalculatorState extends State<RM_Calculator> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () { setState(() {isCardVisible = false;
+      onTap: () { setState(() {
+        isCardVisible = false;
       });
       },
       child: Scaffold(
@@ -276,7 +277,7 @@ class _RM_CalculatorState extends State<RM_Calculator> {
               }, icon: const Icon(Icons.show_chart)),
               IconButton(onPressed:(){
                 setState(() {
-                  isCardVisible = !isCardVisible;
+                  isCardVisible = true;
                 });
               }, icon: const Icon(Icons.add_circle_outlined)),
               IconButton(onPressed:(){
@@ -308,7 +309,7 @@ class _RM_CalculatorState extends State<RM_Calculator> {
 
                     child: InkWell(
                       onTap: () {
-                        print("tapped");
+                        isCardVisible =false;
                         navigateTostartWorkout();
                       },
                       child: Padding(

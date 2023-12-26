@@ -22,8 +22,8 @@ class startWorkoutState extends State<startWorkout> {
       child: Container(
         margin: const EdgeInsets.only(top: 30),
         child: Card(
-          color: Colors.white30,
-          elevation: 10,
+          color: Colors.white10,
+          //elevation: 10,
           child: InkWell(
             onTap: () {
               navigateToexercise(); // Call the method to navigate to SecondPage
@@ -33,7 +33,7 @@ class startWorkoutState extends State<startWorkout> {
               child: Row(
                 children: [
                   Icon(Icons.add, color: Colors.white54),
-                  SizedBox(width: 10),
+                  SizedBox(height: 10),
                   Text('Exercise', style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold, color: Colors.white54,),
                   ),
                 ],
@@ -50,8 +50,8 @@ class startWorkoutState extends State<startWorkout> {
       child: Container(
         margin: const EdgeInsets.only(top: 30),
         child: Card(
-          color: Colors.white30,
-          elevation: 10,
+          color: Colors.white10,
+          //elevation: 10,
           child: InkWell(
             onTap: () {
               //navigateToSecondPage(); // Call the method to navigate to SecondPage
@@ -61,7 +61,7 @@ class startWorkoutState extends State<startWorkout> {
               child: Row(
                 children: [
                   Icon(Icons.add, color: Colors.white54),
-                  SizedBox(width: 10),
+                  SizedBox(height: 10),
                   Text('Special Set',style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white54,),
                   ),
                 ],
@@ -77,7 +77,8 @@ class startWorkoutState extends State<startWorkout> {
     return Scaffold(
       backgroundColor: const Color(0xff37393D),
       appBar: AppBar(
-        title: const Text('Star a new workout'),
+        backgroundColor: Colors.black12,
+        title: const Text('Star a new workout', style: TextStyle(color: Colors.white54),),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -88,9 +89,19 @@ class startWorkoutState extends State<startWorkout> {
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _card1(),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _card1(),
+            ),
+          ),
           const SizedBox(width: 8,),
-          _card2(),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _card2(),
+            ),
+          ),
         ],
       ),
     );

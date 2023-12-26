@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/calculators.dart';
@@ -7,9 +6,7 @@ import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/account.dart';
-import 'package:zenfit/UI/loginPage.dart';
 import 'package:zenfit/UI/welcome.dart';
-import 'package:zenfit/UI/exercise.dart';
 import 'package:zenfit/UI/startWorkout.dart';
 
 class Settings extends StatefulWidget{
@@ -24,7 +21,7 @@ class _SettingsState extends State<Settings> {
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => startWorkout()),
+      MaterialPageRoute(builder: (context) => const startWorkout()),
     );
   }
   @override
@@ -34,7 +31,7 @@ class _SettingsState extends State<Settings> {
       });
       },
       child: Scaffold(
-        backgroundColor: Color(0xff37393D),
+        backgroundColor: const Color(0xff37393D),
         appBar: AppBar(
           title: const Text(
               "Settings",
@@ -48,7 +45,7 @@ class _SettingsState extends State<Settings> {
           children: [
             Card(
               child: ListTile(
-                title: Text("Account"),
+                title: const Text("Account"),
                 onTap: (){
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Account()),
@@ -58,7 +55,7 @@ class _SettingsState extends State<Settings> {
             ),
             Card(
               child: ListTile(
-                title: Text("Calculators"),
+                title: const Text("Calculators"),
                 onTap: (){
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const Calculators()),
@@ -66,23 +63,14 @@ class _SettingsState extends State<Settings> {
                 }
               ),
             ),
+
             Card(
               child: ListTile(
-                title: Text("3"),
-                  onTap: (){
-                    Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Exercise()),
-                    );
-                  }
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: Text("Log out"),
+                title: const Text("Log out"),
                 onTap: () async {
                   await FirebaseAuth.instance.signOut();
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>  welcomePage()),
+                    MaterialPageRoute(builder: (context) =>  const welcomePage()),
                   );
       
                 },
@@ -143,11 +131,11 @@ class _SettingsState extends State<Settings> {
 
                     child: InkWell(
                       onTap: () {
-                        print("tapped");
                         navigateTostartWorkout();
+
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

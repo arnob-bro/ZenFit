@@ -31,8 +31,8 @@ class _loginPageState extends State<loginPage> {
           password: passController.text.trim(),
       );
 
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Log in successfull")));
-      setState(() {});
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Log in successfull")));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -77,7 +77,7 @@ class _loginPageState extends State<loginPage> {
                 ),
 
                 Padding(
-                  padding: EdgeInsets.only(right: 10, left: 10),
+                  padding: const EdgeInsets.only(right: 10, left: 10),
                   child: TextField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -98,7 +98,7 @@ class _loginPageState extends State<loginPage> {
                 ),
 
                 Padding(
-                  padding: EdgeInsets.only(right: 10, left: 10),
+                  padding: const EdgeInsets.only(right: 10, left: 10),
                   child: TextField(
                     controller: passController,
                     obscureText: true,
@@ -108,9 +108,6 @@ class _loginPageState extends State<loginPage> {
                     ),
                   ),
                 ),
-
-              if(user != null)
-              TextButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));  }, child: Text("Go to homepage")),
 
 
               if(user==null)

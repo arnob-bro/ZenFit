@@ -167,7 +167,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                             border: OutlineInputBorder(),
                                             suffixText: "kg",
                                             suffixStyle: TextStyle(color: Colors.white54,),
-
                                           ),
                                         ),
                                       ),
