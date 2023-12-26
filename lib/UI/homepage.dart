@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/account.dart';
 import 'package:zenfit/UI/body_measurement.dart';
@@ -137,32 +139,34 @@ class _HomeState extends State<Home>{
               ? Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Container(
-                height: 120,
-                color: Colors.grey,
-                child: Center(
-                  child: Card(
+              BackdropFilter( filter: ImageFilter.blur(sigmaX: 5,sigmaY: 5),
+                child: Container(
+                  height: 120,
+                  color: Colors.grey,
+                  child: Center(
+                    child: Card(
 
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          isCardVisible =false;
-                          navigateTostartWorkout();
-                        });
-                      },
-                      child: const Padding(
-                        padding: EdgeInsets.all(15.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.fitness_center, // Choose the workout icon
-                              size: 30.0,
-                              color: Colors.black, // Adjust the color as needed
-                            ),
-                            SizedBox(width: 10),
-                            Text('Start a new workout', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold,color: Colors.black),
-                            ),
-                          ],
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            isCardVisible =false;
+                            navigateTostartWorkout();
+                          });
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.all(15.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.fitness_center, // Choose the workout icon
+                                size: 30.0,
+                                color: Colors.black, // Adjust the color as needed
+                              ),
+                              SizedBox(width: 10),
+                              Text('Start a new workout', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold,color: Colors.black),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
