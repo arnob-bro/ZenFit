@@ -21,7 +21,7 @@ class _HomeState extends State<Home>{
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => startWorkout()),
+      MaterialPageRoute(builder: (context) => const startWorkout()),
     );
   }
   @override
@@ -29,8 +29,10 @@ class _HomeState extends State<Home>{
     return PopScope(
       canPop: false,
       child: GestureDetector(
-        onTap: () { setState(() {isCardVisible = false;
-        });
+        onTap: () {
+          setState(() {
+          isCardVisible = false;
+          });
         },
         child: Scaffold(
             backgroundColor: const Color(0xff37393D),
@@ -111,7 +113,7 @@ class _HomeState extends State<Home>{
                   }, icon: const Icon(Icons.show_chart)),
                   IconButton(onPressed:(){
                     setState(() {
-                      isCardVisible = !isCardVisible;
+                      isCardVisible = true;
                     });
         
                   }, icon: const Icon(Icons.add_circle_outlined)),
@@ -143,11 +145,13 @@ class _HomeState extends State<Home>{
 
                     child: InkWell(
                       onTap: () {
-                        print("tapped");
-                        navigateTostartWorkout();
+                        setState(() {
+                          isCardVisible =false;
+                          navigateTostartWorkout();
+                        });
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

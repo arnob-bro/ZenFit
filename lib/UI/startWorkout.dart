@@ -13,24 +13,23 @@ class startWorkoutState extends State<startWorkout> {
   void navigateToexercise() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Exercise()),
+      MaterialPageRoute(builder: (context) => const Exercise()),
     );
   }
 
   Widget _card1() {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 30),
         child: Card(
           color: Colors.white30,
           elevation: 10,
           child: InkWell(
             onTap: () {
-              print("tapped");
               navigateToexercise(); // Call the method to navigate to SecondPage
             },
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
+            child: const Padding(
+              padding: EdgeInsets.all(20.0),
               child: Row(
                 children: [
                   Icon(Icons.add, color: Colors.white54),
@@ -49,17 +48,16 @@ class startWorkoutState extends State<startWorkout> {
   Widget _card2() {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 30),
         child: Card(
           color: Colors.white30,
           elevation: 10,
           child: InkWell(
             onTap: () {
-              print("tapped");
               //navigateToSecondPage(); // Call the method to navigate to SecondPage
             },
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
+            child: const Padding(
+              padding: EdgeInsets.all(20.0),
               child: Row(
                 children: [
                   Icon(Icons.add, color: Colors.white54),
@@ -79,9 +77,9 @@ class startWorkoutState extends State<startWorkout> {
     return Scaffold(
       backgroundColor: const Color(0xff37393D),
       appBar: AppBar(
-        title: Text('Star a new workout'),
+        title: const Text('Star a new workout'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -91,7 +89,7 @@ class startWorkoutState extends State<startWorkout> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _card1(),
-          SizedBox(width: 8,),
+          const SizedBox(width: 8,),
           _card2(),
         ],
       ),
