@@ -1,11 +1,16 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:zenfit/UI/ArnoldsBasicMassRoutine.dart';
+import 'package:zenfit/UI/Bodybuilding313.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 import 'package:zenfit/UI/startWorkout.dart';
+import 'package:zenfit/UI/ArnoldsBasicMassRoutine.dart';
+
+
 
 
 class Programs extends StatefulWidget {
@@ -41,6 +46,210 @@ class _ProgramsState extends State<Programs> {
           ),
           backgroundColor: Colors.black12,
 
+        ),
+        body: ListView(
+          children: [
+            const Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Text(
+                  "Arnold's Basic Mass Routine",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.white54,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                )
+            ),
+
+            Card(
+              child: ListTile(
+                  title: Text("6 days/weeks"),
+                  onTap: (){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const ArnoldsBasicMassRoutine()),
+                    );
+
+                  }
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Text(
+                  "Bodybuilding 313",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.white54,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                )
+            ),
+
+            Card(
+              child: ListTile(
+                  title: Text("5-6 days/week"),
+                  onTap: (){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const BodyBuilding313()),
+                    );
+                  }
+              ),
+            ),
+
+            Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Text(
+                  "Bodybuilding Ballet",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.white54,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                )
+            ),
+
+            Card(
+              child: ListTile(
+                  title: Text("6 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  title: Text("4 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  title: Text("5 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Text(
+                  "Bodybuilding Blitz",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.white54,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                )
+            ),
+
+            Card(
+              child: ListTile(
+                  title: Text("5 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Text(
+                  "Bodybuilding for Bigginers",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.white54,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                )
+            ),
+
+            Card(
+              child: ListTile(
+                  title: Text("3 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Text(
+                  "Full Body",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.white54,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                )
+            ),
+
+            Card(
+              child: ListTile(
+                  title: Text("2 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Text(
+                  "German Volume Training",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.white54,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                )
+            ),
+
+            Card(
+              child: ListTile(
+                  title: Text("3 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Text(
+                  "Push/Pull/Legs",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    color: Colors.white54,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                )
+            ),
+
+            Card(
+              child: ListTile(
+                  title: Text("Advanced,6 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  title: Text("Intermediate,6 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+            Card(
+              child: ListTile(
+                  title: Text("Intermediate,3 days/week"),
+                  onTap: (){
+
+                  }
+              ),
+            ),
+
+
+          ],
         ),
 
         bottomNavigationBar: BottomAppBar(
