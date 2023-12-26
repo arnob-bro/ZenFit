@@ -50,7 +50,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 30, left: 10,bottom:10),
+              padding: EdgeInsets.only(top: 50, left: 10,bottom:5),
               child: Text(
                 'Week 1',
                 style: TextStyle(
@@ -63,7 +63,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Chest & Back-Week 1,Workout 1',
                 style: TextStyle(
@@ -251,7 +251,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Legs,Calves & Abs-Week 1,Workout 2',
                 style: TextStyle(
@@ -427,7 +427,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Shoulders,Biceps &Triceps-Week 1,Workout 3',
                 style: TextStyle(
@@ -631,7 +631,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Back & Chest-Week 1,Workout 4',
                 style: TextStyle(
@@ -835,7 +835,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Legs,Calves & Abs- Week 1,Workout 5',
                 style: TextStyle(
@@ -1010,7 +1010,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Shoulders,Biceps & Triceps-Week 1,Workout 6',
                 style: TextStyle(
@@ -1220,7 +1220,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 30, left: 10,bottom:10),
+              padding: EdgeInsets.only(top: 50, left: 10,bottom:5),
               child: Text(
                 'Week 2',
                 style: TextStyle(
@@ -1233,9 +1233,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 1:Chest & Back',
+                'Chest & Back-Week 2,Workout 1',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -1270,7 +1270,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '36 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1286,14 +1286,68 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Pullover',
+                                  'Standing Cable\nChest Fly',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'T-Bar Row',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Incline Dumbbell\nPress',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1315,7 +1369,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1330,89 +1384,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Hanging Leg Raise',
+                                  'Cable Close Grip\nSeated Row',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Incline Bench Press',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Pull-Up',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '4 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Deadlift',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '20 reps in 3 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1442,9 +1421,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 2:Shoulders & Arms',
+                'Legs,Calves & Abs-Week 2,Workout 2',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -1469,14 +1448,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Overhead Press',
+                                  'Squat',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '36 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1492,14 +1471,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Push Press',
+                                  'Leg Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1514,14 +1493,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Dumbbell Curl',
+                                  'Standing Calf Raise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '72 reps in 6 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1530,50 +1509,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Lying\nTriceps Extension',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist\nExtension',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
+
                       ],
                     ),
                   ),
@@ -1589,14 +1525,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Dumbbell Lateral\nRaise',
+                                  'Front Squat',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '32 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1611,14 +1547,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Burbell Curl',
+                                  'Seated Leg Curl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '60 reps in 6 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1633,14 +1569,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Close-Grip Bench\nPress',
+                                  'Hanging Leg Raise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1649,50 +1585,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist Curl',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Crunch',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
+
                       ],
                     ),
                   ),
@@ -1707,9 +1600,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 3:Legs & Glutes',
+                'Shoulders,Biceps & Triceps-Week 2,Workout 3',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -1737,14 +1630,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Squat',
+                                  'Overhead Press',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '31 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -1760,7 +1653,466 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Lying Leg Curl',
+                                  'Cable Lateral Raise',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '48 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Dumbbell Preacher\nCurl',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Barbell Standing\nTriceps Extension',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                      ],
+                    ),
+                  ),
+
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Dumbbell lateral\nRaise',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Barbell Curl',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '28 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Barbell Lying\nTriceps Extension',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '28 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+
+                      ],
+
+                    ),
+                  ),
+
+
+
+                ],
+              ),
+
+            ) ,
+          ),
+
+          const Padding(
+              padding: EdgeInsets.only(top: 20, left: 10),
+              child: Text(
+                'Back & Chest-Week2,Workout 4',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white54,
+                  //fontWeight: FontWeight.bold,
+                ),
+              )
+          ),
+
+
+
+          const Card(
+            color: Colors.white10,
+            child:SizedBox(
+              //height: 280,
+              child: Row(
+                children: [
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Lat Pulldown',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 5 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Dumbbell Chest\nPress',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '38 reps in 5 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Dumbbell Chest Fly',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '48 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Back Extension',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '24 reps in 2 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                      ],
+                    ),
+                  ),
+
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'One-Handed Lat\nPulldown',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '60 reps in 5 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Incline Bench Press',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Dumbbell Shrug',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '20 reps in 2 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+
+                      ],
+
+                    ),
+                  ),
+
+
+
+                ],
+              ),
+
+            ) ,
+          ),
+
+          const Padding(
+              padding: EdgeInsets.only(top: 20, left: 10),
+              child: Text(
+                'Legs,Calves & Abs-Week2,workout 5',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white54,
+                  //fontWeight: FontWeight.bold,
+                ),
+              )
+          ),
+
+          const Card(
+            color: Colors.white10,
+            child:SizedBox(
+              //height: 370,
+              child: Row(
+                children: [
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Leg Extension',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '48 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Barbell Lunge',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text('48  reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Seated Calf Raise',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '72 reps in 6 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                       
+                      ],
+                    ),
+                  ),
+
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Leg Press',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -1789,554 +2141,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '20 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Hanging Leg Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Lunge',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Standing Calf Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Good Morning',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '20 reps in 3 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-
-
-                      ],
-
-                    ),
-                  ),
-
-
-
-                ],
-              ),
-
-            ) ,
-          ),
-
-          const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
-              child: Text(
-                'Workout 4:Chest & Back',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white54,
-                  //fontWeight: FontWeight.bold,
-                ),
-              )
-          ),
-
-
-
-          const Card(
-            color: Colors.white10,
-            child:SizedBox(
-              //height: 280,
-              child: Row(
-                children: [
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Bench Press',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Pullover',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Row',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Hanging Leg Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Incline Bench Press',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Pull-Up',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '4 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Deadlift',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '20 reps in 3 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-
-
-                      ],
-
-                    ),
-                  ),
-
-
-
-                ],
-              ),
-
-            ) ,
-          ),
-
-          const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
-              child: Text(
-                'Workout 5:Shoulders & Arms',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white54,
-                  //fontWeight: FontWeight.bold,
-                ),
-              )
-          ),
-
-          const Card(
-            color: Colors.white10,
-            child:SizedBox(
-              //height: 370,
-              child: Row(
-                children: [
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Overhead Press',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Push Press',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Dumbbell Curl',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Lying\nTriceps Extension',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist\nExtension',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Dumbbell Lateral\nRaise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Burbell Curl',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Close-Grip Bench\nPress',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist Curl',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2358,7 +2163,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '125 reps in 5 sets',
+                                  '60 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2367,12 +2172,10 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
+                        
                       ],
                     ),
                   ),
-
-
-
                 ],
               ),
 
@@ -2386,9 +2189,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 6:Legs & Glutes',
+                'Shoulders,Biceps & Triceps-Week 2,Workout 6',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -2418,14 +2221,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Squat',
+                                  'Dumbbell Latteral\nRaise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2441,14 +2244,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Lying Leg Curl',
+                                  'Reverse Dumbbell\nFlyes',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2463,14 +2266,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Stiff-Legged Deadlift',
+                                  'Concentration Curl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '20 reps in 3 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2485,14 +2288,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Hanging Leg Raise',
+                                  'Overhead Cable\nTriceps extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '125 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2516,14 +2319,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Barbell Lunge',
+                                  'Dumbbell Front\nRaise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2538,14 +2341,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Standing Calf Raise',
+                                  'Dumbbell Curl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2560,14 +2363,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Good Morning',
+                                  'Tricep Pushdown\nWith Bar',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '20 reps in 3 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2594,7 +2397,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 30, left: 10,bottom:10),
+              padding: EdgeInsets.only(top: 50, left: 10,bottom:5),
               child: Text(
                 'Week 3',
                 style: TextStyle(
@@ -2607,9 +2410,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 1:Chest & Back',
+                'Chest & Back-Week 3,Workout 1',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -2644,7 +2447,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '36 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2660,14 +2463,68 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Pullover',
+                                  'Standing Cable\nChest Fly',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'T-Bar Row',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '50 reps in 5 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Incline Dumbbell\nPress',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2689,7 +2546,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2704,89 +2561,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Hanging Leg Raise',
+                                  'Cable Close Grip\nSeated Row',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Incline Bench Press',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Pull-Up',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '4 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Deadlift',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '20 reps in 3 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2816,9 +2598,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 2:Shoulders & Arms',
+                'Legs,Calves & Abs-Week3,Workout 2',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -2843,14 +2625,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Overhead Press',
+                                  'Squat',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '36 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2866,14 +2648,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Push Press',
+                                  'Leg Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2888,14 +2670,46 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Dumbbell Curl',
+                                  'Standing Calf Raise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '60 reps in 6 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Front Squat',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2910,14 +2724,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Barbell Lying\nTriceps Extension',
+                                  'Seated Leg Curl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '60 reps in 6 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2932,14 +2746,139 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Barbell Wrist\nExtension',
+                                  'Hanging Leg Raise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+
+            ) ,
+          ),
+
+
+          const Padding(
+              padding: EdgeInsets.only(top: 20, left: 10),
+              child: Text(
+                'Shoulders,Biceps & Triceps-Week 3,Workout 3',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white54,
+                  //fontWeight: FontWeight.bold,
+                ),
+              )
+          ),
+
+
+
+          const Card(
+            color: Colors.white10,
+            child:SizedBox(
+              //height: 280,
+              child: Row(
+                children: [
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Overhead Press',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '31 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Cable Lateral Raise',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '48 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Dumbbell Preacher\nCurl',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Barbell Standing\nTriceps Extension',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2970,7 +2909,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -2985,14 +2924,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Burbell Curl',
+                                  'Barbell Curl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3007,14 +2946,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Close-Grip Bench\nPress',
+                                  'Barbell Lying\nTriceps extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3023,51 +2962,10 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist Curl',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Crunch',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
+
+
                       ],
+
                     ),
                   ),
 
@@ -3079,11 +2977,10 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
             ) ,
           ),
 
-
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 3:Legs & Glutes',
+                'Back & Chest-Week 3,Workout 4',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -3111,14 +3008,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Squat',
+                                  'Lat Pulldown',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 6 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3134,14 +3031,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Lying Leg Curl',
+                                  'Dumbbell Chest\nPress',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3156,14 +3053,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Stiff-Legged Deadlift',
+                                  'Dumbbell Chest Fly',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '20 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3178,14 +3075,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Hanging Leg Raise',
+                                  'Back Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '125 reps in 5 sets',
+                                  '24 reps in 2 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3209,7 +3106,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Barbell Lunge',
+                                  'One-Handed Lat\nPulldown',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -3225,188 +3122,6 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Standing Calf Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Good Morning',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '20 reps in 3 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-
-
-                      ],
-
-                    ),
-                  ),
-
-
-
-                ],
-              ),
-
-            ) ,
-          ),
-
-          const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
-              child: Text(
-                'Workout 4:Chest & Back',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white54,
-                  //fontWeight: FontWeight.bold,
-                ),
-              )
-          ),
-
-
-
-          const Card(
-            color: Colors.white10,
-            child:SizedBox(
-              //height: 280,
-              child: Row(
-                children: [
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Bench Press',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Pullover',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Row',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Hanging Leg Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
                         Padding(
                             padding: EdgeInsets.all(10),
                             child: Column(
@@ -3420,7 +3135,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3435,36 +3150,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Pull-Up',
+                                  'Dumbbell Shrug',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '4 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Deadlift',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '20 reps in 3 sets',
+                                  '20 reps in 2 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3489,9 +3182,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 5:Shoulders & Arms',
+                'Legs,Calves & Abs-Week 3,Workout 5',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -3517,7 +3210,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Overhead Press',
+                                  'Leg Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -3540,14 +3233,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Push Press',
+                                  'Barbell Lunge',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3562,14 +3255,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Dumbbell Curl',
+                                  'Seated Calf Raise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '72 reps in 6 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3578,50 +3271,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Lying\nTriceps Extension',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist\nExtension',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
+
                       ],
                     ),
                   ),
@@ -3637,185 +3287,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Dumbbell Lateral\nRaise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Burbell Curl',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Close-Grip Bench\nPress',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist Curl',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Crunch',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-
-                ],
-              ),
-
-            ) ,
-          ),
-
-
-
-
-
-
-
-          const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
-              child: Text(
-                'Workout 6:Legs & Glutes',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white54,
-                  //fontWeight: FontWeight.bold,
-                ),
-              )
-          ),
-
-
-
-
-
-          const Card(
-            color: Colors.white10,
-            child:SizedBox(
-              //height: 280,
-              child: Row(
-                children: [
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Squat',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Lying Leg Curl',
+                                  'Leg Press',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -3844,7 +3316,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '20 reps in 3 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3859,14 +3331,142 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Hanging Leg Raise',
+                                  'Crunch',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '125 reps in 5 sets',
+                                  '60 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+
+
+                ],
+              ),
+
+            ) ,
+          ),
+
+
+
+          const Padding(
+              padding: EdgeInsets.only(top: 20, left: 10),
+              child: Text(
+                'Shoulders,Biceps & Triceps-Week 3,Workout 6',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white54,
+                  //fontWeight: FontWeight.bold,
+                ),
+              )
+          ),
+
+
+          const Card(
+            color: Colors.white10,
+            child:SizedBox(
+              //height: 280,
+              child: Row(
+                children: [
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Dumbbell Lateral\nraise',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '58 reps in 5 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Reverse Dumbbell\nFlyes',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '48 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Concentration Curl',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '48 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Overhead Cable\nTriceps Extension',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3890,14 +3490,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Barbell Lunge',
+                                  'Dumbbell Front\nRaise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3912,14 +3512,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Standing Calf Raise',
+                                  'Dumbbell Curl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3934,14 +3534,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Good Morning',
+                                  'Tricep Pushdown\nWith Bar',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '20 reps in 3 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -3950,8 +3550,6 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
-
-
                       ],
 
                     ),
@@ -3969,7 +3567,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 30, left: 10,bottom:10),
+              padding: EdgeInsets.only(top: 50, left: 10,bottom:5),
               child: Text(
                 'Week 4',
                 style: TextStyle(
@@ -3982,9 +3580,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 1:Chest & Back',
+                'Chest & Back-Week 4,Workout 1',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -4019,7 +3617,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '36 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4035,7 +3633,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Pullover',
+                                  'Standing Cable\nChest Fly',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -4043,6 +3641,60 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                 ),
                                 Text(
                                   '60 reps in 5 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'T-Bar Row',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '50 reps in 5 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Incline Dumbbell\nPress',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4064,7 +3716,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4079,38 +3731,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Hanging Leg Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Incline Bench Press',
+                                  'cable Close Grip\nSeated Row',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -4118,50 +3739,6 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                 ),
                                 Text(
                                   '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Pull-Up',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '4 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Deadlift',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '20 reps in 3 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4191,9 +3768,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 2:Shoulders & Arms',
+                'Legs,Calves & Abs-Week 4,Workout 2',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -4218,14 +3795,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Overhead Press',
+                                  'Squat',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '36 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4241,7 +3818,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Push Press',
+                                  'Leg Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -4263,7 +3840,167 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Dumbbell Curl',
+                                  'Standing Calf Raise',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '60 reps in 6 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Front Squat',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '40 reps in 5 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Seated Leg Curl',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '60 reps in 6 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Hanging Leg Raise',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+
+
+                ],
+              ),
+
+            ) ,
+          ),
+
+
+          const Padding(
+              padding: EdgeInsets.only(top: 20, left: 10),
+              child: Text(
+                'Shoulders,Biceps & Triceps-Week 4,Workout 3',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white54,
+                  //fontWeight: FontWeight.bold,
+                ),
+              )
+          ),
+
+
+
+          const Card(
+            color: Colors.white10,
+            child:SizedBox(
+              //height: 280,
+              child: Row(
+                children: [
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Overhead Press',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '31 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Cable lateral Raise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -4285,14 +4022,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Barbell Lying\nTriceps Extension',
+                                  'Dumbbell Preacher\nCurl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4307,14 +4044,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Barbell Wrist\nExtension',
+                                  'Barbell Standing\nTriceps Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '125 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4345,7 +4082,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4360,14 +4097,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Burbell Curl',
+                                  'Barbell Curl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4382,14 +4119,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Close-Grip Bench\nPress',
+                                  'Barbell Lying\nTriceps Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4398,51 +4135,10 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist Curl',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Crunch',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
+
+
                       ],
+
                     ),
                   ),
 
@@ -4454,11 +4150,10 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
             ) ,
           ),
 
-
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 3:Legs & Glutes',
+                'Back & Chest-Week 4,Workout 4',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -4486,14 +4181,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Squat',
+                                  'Lat Pulldown',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '6 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4509,7 +4204,29 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Lying Leg Curl',
+                                  'Dumbbell Chest\nPress',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '38 reps in 5 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Dumbbell Chest Fly',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -4531,36 +4248,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Stiff-Legged Deadlift',
+                                  'Back Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '20 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Hanging Leg Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
+                                  '24 reps in 2 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4584,14 +4279,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Barbell Lunge',
+                                  'One-Handed Lat\nPulldown',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '72 reps in 6 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4600,188 +4295,6 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Standing Calf Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Good Morning',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '20 reps in 3 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-
-
-                      ],
-
-                    ),
-                  ),
-
-
-
-                ],
-              ),
-
-            ) ,
-          ),
-
-          const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
-              child: Text(
-                'Workout 4:Chest & Back',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white54,
-                  //fontWeight: FontWeight.bold,
-                ),
-              )
-          ),
-
-
-
-          const Card(
-            color: Colors.white10,
-            child:SizedBox(
-              //height: 280,
-              child: Row(
-                children: [
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Bench Press',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Pullover',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Row',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Hanging Leg Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
                         Padding(
                             padding: EdgeInsets.all(10),
                             child: Column(
@@ -4795,7 +4308,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4810,36 +4323,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Pull-Up',
+                                  'Dumbbell Shrug',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '4 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Deadlift',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '20 reps in 3 sets',
+                                  '20 reps in 2 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4864,9 +4355,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 5:Shoulders & Arms',
+                'Legs,Calves & Abs-Week 4,Workout 5',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -4892,7 +4383,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Overhead Press',
+                                  'Leg Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -4915,14 +4406,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Push Press',
+                                  'Barbell Lunge',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4937,14 +4428,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Dumbbell Curl',
+                                  'Seated Calf Raise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '72 reps in 6 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -4953,50 +4444,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Lying\nTriceps Extension',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist\nExtension',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
+
                       ],
                     ),
                   ),
@@ -5012,14 +4460,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Dumbbell Lateral\nRaise',
+                                  'Leg Press',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '72 reps in 6 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -5034,58 +4482,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Burbell Curl',
+                                  'Stiff-Legged Deadlift',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Close-Grip Bench\nPress',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Barbell Wrist Curl',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '60 reps in 5 sets',
+                                  '38 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -5107,7 +4511,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                                   ),
                                 ),
                                 Text(
-                                  '125 reps in 5 sets',
+                                  '60 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -5116,6 +4520,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               ],
                             )
                         ),
+
                       ],
                     ),
                   ),
@@ -5131,13 +4536,10 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
 
 
 
-
-
-
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
-                'Workout 6:Legs & Glutes',
+                'Shoulders,Biceps & Triceps-Week 4,Workout 6',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white54,
@@ -5167,14 +4569,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Squat',
+                                  'Dumbbell Lateral\nRaise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '58 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -5190,7 +4592,29 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Lying Leg Curl',
+                                  'Reverse Dumbbell\nFlyes',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                                Text(
+                                  '48 reps in 4 sets',
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+                              ],
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Concentration Curl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
@@ -5212,36 +4636,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Stiff-Legged Deadlift',
+                                  'Overhead Cable\nTriceps Extension',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '20 reps in 3 sets',
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Hanging Leg Raise',
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white54,
-                                  ),
-                                ),
-                                Text(
-                                  '125 reps in 5 sets',
+                                  '60 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -5265,14 +4667,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Barbell Lunge',
+                                  'Dumbbell Front\nRaise',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '48 reps in 4 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -5287,14 +4689,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Standing Calf Raise',
+                                  'Dumbbell Curl',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '60 reps in 5 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,
@@ -5309,14 +4711,14 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Good Morning',
+                                  'Tricep Pushdown\nWith Bar',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white54,
                                   ),
                                 ),
                                 Text(
-                                  '20 reps in 3 sets',
+                                  '50 reps in 5 sets',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                     color: Colors.white54,

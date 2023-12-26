@@ -51,7 +51,7 @@ class _ArnoldsBasicMassRoutineState extends State<ArnoldsBasicMassRoutine> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 30, left: 10,bottom:10),
+              padding: EdgeInsets.only(top: 50, left: 10,bottom:5),
               child: Text(
                 'Week 1',
                 style: TextStyle(
@@ -64,7 +64,7 @@ class _ArnoldsBasicMassRoutineState extends State<ArnoldsBasicMassRoutine> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Workout 1:Chest & Back',
                 style: TextStyle(
@@ -273,7 +273,7 @@ class _ArnoldsBasicMassRoutineState extends State<ArnoldsBasicMassRoutine> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Workout 2:Shoulders & Arms',
                 style: TextStyle(
@@ -538,7 +538,7 @@ class _ArnoldsBasicMassRoutineState extends State<ArnoldsBasicMassRoutine> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Workout 3:Legs & Glutes',
                 style: TextStyle(
@@ -742,7 +742,7 @@ class _ArnoldsBasicMassRoutineState extends State<ArnoldsBasicMassRoutine> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Workout 4:Chest & Back',
                 style: TextStyle(
@@ -946,7 +946,7 @@ class _ArnoldsBasicMassRoutineState extends State<ArnoldsBasicMassRoutine> {
           ),
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Workout 5:Shoulders & Arms',
                 style: TextStyle(
@@ -1217,7 +1217,7 @@ class _ArnoldsBasicMassRoutineState extends State<ArnoldsBasicMassRoutine> {
 
 
           const Padding(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 'Workout 6:Legs & Glutes',
                 style: TextStyle(
