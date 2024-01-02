@@ -14,7 +14,7 @@ class _loginPageState extends State<loginPage> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
 
-
+git
   @override
   void dispose() {
     // TODO: implement dispose
@@ -36,8 +36,10 @@ class _loginPageState extends State<loginPage> {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("User not found")));
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Wrong password")));
       }
     }
   }

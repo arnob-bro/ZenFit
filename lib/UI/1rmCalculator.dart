@@ -190,6 +190,7 @@ class _RM_CalculatorState extends State<RM_Calculator> {
                                     padding: const EdgeInsets.all(10.0),
                                     child: TextField(
                                       controller: weightController,
+                                      style: const TextStyle(color: Colors.white54),
                                         keyboardType: TextInputType.number,
                                         cursorHeight: 18,
                                         decoration: const InputDecoration(
@@ -226,6 +227,7 @@ class _RM_CalculatorState extends State<RM_Calculator> {
                                     padding: const EdgeInsets.all(10.0),
                                     child: TextField(
                                       controller: repsController,
+                                      style: const TextStyle(color: Colors.white54),
                                       keyboardType: TextInputType.number,
                                       cursorHeight: 18,
                                         decoration: const InputDecoration(

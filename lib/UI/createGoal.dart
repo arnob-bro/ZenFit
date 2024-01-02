@@ -12,10 +12,23 @@ class Create_Goal extends StatefulWidget {
 }
 
 class _Create_GoalState extends State<Create_Goal> {
+
+  final nameController = TextEditingController();
+  final descriptionController = TextEditingController();
+  DateTime date = DateTime.now();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    nameController.dispose();
+    descriptionController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff37393D),
+      backgroundColor: const Color(0xff37393D),
       appBar: AppBar(
         title: const Text(
             "Create Goal",
@@ -24,6 +37,41 @@ class _Create_GoalState extends State<Create_Goal> {
           ),
         ),
         backgroundColor: Colors.black12,
+      ),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: nameController,
+              style: const TextStyle(color: Colors.white54),
+              cursorColor: Colors.white,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Name',
+                hintStyle: TextStyle(color: Colors.white54),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: descriptionController,
+              style: const TextStyle(color: Colors.white54),
+              cursorColor: Colors.white,
+              maxLines: 10,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Description',
+                hintStyle: TextStyle(color: Colors.white54),
+
+              ),
+            ),
+          ),
+
+        ],
       ),
       bottomNavigationBar: BottomAppBar(
         elevation: 20,

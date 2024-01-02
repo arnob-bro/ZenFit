@@ -7,7 +7,7 @@ class userInfo {
   String? email;
   String? pass;
 
-  userInfo({this.id= '',this.name,this.username,this.birthDate,this.gender,this.email,this.pass});
+  userInfo({this.id,this.name,this.username,this.birthDate,this.gender,this.email,this.pass});
 
   Map<String, dynamic> toJson() => {
     'id': id,

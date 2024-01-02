@@ -161,6 +161,7 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                         padding: const EdgeInsets.all(10),
                                         child: TextField(
                                           controller: weightController,
+                                          style: const TextStyle(color: Colors.white54),
                                           keyboardType: TextInputType.number,
                                           cursorHeight: 18,
                                           decoration: const InputDecoration(
@@ -196,6 +197,7 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                         padding: const EdgeInsets.all(10),
                                         child: TextField(
                                           controller: heightController,
+                                          style: const TextStyle(color: Colors.white54),
                                           keyboardType: TextInputType.number,
                                           cursorHeight: 18,
                                           decoration: const InputDecoration(
@@ -288,6 +290,7 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                       padding: const EdgeInsets.all(10),
                                       child: TextField(
                                         controller: ageController,
+                                        style: const TextStyle(color: Colors.white54),
                                         keyboardType: TextInputType.number,
                                         cursorHeight: 18,
                                         decoration: const InputDecoration(
