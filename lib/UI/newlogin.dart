@@ -45,8 +45,8 @@ class _NewLoginState extends State<NewLogin> {
       username: usernameController.text,
       birthDate: birthDate,
       gender: selectedGender!,
-      email: emailController.text,
-      pass: passController.text,
+      email: emailController.text.trim(),
+      pass: passController.text.trim(),
 
     );
   }
@@ -86,7 +86,6 @@ class _NewLoginState extends State<NewLogin> {
         title: const Text(
           'Welcome!',
           style: TextStyle(
-            fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),

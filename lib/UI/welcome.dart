@@ -108,6 +108,7 @@ class _welcomePageState extends State<welcomePage> {
                     fontSize: 28.0,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.italic,
+                    color: Colors.white54,
                   ),
                 ),
               ],

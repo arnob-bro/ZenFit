@@ -4,6 +4,8 @@ import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 
+import '../Service/Database.dart';
+
 class Create_Goal extends StatefulWidget {
   const Create_Goal({super.key});
 
@@ -15,7 +17,6 @@ class _Create_GoalState extends State<Create_Goal> {
 
   final nameController = TextEditingController();
   final descriptionController = TextEditingController();
-  DateTime date = DateTime.now();
 
   @override
   void dispose() {
@@ -24,6 +25,18 @@ class _Create_GoalState extends State<Create_Goal> {
     nameController.dispose();
     descriptionController.dispose();
   }
+
+  void createGoalToDatabase() async {
+    await DatabaseService().createGoal(
+      date: DateTime.now(),
+      name: nameController.text,
+      description: descriptionController.text,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Goal Creation successfull")));
+    Navigator.pop(context);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +86,10 @@ class _Create_GoalState extends State<Create_Goal> {
 
         ],
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        createGoalToDatabase();
+
+      },child: const Icon(Icons.save,),),
       bottomNavigationBar: BottomAppBar(
         elevation: 20,
         height: 60,
