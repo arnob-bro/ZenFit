@@ -54,7 +54,7 @@ class _loginPageState extends State<loginPage> {
       appBar: AppBar(
         backgroundColor: Colors.black12,
         title: const Text(
-          'Welcome',
+          'Welcome!',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
