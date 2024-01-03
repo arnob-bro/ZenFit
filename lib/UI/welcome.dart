@@ -14,13 +14,22 @@ class _welcomePageState extends State<welcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xff37393D),
-
+        backgroundColor: const Color(0xff000000),
         body:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Center(
+              child: SizedBox(
+                height:200.0,
+                child: Image.asset(
+                'assets/images/logo.png',
+                width: 150.0,
+                height: 200.0,
+              ),
+             ),
+            ),
             Container(
-              height: 400,
-
+              height: 40,
             ),
             Column(
               children: [
@@ -29,19 +38,21 @@ class _welcomePageState extends State<welcomePage> {
                   style: TextStyle(
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white
                   ),
                 ),
                 SizedBox(
                   width: 350,
                   child: Card(
+                    color: Color.fromRGBO(250, 95, 95, 5),
                     child: ListTile(
                         title: const Center(
                           child: Text(
                             'Start using ZenFit',
                             style: TextStyle(
-                              fontSize: 17.0,
+                              fontSize: 20.0,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black54,
+                              color: Colors.white,
                             )
                         ),
                         ),
@@ -62,18 +73,20 @@ class _welcomePageState extends State<welcomePage> {
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
                 SizedBox(
                   width: 200,
                   child: Card(
+                    color: Color.fromRGBO(250, 95, 95, 5),
                     child: ListTile(
                         title: const Center(child: Text(
                             'Log in here',
                             style: TextStyle(
-                              fontSize: 17.0,
+                              fontSize: 20.0,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black54,
+                              color: Colors.white,
 
                             )
                         ),
