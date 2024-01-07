@@ -74,10 +74,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
           isCalculated = true;
         });
       }
-
-
-
-
   }
 
   @override
@@ -126,8 +122,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                 child: SizedBox(
                           height: 50,
                           child: isCalculated ? Center(child: Text("$calorie kcal",style: const TextStyle(fontSize: 22.0,color: Colors.white54,),)) : const Center(child: Text("00 kcal",style: TextStyle(fontSize: 22.0,color: Colors.white54,),)),
-
-
                 ),
               ),
               Card(
@@ -136,7 +130,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                   height: 290,
                   child: Row(
                     children: [
-
                         Expanded(
                           child: Column(
                             children: [
@@ -150,7 +143,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                     ),
                                   ),
                                 ),
-
 
                                 Padding(
                                     padding: const EdgeInsets.only( left: 10,right: 10),
@@ -175,7 +167,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                     )
                                 ),
 
-
                                 const Padding(
                                   padding: EdgeInsets.only(top: 10),
                                   child: Text(
@@ -186,7 +177,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                     ),
                                   ),
                                 ),
-
 
                                 Padding(
                                     padding: const EdgeInsets.only( left: 10,right: 10),
@@ -208,10 +198,8 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                           ),
                                         ),
                                       ),
-
                                     )
                                 ),
-
 
                                 const Padding(
                                   padding: EdgeInsets.only(top: 10),
@@ -223,7 +211,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                     ),
                                   ),
                                 ),
-
 
                                 Padding(
                                     padding: const EdgeInsets.only( left: 10,right: 10),
@@ -262,11 +249,9 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                       },
                                     ),
                                 ),
-
                             ],
                           ),
                         ),
-
 
                       Expanded(
                         child: Column(
@@ -297,7 +282,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                           border: OutlineInputBorder(),
                                           suffixText: "year",
                                           suffixStyle: TextStyle(color: Colors.white54,),
-
                                         ),
                                       ),
                                     ),
@@ -335,12 +319,9 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                         selectedGender = newGender;
                                       });
                                   },
-
                                   ),
                               ),
-
                             ],
-
                           ),
                       ),
                     ],
@@ -405,7 +386,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                   MaterialPageRoute(builder: (context) => const settings()),
                 );
               }, icon: const Icon(Icons.settings)),
-
             ],
           ),
         ),
@@ -423,6 +403,7 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
 
                     child: InkWell(
                       onTap: () {
+                        print("tapped");
                         navigateTostartWorkout();
                       },
                       child: const Padding(
