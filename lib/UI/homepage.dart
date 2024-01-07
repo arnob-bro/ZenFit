@@ -10,6 +10,8 @@ import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/startWorkout.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 
+import 'Chat_Room.dart';
+
 class Home extends StatefulWidget{
   const Home({super.key});
 
@@ -61,46 +63,106 @@ class _HomeState extends State<Home>{
                   color: Colors.white54,
               ),
             ),
-            body: SafeArea(
-              child: Column(
-                children:  [
-                  Card(
-                    child: ListTile(
-                      title: const Text("Training Log"),
-                      onTap: (){
+            body: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: SafeArea(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:  [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
 
-                      }
-                    ),
-                  ),
+                            child:  Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    //color: Color.fromRGBO(88, 86, 98, 8),
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                height: 200,
+                                child: const Center(child: Text("Training Log")),
+                              ),
+                            ),
+                            onTap: (){ },
 
-                  Card(
-                    child: ListTile(
-                      title: const Text("My Goals"),
-                        onTap: (){
-                          Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => My_Goals()),
-                          );
-                        }
-                    ),
-                  ),
+                          ),
+                        ),
 
-                  Card(
-                    child: ListTile(
-                      title: const Text("Followed Programs"),
-                        onTap: (){
-                          Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const Followed_Programs()),
-                          );
-                        }
+                        Expanded(
+                          child: GestureDetector(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.white,
+                                ),
+                                height: 200,
+                                child: const Center(child: Text("My Goals")),
+                              ),
+                            ),
+                            onTap: (){
+                              Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => My_Goals()),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  Card(
-                    child: ListTile(
-                        title: const Text("Chat Room"),
-                        onTap: (){}
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
+
+                            child:  Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  //color: Color.fromRGBO(88, 86, 98, 8),
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                height: 200,
+                                child: const Center(child: Text("Followed Programs")),
+                              ),
+                            ),
+                              onTap: (){
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => const Followed_Programs()),
+                                );
+                              }
+                          ),
+                        ),
+
+                        Expanded(
+                          child: GestureDetector(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.white,
+                                ),
+                                height: 200,
+                                child: const Center(child: Text("Chat Room")),
+                              ),
+                            ),
+                            onTap: (){
+                              Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => const Chat_Room()),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             bottomNavigationBar: BottomAppBar(

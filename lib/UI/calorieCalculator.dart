@@ -343,12 +343,8 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
 
                           ),
                       ),
-
-
-
                     ],
                   ),
-
                 ) ,
               ),
               Padding(
@@ -371,8 +367,6 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                   ],
                 ),
               ),
-
-
             ],
           ),
         ),
@@ -429,11 +423,10 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
 
                     child: InkWell(
                       onTap: () {
-                        print("tapped");
                         navigateTostartWorkout();
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

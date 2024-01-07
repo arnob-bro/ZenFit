@@ -22,7 +22,7 @@ class _CalculatorsState extends State<Calculators> {
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => startWorkout()),
+      MaterialPageRoute(builder: (context) => const startWorkout()),
     );
   }
   @override
@@ -34,7 +34,7 @@ class _CalculatorsState extends State<Calculators> {
       child: Scaffold(
         backgroundColor: Color(0xff37393D),
         appBar: AppBar(
-          title: Text(
+          title: const Text(
               "Calculators",
             style: TextStyle(
               color: Colors.white54,
@@ -42,30 +42,33 @@ class _CalculatorsState extends State<Calculators> {
           ),
           backgroundColor: Colors.black12,
         ),
-        body: ListView(
-          children:  [
-            Card(
-              child: ListTile(
-                  title: Text("Calorie Calculator"),
-                  onTap: (){
-                    Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Calorie_Calculator()),
-                    );
-                  }
+        body: Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: ListView(
+            children:  [
+              Card(
+                child: ListTile(
+                    title: const Text("Calorie Calculator"),
+                    onTap: (){
+                      Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const Calorie_Calculator()),
+                      );
+                    }
+                ),
               ),
-            ),
 
-            Card(
-              child: ListTile(
-                  title: Text("1RM Calculator"),
-                  onTap: (){
-                    Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const RM_Calculator()),
-                    );
-                  }
+              Card(
+                child: ListTile(
+                    title: const Text("1RM Calculator"),
+                    onTap: (){
+                      Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const RM_Calculator()),
+                      );
+                    }
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         bottomNavigationBar: BottomAppBar(
           elevation: 20,
@@ -119,11 +122,10 @@ class _CalculatorsState extends State<Calculators> {
 
                     child: InkWell(
                       onTap: () {
-                        print("tapped");
                         navigateTostartWorkout();
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

@@ -111,8 +111,7 @@ class _My_GoalsState extends State<My_Goals> {
                     {
                       return const Center(child: LinearProgressIndicator(),);
                     }
-
-                    if(snapshot.hasData){
+                    else if(snapshot.hasData){
                       return ListView.builder(
                           scrollDirection: Axis.vertical,
                           shrinkWrap: true,
@@ -129,15 +128,15 @@ class _My_GoalsState extends State<My_Goals> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
-                                          child: Text("${snapshot.data!.docs[index]['name']}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+                                          child: Text("${snapshot.data!.docs[index]['name']}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(right: 10, left: 10),
-                                          child: Text("${snapshot.data!.docs[index]['description']}",style: TextStyle(fontSize: 15)),
+                                          child: Text("${snapshot.data!.docs[index]['description']}",style: const TextStyle(fontSize: 15)),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
-                                          child: Text("${snapshot.data!.docs[index]['date']}",style: TextStyle(fontSize: 10)),
+                                          child: Text("${snapshot.data!.docs[index]['date']}",style: const TextStyle(fontSize: 10)),
                                         ),
                                       ],
 

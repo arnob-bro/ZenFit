@@ -24,7 +24,7 @@ class _loginPageState extends State<loginPage> {
   }
 
 
-  void signInToFirebase() async {
+/*  Future signInToFirebase() async {
     showDialog(
       context: context,
       builder: (context) {
@@ -58,6 +58,25 @@ class _loginPageState extends State<loginPage> {
       }
     }
 
+  }
+*/
+  Future signInToFirebase() async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+    try {
+      return await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passController.text.trim(),
+      );
+    } catch (e){
+      return e.toString();
+    }
   }
 
 
@@ -174,8 +193,30 @@ class _loginPageState extends State<loginPage> {
                         children: [
                           Expanded(
                             child: TextButton(
-                              onPressed: () {
-                                signInToFirebase();
+                              onPressed: () async {
+                                dynamic result = await signInToFirebase();
+                                if (result is! UserCredential){
+                                  //escape loading phase
+                                  Navigator.of(context).pop();
+                                  //showing the problem in login
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          behavior: SnackBarBehavior.floating,
+                                          // content: Text("Login failed, try again !")
+                                          content: Text("$result")
+                                      )
+                                  );
+                                }
+                                else if(result is UserCredential){
+                                  //escape loading phase
+                                  Navigator.of(context).pop();
+                                  //showing login successful
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text("Log in successfull")));
+                                  //routing to homepage
+                                  Navigator.push(
+                                      context, MaterialPageRoute(builder: (context) => const Home()));
+                                }
                               },
                               style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(250, 95, 95, 5))),
                               child: const Text(
