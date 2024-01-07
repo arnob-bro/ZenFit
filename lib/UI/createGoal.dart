@@ -28,7 +28,7 @@ class _Create_GoalState extends State<Create_Goal> {
 
   void createGoalToDatabase() async {
     await DatabaseService().createGoal(
-      date: DateTime.now(),
+      date: DateTime.now().toString().split(" ")[0],
       name: nameController.text,
       description: descriptionController.text,
     );
@@ -120,7 +120,7 @@ class _Create_GoalState extends State<Create_Goal> {
             }, icon: const Icon(Icons.note_alt)),
             IconButton(onPressed:(){
               Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Settings()),
+                MaterialPageRoute(builder: (context) => const settings()),
               );
             }, icon: const Icon(Icons.settings)),
 

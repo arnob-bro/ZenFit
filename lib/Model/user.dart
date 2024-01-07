@@ -2,7 +2,7 @@ class userInfo {
   String? id;
   String? name;
   String? username;
-  DateTime? birthDate;
+  String? birthDate;
   String? gender;
   String? email;
   String? pass;
@@ -18,6 +18,15 @@ class userInfo {
     'email': email,
     'pass':pass
   };
+  static userInfo fromJson(Map<String, dynamic> json) => userInfo(
+    id: json['id'],
+    name: json['name'],
+    username: json['username'],
+    birthDate: json['birthDate'],
+    gender: json['gender'],
+    email: json['email'],
+    pass: json['pass']
+  );
 
 
 

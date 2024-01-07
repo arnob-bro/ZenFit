@@ -244,13 +244,24 @@ class _RM_CalculatorState extends State<RM_Calculator> {
 
                 ) ,
               ),
-              Card(
-                color: Colors.white10,
-                child: ListTile(
-                  title: const Center(child: Text("Calculate",style: TextStyle(color: Colors.white54,),)),
-                  onTap: () {
-                    calculate1RM();
-                  },
+              Padding(
+                padding: const EdgeInsets.only(top: 10,right: 10,left: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () {
+                          calculate1RM();
+                        },
+                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(88, 95, 95, 5))),
+                        child: const Text(
+                          "Calculate",
+                          style: TextStyle(fontSize: 18.0, color: Colors.white54),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 11,),
@@ -290,7 +301,7 @@ class _RM_CalculatorState extends State<RM_Calculator> {
               }, icon: const Icon(Icons.note_alt)),
               IconButton(onPressed:(){
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Settings()),
+                  MaterialPageRoute(builder: (context) => const settings()),
                 );
               }, icon: const Icon(Icons.settings)),
 

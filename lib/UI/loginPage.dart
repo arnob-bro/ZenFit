@@ -25,11 +25,21 @@ class _loginPageState extends State<loginPage> {
 
 
   void signInToFirebase() async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passController.text.trim(),
       );
+
+      Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("Log in successfull")));
@@ -37,11 +47,17 @@ class _loginPageState extends State<loginPage> {
           context, MaterialPageRoute(builder: (context) => const Home()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
+        print('===========================No user found for that email.');
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Center(child: Text("No user in this email"))));
+
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+        print('=========================Wrong password provided for that user.');
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Center(child: Text("Wrong Password"))));
       }
     }
+
   }
 
 
@@ -53,6 +69,9 @@ class _loginPageState extends State<loginPage> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.black12,
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back),color: Colors.white),
         title: const Text(
           'Sign In',
           style: TextStyle(
@@ -64,7 +83,7 @@ class _loginPageState extends State<loginPage> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/loginbg.png'),
+              image: const AssetImage('assets/images/loginbg.png'),
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(
                   Colors.black38.withOpacity(0.4), BlendMode.dstATop),
@@ -78,35 +97,43 @@ class _loginPageState extends State<loginPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(top: 10, left: 10),
+                    padding: EdgeInsets.only(left: 10,bottom: 10),
                     child: Text(
                       'Email',
                       style: TextStyle(
-                        fontSize: 30.0,
+                        //fontSize: 22.0,
                         color: Colors.white,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: TextField(
-                      style: TextStyle(color: Colors.black),
+
+                      style: const TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        border: OutlineInputBorder(),
-                        hintText: 'write email',
-                        hintStyle: TextStyle(color: Colors.black54),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 2),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+
+                        ),
+                        hintText: 'Enter your email',
+                        hintStyle: const TextStyle(color: Colors.black54),
+
                       ),
                       controller: emailController,
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(top: 10, left: 10),
+                    padding: EdgeInsets.only(top: 15, left: 10,bottom: 10),
                     child: Text(
                       'Password',
                       style: TextStyle(
-                        fontSize: 22.0,
+                        //fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
@@ -114,21 +141,34 @@ class _loginPageState extends State<loginPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: TextField(
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                       controller: passController,
                       obscureText: true,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        border: OutlineInputBorder(),
-                        hintText: 'write password',
-                        hintStyle: TextStyle(color: Colors.black54),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 2),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        hintText: 'Enter your password',
+                        hintStyle: const TextStyle(color: Colors.black54),
                       ),
                     ),
                   ),
-                  if (user == null)
+                  Container(
+                    alignment: Alignment.topRight,
+                    margin: const EdgeInsets.only(top: 10,right: 10),
+                    child: const Text(
+                        "Forget Password?",
+                      style: TextStyle(
+                        color: Colors.white,
+
+                      ),
+                    ),
+                  ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: const EdgeInsets.only(top: 10,right: 10,left: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -137,7 +177,7 @@ class _loginPageState extends State<loginPage> {
                               onPressed: () {
                                 signInToFirebase();
                               },
-                              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color.fromRGBO(250, 95, 95, 5))),
+                              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(250, 95, 95, 5))),
                               child: const Text(
                                 "Login",
                                 style: TextStyle(fontSize: 18.0, color: Colors.white),
@@ -147,6 +187,7 @@ class _loginPageState extends State<loginPage> {
                         ],
                       ),
                     ),
+
                 ],
               ),
             ),

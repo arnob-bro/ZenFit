@@ -1,6 +1,9 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
@@ -20,7 +23,7 @@ class _AccountState extends State<Account> {
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => startWorkout()),
+      MaterialPageRoute(builder: (context) => const startWorkout()),
     );
   }
   @override
@@ -40,7 +43,7 @@ class _AccountState extends State<Account> {
               ),
             ),
           ),
-          body: const Username(),
+          body: const AccountDetails(),
         bottomNavigationBar: BottomAppBar(
           elevation: 20,
           height: 60,
@@ -72,7 +75,7 @@ class _AccountState extends State<Account> {
               }, icon: const Icon(Icons.note_alt)),
               IconButton(onPressed:(){
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Settings()),
+                  MaterialPageRoute(builder: (context) => const settings()),
                 );
               }, icon: const Icon(Icons.settings)),
 
@@ -94,11 +97,10 @@ class _AccountState extends State<Account> {
 
                     child: InkWell(
                       onTap: () {
-                        print("tapped");
                         navigateTostartWorkout();
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -125,42 +127,72 @@ class _AccountState extends State<Account> {
   }
 }
 
-class Username extends StatefulWidget{
-  const Username({super.key});
+class AccountDetails extends StatefulWidget {
+  const AccountDetails({super.key});
 
   @override
-  State<Username> createState() => _UsernameState();
+  State<AccountDetails> createState() => _AccountDetailsState();
 }
 
-class _UsernameState extends State<Username> {
+class _AccountDetailsState extends State<AccountDetails> {
   @override
-  Widget build (BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.all(10),
-          child: TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: "Name",
-              hintText: '(example: John Doe)',
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsetsDirectional.all(24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text("Profile Information",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+            const Divider(),
+            const SizedBox(height: 5,),
+        FutureBuilder<DocumentSnapshot>(
+          future: DatabaseService().readUserInfo().doc(FirebaseAuth.instance.currentUser?.uid).get(),
+          builder:
+              (context, snapshot) {
 
-            ),
-          ),
-        ),
+                if (snapshot.connectionState == ConnectionState.waiting){
+                  return const LinearProgressIndicator();
+                }
 
-        Padding(
-          padding: EdgeInsets.all(10),
-          child: TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: "Username",
-              hintText: '(example: @john_doe)',
-            ),
-          ),
+            if (snapshot.hasError) {
+              return const Text("Something went wrong");
+            }
+            
+            if(snapshot.data == null){
+              return const Text("No data");
+            }
+
+            if (snapshot.connectionState == ConnectionState.done) {
+              Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+              //return Text("Full Name: ${data['name']}");
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Name : ${data['name']}",style: const TextStyle(fontSize: 18),),
+                  const SizedBox(height: 5,),
+                  Text('Username : ${data['username']}',style: const TextStyle(fontSize: 18),),
+                  const SizedBox(height: 5,),
+                  Text('Birth Date : ${data['birthDate'].toString()}',style: const TextStyle(fontSize: 18),),
+                  const SizedBox(height: 5,),
+                  Text('Gender : ${data['gender']}',style: const TextStyle(fontSize: 18),),
+                  const SizedBox(height: 5,),
+                  Text('Email Account : ${data['email']}',style: const TextStyle(fontSize: 18),),
+                  const SizedBox(height: 5,),
+                  Text('UID : ${data['id']}',style: const TextStyle(fontSize: 18),),
+                ],
+              );
+            }
+
+            return const Text("loading");
+          },
+        )
+          ],
         ),
-      ],
+      ),
     );
   }
 }
+
+

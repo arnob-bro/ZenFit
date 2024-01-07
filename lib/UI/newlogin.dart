@@ -43,7 +43,7 @@ class _NewLoginState extends State<NewLogin> {
     await DatabaseService().collectUserInfo(
       name: nameController.text,
       username: usernameController.text,
-      birthDate: birthDate,
+      birthDate: birthDate.toString().split(" ")[0],
       gender: selectedGender!,
       email: emailController.text.trim(),
       pass: passController.text.trim(),
@@ -52,27 +52,38 @@ class _NewLoginState extends State<NewLogin> {
   }
 
   void signUpToFirebase()async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
     try {
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passController.text.trim(),
       );
 
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: const Text("Sign up complete"))));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Center(child: Text("Sign up complete"))));
       userDataToDatabase();
       Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
 
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: const Text("weak password"))));
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Center(child: Text("weak password"))));
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: const Text("This email is already in use"))));
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Center(child: Text("This email is already in use"))));
       }
     } catch (e) {
       print(e);
     }
+
   }
 
 
@@ -83,6 +94,9 @@ class _NewLoginState extends State<NewLogin> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.black38,
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
         title: const Text(
           'Welcome!',
           style: TextStyle(
@@ -93,7 +107,7 @@ class _NewLoginState extends State<NewLogin> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/loginbg.png'),
+            image: const AssetImage('assets/images/loginbg.png'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.black38.withOpacity(0.4), BlendMode.dstATop),
@@ -116,13 +130,15 @@ class _NewLoginState extends State<NewLogin> {
                 padding: const EdgeInsets.only(right: 10, left: 10),
                 child: TextField(
                   controller: nameController,
-                  style: TextStyle(color: Colors.black), // Set text color to black
-                  decoration: const InputDecoration(
+                  style: const TextStyle(color: Colors.black), // Set text color to black
+                  decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    hintText: 'Name (example: John Doe)',
-                    hintStyle: TextStyle(fontSize:18,color: Colors.black54), // Set hint text color
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    hintText: 'Enter your name',
+                    hintStyle: const TextStyle(fontSize:18,color: Colors.black54), // Set hint text color
                   ),
                 ),
               ),
@@ -140,13 +156,15 @@ class _NewLoginState extends State<NewLogin> {
                 padding: const EdgeInsets.only(right: 10, left: 10),
                 child: TextField(
                   controller: usernameController,
-                  style: TextStyle(color: Colors.black), // Set text color to black
-                  decoration: const InputDecoration(
+                  style: const TextStyle(color: Colors.black), // Set text color to black
+                  decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    hintText: 'User Name (example: john_doe)',
-                    hintStyle: TextStyle(fontSize:18,color: Colors.black54),// Set hint text color
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    hintText: 'Enter your username',
+                    hintStyle: const TextStyle(fontSize:18,color: Colors.black54),// Set hint text color
                   ),
                 ),
               ),
@@ -156,7 +174,7 @@ class _NewLoginState extends State<NewLogin> {
                     child: Column(
                       children: [
                         const Padding(
-                          padding: EdgeInsets.only(top: 10, left: 10),
+                          padding: EdgeInsets.only(top: 10,),
                           child: Text(
                             'Birth Date',
                             style: TextStyle(
@@ -170,7 +188,7 @@ class _NewLoginState extends State<NewLogin> {
                           child: ElevatedButton(
                             onPressed: _showDatePicker,
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Color.fromRGBO(250, 95, 95, 1.0),),
+                              backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(250, 95, 95, 1.0),),
                             ),
                             child: isBirthdateSelected
                                 ? Text(birthDate.toString().split(" ")[0])
@@ -188,7 +206,7 @@ class _NewLoginState extends State<NewLogin> {
                     child: Column(
                       children: [
                         const Padding(
-                          padding: EdgeInsets.only(top: 10, left: 10),
+                          padding: EdgeInsets.only(top: 10),
                           child: Text(
                             'Gender',
                             style: TextStyle(
@@ -200,17 +218,18 @@ class _NewLoginState extends State<NewLogin> {
                         Padding(
                           padding: const EdgeInsets.only(right: 10, left: 10),
                           child: DropdownButton(
-                            hint: const Text('Choose'),
+                            hint: const Text('Choose',style: TextStyle(color: Colors.white),),
                             dropdownColor: Colors.white54,
+
                             value: selectedGender,
                             items: const [
                               DropdownMenuItem(
                                 value: 'Man',
-                                child: Text('Man'),
+                                child: Text('Man',style: TextStyle(color: Colors.white),),
                               ),
                               DropdownMenuItem(
                                 value: 'Woman',
-                                child: Text('Woman'),
+                                child: Text('Woman',style: TextStyle(color: Colors.white),),
                               ),
                             ],
                             onChanged: (String? newValue) {
@@ -239,13 +258,15 @@ class _NewLoginState extends State<NewLogin> {
                 padding: const EdgeInsets.only(right: 10, left: 10),
                 child: TextField(
                   controller: emailController,
-                  style: TextStyle(color: Colors.black), // Set text color to black
-                  decoration: const InputDecoration(
+                  style: const TextStyle(color: Colors.black), // Set text color to black
+                  decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    hintText: 'write email',
-                    hintStyle: TextStyle(fontSize:18,color: Colors.black54),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    hintText: 'Enter your email',
+                    hintStyle: const TextStyle(fontSize:18,color: Colors.black54),
                   ),
                 ),
               ),
@@ -263,26 +284,29 @@ class _NewLoginState extends State<NewLogin> {
                 padding: const EdgeInsets.only(right: 10, left: 10),
                 child: TextField(
                   controller: passController,
-                  style: TextStyle(color: Colors.black), // Set text color to black
-                  decoration: const InputDecoration(
+                  obscureText: true,
+                  style: const TextStyle(color: Colors.black), // Set text color to black
+                  decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    hintText: 'write password',
-                    hintStyle: TextStyle(fontSize:18,color: Colors.black54),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    hintText: 'Enter your password',
+                    hintStyle: const TextStyle(fontSize:18,color: Colors.black54),
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
-              Expanded(
-                child: TextButton(
+              const SizedBox(height: 10,),
+
+                TextButton(
                   onPressed: () {
                     signUpToFirebase();
                   },
-                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color.fromRGBO(250, 95, 95, 5))),
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(250, 95, 95, 5))),
                   child: const Text("Submit",style: TextStyle(fontSize: 20.0, color: Colors.white),),
                 ),
-              ),
+
             ],
           ),
         ),

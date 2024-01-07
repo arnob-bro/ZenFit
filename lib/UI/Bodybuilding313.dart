@@ -4782,7 +4782,7 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
             }, icon: const Icon(Icons.note_alt)),
             IconButton(onPressed:(){
               Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Settings()),
+                MaterialPageRoute(builder: (context) => const settings()),
               );
 
             }, icon: const Icon(Icons.settings)),

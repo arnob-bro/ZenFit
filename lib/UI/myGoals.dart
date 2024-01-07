@@ -1,3 +1,6 @@
+
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/createGoal.dart';
 import 'package:zenfit/UI/homepage.dart';
@@ -20,7 +23,7 @@ class _My_GoalsState extends State<My_Goals> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff37393D),
+      backgroundColor: const Color(0xff37393D),
       appBar: AppBar(
         title: const Text(
             "My Goals",
@@ -60,7 +63,7 @@ class _My_GoalsState extends State<My_Goals> {
             }, icon: const Icon(Icons.note_alt)),
             IconButton(onPressed:(){
               Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Settings()),
+                MaterialPageRoute(builder: (context) => const settings()),
               );
             }, icon: const Icon(Icons.settings)),
 
@@ -79,21 +82,114 @@ class _My_GoalsState extends State<My_Goals> {
 
       body: ListView(
         children: [
-          StreamBuilder<List<Goal>>(
+          /*StreamBuilder<List<Goal>>(
               stream: DatabaseService().readGoals(),
               builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  final goalList = snapshot.data;
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: goalList!
-                        .map((goal) => GoalCard(goal: goal))
-                        .toList(),
-                  );
-                } else {
-                  return Text("Data Not found");
+                if(snapshot.connectionState == ConnectionState.waiting)
+                  {
+                    return const Center(child: CircularProgressIndicator(),);
+                  }
+                else {
+                  if (snapshot.hasData) {
+                    final goalList = snapshot.data;
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: goalList!
+                          .map((goal) => GoalCard(goal: goal))
+                          .toList(),
+                    );
+                  } else {
+                    return const Center(child: Text("Data Not found"));
+                  }
                 }
-              }),
+              }),*/
+              const SizedBox(height: 10,),
+              StreamBuilder(
+                  stream: DatabaseService().readGoals(),
+                  builder: (context , AsyncSnapshot<QuerySnapshot> snapshot){
+                    if(snapshot.connectionState == ConnectionState.waiting)
+                    {
+                      return const Center(child: LinearProgressIndicator(),);
+                    }
+
+                    if(snapshot.hasData){
+                      return ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          itemCount: snapshot.data!.docs.length,
+                          itemBuilder: (context,index){
+                            return Card(
+                              color: Colors.white54,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 6,
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text("${snapshot.data!.docs[index]['name']}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(right: 10, left: 10),
+                                          child: Text("${snapshot.data!.docs[index]['description']}",style: TextStyle(fontSize: 15)),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text("${snapshot.data!.docs[index]['date']}",style: TextStyle(fontSize: 10)),
+                                        ),
+                                      ],
+
+                                    ),
+                                  ),
+
+                                  Expanded(
+                                    flex: 1,
+                                    child: IconButton(onPressed: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return AlertDialog(
+                                            iconPadding: const EdgeInsets.fromLTRB(250, 0, 0, 0),
+                                            icon: IconButton(
+                                              icon: const Icon(Icons.close),
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                            title: const Text('Delete Goal ?'),
+                                            content: Text(
+                                              'This will permanently delete the Goal',
+                                              style: TextStyle(color: Colors.red[700]),
+                                            ),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  DatabaseService().deleteGoal("${snapshot.data!.docs[index]['name']}");
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text('Detele'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }, icon: const Icon(Icons.delete)),
+                                  )
+                                ],
+                              ),
+                            );
+                          }
+                      );
+                    }
+                    else{
+                      return const Text("No Data has been found");
+                    }
+
+                  }
+              ),
+          
           const SizedBox(height: 10,),
         ],
       ),
@@ -112,7 +208,7 @@ class GoalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(20.0),
+      margin: const EdgeInsets.all(20.0),
       color: Colors.grey[200],
       elevation: 10.0,
       shape: RoundedRectangleBorder(
@@ -137,8 +233,8 @@ class GoalCard extends StatelessWidget {
               children: [
                 TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/editGoal',
-                          arguments: {'goalObject': goal});
+                      //Navigator.pushNamed(context, '/editGoal',
+                         // arguments: {'goalObject': goal});
                     },
                     child: const Text("Edit")),
 
@@ -149,14 +245,14 @@ class GoalCard extends StatelessWidget {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            iconPadding: EdgeInsets.fromLTRB(250, 0, 0, 0),
+                            iconPadding: const EdgeInsets.fromLTRB(250, 0, 0, 0),
                             icon: IconButton(
-                              icon: Icon(Icons.close),
+                              icon: const Icon(Icons.close),
                               onPressed: () {
                                 Navigator.pop(context);
                               },
                             ),
-                            title: Text('Delete Goal ?'),
+                            title: const Text('Delete Goal ?'),
                             content: Text(
                               'This will permanently delete the Goal',
                               style: TextStyle(color: Colors.red[700]),
@@ -167,14 +263,14 @@ class GoalCard extends StatelessWidget {
                                   DatabaseService().deleteGoal(goal.name!);
                                   Navigator.pop(context);
                                 },
-                                child: Text('Detele'),
+                                child: const Text('Detele'),
                               ),
                             ],
                           );
                         },
                       );
                     },
-                    child: Text("Delete")),
+                    child: const Text("Delete")),
               ],
             )
           ],

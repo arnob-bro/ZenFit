@@ -35,7 +35,7 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
     double constant=0;
     double weight,age,height;
 
-    weight = double.parse(weightController.text.toString());
+    weight = double.parse(weightController.text);
     age = double.parse(ageController.text);
     height = double.parse(heightController.text);
 
@@ -229,29 +229,29 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                                     padding: const EdgeInsets.only( left: 10,right: 10),
                                     child: DropdownButton(
 
-                                      hint: const Text('Choose'),
-                                      dropdownColor: Colors.white54,
+                                      hint: const Text('Choose',style: TextStyle(color: Colors.white54),),
+                                      dropdownColor: const Color.fromRGBO(88, 85, 94, 8),
                                       value: selectedValue,
                                       items: const [
                                         DropdownMenuItem(
                                           value: 1,
-                                          child: Text('Little/None'),
+                                          child: Text('Little/None',style: TextStyle(color: Colors.white54),),
                                         ),
                                         DropdownMenuItem(
                                           value: 2,
-                                          child: Text('1-3'),
+                                          child: Text('1-3',style: TextStyle(color: Colors.white54),),
                                         ),
                                         DropdownMenuItem(
                                           value: 3,
-                                          child: Text('4-5'),
+                                          child: Text('4-5',style: TextStyle(color: Colors.white54),),
                                         ),
                                         DropdownMenuItem(
                                           value: 4,
-                                          child: Text('6-7'),
+                                          child: Text('6-7',style: TextStyle(color: Colors.white54),),
                                         ),
                                         DropdownMenuItem(
                                           value: 5,
-                                          child: Text('2 times/day'),
+                                          child: Text('2 times/day',style: TextStyle(color: Colors.white54),),
                                         )
                                       ],
                                       onChanged: (int? newValue) {
@@ -316,17 +316,18 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
                               Padding(
                                   padding: const EdgeInsets.only( left: 10,right: 10),
                                   child: DropdownButton(
-                                    hint: const Text('Choose'),
+                                    dropdownColor: const Color.fromRGBO(88, 85, 94, 8),
+                                    hint: const Text('Choose',style: TextStyle(color: Colors.white54),),
                                     value: selectedGender,
 
                                     items: const [
                                       DropdownMenuItem(
                                         value: 1,
-                                        child: Text('Man'),
+                                        child: Text('Man',style: TextStyle(color: Colors.white54),),
                                       ),
                                       DropdownMenuItem(
                                         value: 2,
-                                        child: Text('Woman'),
+                                        child: Text('Woman',style: TextStyle(color: Colors.white54),),
                                       ),
 
                                     ], onChanged: (int? newGender) {
@@ -350,13 +351,24 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
 
                 ) ,
               ),
-              Card(
-                color: Colors.white10,
-                child: ListTile(
-                  title: const Center(child: Text("Calculate",style: TextStyle(color: Colors.white54,),)),
-                  onTap: () {
-                    calculateCalorie();
-                  },
+              Padding(
+                padding: const EdgeInsets.only(top: 10,right: 10,left: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () {
+                          calculateCalorie();
+                        },
+                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(88, 95, 95, 5))),
+                        child: const Text(
+                          "Calculate",
+                          style: TextStyle(fontSize: 18.0, color: Colors.white54),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
 
@@ -396,7 +408,7 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
               }, icon: const Icon(Icons.note_alt)),
               IconButton(onPressed:(){
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Settings()),
+                  MaterialPageRoute(builder: (context) => const settings()),
                 );
               }, icon: const Icon(Icons.settings)),
 

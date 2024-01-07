@@ -107,7 +107,7 @@ class _ExerciseState extends State<Exercise> {
             }, icon: const Icon(Icons.note_alt)),
             IconButton(onPressed:(){
                 Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Settings()),
+                MaterialPageRoute(builder: (context) => const settings()),
               );
             }, icon: const Icon(Icons.settings)),
           ],

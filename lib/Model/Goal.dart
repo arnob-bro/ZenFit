@@ -1,5 +1,5 @@
 class Goal{
-  DateTime? date;
+  String? date;
   String? name;
   String? description;
 

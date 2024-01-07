@@ -62,17 +62,17 @@ class _HomeState extends State<Home>{
               ),
             ),
             body: SafeArea(
-              child: ListView(
+              child: Column(
                 children:  [
                   Card(
                     child: ListTile(
                       title: const Text("Training Log"),
                       onTap: (){
-        
+
                       }
                     ),
                   ),
-        
+
                   Card(
                     child: ListTile(
                       title: const Text("My Goals"),
@@ -83,7 +83,7 @@ class _HomeState extends State<Home>{
                         }
                     ),
                   ),
-        
+
                   Card(
                     child: ListTile(
                       title: const Text("Followed Programs"),
@@ -92,6 +92,12 @@ class _HomeState extends State<Home>{
                             MaterialPageRoute(builder: (context) => const Followed_Programs()),
                           );
                         }
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                        title: const Text("Chat Room"),
+                        onTap: (){}
                     ),
                   ),
                 ],
@@ -127,7 +133,7 @@ class _HomeState extends State<Home>{
                   }, icon: const Icon(Icons.note_alt)),
                   IconButton(onPressed:(){
                     Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Settings()),
+                      MaterialPageRoute(builder: (context) => const settings()),
                     );
                   }, icon: const Icon(Icons.settings)),
         
