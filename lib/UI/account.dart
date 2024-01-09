@@ -44,6 +44,23 @@ class _AccountState extends State<Account> {
             ),
           ),
           body: const AccountDetails(),
+        /* body: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: const AssetImage('assets/images/account.jpg'),
+                    fit: BoxFit.cover,
+                   // colorFilter: ColorFilter.mode(
+                     //   Colors.black38.withOpacity(.8), BlendMode.dstATop),
+                  )
+              ),
+            ),
+            Positioned.fill(
+              child: const AccountDetails(), // Replace with your actual content widget
+            ),
+          ],
+        ),*/
         bottomNavigationBar: BottomAppBar(
           elevation: 20,
           height: 60,
@@ -144,7 +161,22 @@ class _AccountDetailsState extends State<AccountDetails> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Profile Information",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+            Container(
+              height: 150,
+              child: Center(
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Colors.lightBlueAccent, // Set the background color
+                  child: Icon(
+                    Icons.person,
+                    size: 40.0, // Adjust the icon size
+                    color: Colors.white, // Set the icon color
+                  ),
+                ),
+              ),
+
+            ),
+            const Center(child: Text("Profile Information",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 18),),),
             const Divider(),
             const SizedBox(height: 5,),
         FutureBuilder<DocumentSnapshot>(
@@ -159,7 +191,7 @@ class _AccountDetailsState extends State<AccountDetails> {
             if (snapshot.hasError) {
               return const Text("Something went wrong");
             }
-            
+
             if(snapshot.data == null){
               return const Text("No data");
             }
@@ -170,17 +202,102 @@ class _AccountDetailsState extends State<AccountDetails> {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Name : ${data['name']}",style: const TextStyle(fontSize: 18),),
-                  const SizedBox(height: 5,),
-                  Text('Username : ${data['username']}',style: const TextStyle(fontSize: 18),),
-                  const SizedBox(height: 5,),
-                  Text('Birth Date : ${data['birthDate'].toString()}',style: const TextStyle(fontSize: 18),),
-                  const SizedBox(height: 5,),
-                  Text('Gender : ${data['gender']}',style: const TextStyle(fontSize: 18),),
-                  const SizedBox(height: 5,),
-                  Text('Email Account : ${data['email']}',style: const TextStyle(fontSize: 18),),
-                  const SizedBox(height: 5,),
-                  Text('UID : ${data['id']}',style: const TextStyle(fontSize: 18),),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Name :',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      title: Text("${data['name']}",style: const TextStyle(fontSize: 18),),
+                    ),
+                  ),
+
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Username : ',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      title: Text('${data['username']}',style: const TextStyle(fontSize: 18),),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Birth Date : ',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      title: Text('${data['birthDate'].toString()}',style: const TextStyle(fontSize: 18),),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Gender : ',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      title: Text('${data['gender']}',style: const TextStyle(fontSize: 18),),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Email Account : ',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      title:  Text('${data['email']}',style: const TextStyle(fontSize: 18),),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'User ID : ',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      title: Text('${data['id']}',style: const TextStyle(fontSize: 18),),
+                    ),
+                  ),
+
+
+
+
+
                 ],
               );
             }
