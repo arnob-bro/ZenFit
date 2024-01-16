@@ -21,6 +21,8 @@ class _ChatUserCardState extends State<ChatUserCard> {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Card(
       color: Colors.black,
       child: InkWell(
