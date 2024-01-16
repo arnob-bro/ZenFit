@@ -85,10 +85,10 @@ class _StrengthGraphState extends State<StrengthGraph> {
             BackdropFilter( filter: ImageFilter.blur(sigmaX: 5,sigmaY: 5),
               child: Container(
                 height: 120,
-                color: Colors.grey,
+                color: Colors.transparent,
                 child: Center(
                   child: Card(
-
+                    color: Color.fromRGBO(250, 95, 95, 5),
                     child: InkWell(
                       onTap: () {
                         print("tapped");
@@ -101,10 +101,10 @@ class _StrengthGraphState extends State<StrengthGraph> {
                           children: [
                             Icon(Icons.fitness_center, // Choose the workout icon
                               size: 30.0,
-                              color: Colors.black, // Adjust the color as needed
+                              color: Colors.white, // Adjust the color as needed
                             ),
                             SizedBox(width: 10),
-                            Text('Start a new workout', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold,color: Colors.black),
+                            Text('Start a new workout', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold,color: Colors.white),
                             ),
                           ],
                         ),
