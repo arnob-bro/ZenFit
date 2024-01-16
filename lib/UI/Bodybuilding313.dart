@@ -25,6 +25,9 @@ class _BodyBuilding313State extends State<BodyBuilding313> {
             color: Colors.white54,
           ),
         ),
+        leading: IconButton(onPressed: (){
+          Navigator.of(context).pop();
+        }, icon: const Icon(Icons.arrow_back),color: Colors.white),
         backgroundColor: Colors.black12,
 
       ),

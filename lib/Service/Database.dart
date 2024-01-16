@@ -1,29 +1,40 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:zenfit/Model/Goal.dart';
 import 'package:zenfit/Model/user.dart';
 
 import '../Model/body.dart';
+import '../Model/zenfit_user.dart';
 
 class DatabaseService{
   final CollectionReference userInfoCollection = FirebaseFirestore.instance.collection("users");
   final CollectionReference goalCollection = FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser?.uid).collection("goals");
   final CollectionReference bodyMeasurementCollection = FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser?.uid).collection('body measurements');
+  final FirebaseStorage storage = FirebaseStorage.instance;
+  //static String? _userid = FirebaseAuth.instance.currentUser?.uid;
 
-  Future collectUserInfo ({required String name,required String username, required String birthDate, required String gender, required String email, required String pass}) async {
+  Future collectUserInfo ({required String name,required String username,required bool isOnline, required String birthDate, required String gender, required String email, required String pass, required String image, required String about, required String createdAt, required String lastActive, required String pushToken}) async {
     final docUserInfo = userInfoCollection.doc(FirebaseAuth.instance.currentUser?.uid);
-    final userInfo userInformation = userInfo(
+    final zenfituser = ZenFitUser(
       id: docUserInfo.id,
       name: name,
       username: username,
       birthDate: birthDate,
       gender: gender,
       email: email,
-      pass:pass
+      pass:pass,
+      isOnline: isOnline,
+      image: FirebaseAuth.instance.currentUser!.photoURL.toString(),
+      about: about,
+      createdAt: createdAt,
+      lastActive: lastActive,
+      pushToken: '',
     );
 
-    final jsonUserInfo = userInformation.toJson();
-    return await docUserInfo.set(jsonUserInfo);
+    return await userInfoCollection.doc(FirebaseAuth.instance.currentUser?.uid).set(zenfituser.toJson());
   }
 
   Future<void> createGoal ({required String date, required String name,required String description}) async {
@@ -62,39 +73,25 @@ class DatabaseService{
 }
 
 
-/*
-//new
-  // Used to map snapshot into a list of Goal Object
 
-  List<Goal> goalListFromSnapshot(QuerySnapshot snapshot){
-    final goalList = snapshot.docs.map(
-            (doc) => Goal(date: doc.get('date'), name: doc.get('name'), description: doc.get('description'))
-    ).toList();
-    return goalList;
-  }
-
-  //read documents from goals collection
-  Stream<List<Goal>> readGoals(){
-    return goalCollection.snapshots().map(goalListFromSnapshot);
-  }*/
+//read goals from database
   Stream <QuerySnapshot>readGoals(){
     return goalCollection.snapshots();
   }
 
+  //read userInfo from database
   CollectionReference readUserInfo(){
       return userInfoCollection;
-
+  }
+  Future<ZenFitUser>readSelfInfo()async{
+    return ZenFitUser.fromJson(await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser?.uid).get() as Map<String, dynamic>);
   }
 
-  /*//  Map snapshot into one Goal Object
-  Goal goalObjectFromSnapshot(DocumentSnapshot snapshot){
-    return Goal(date: snapshot.get('date'), name: snapshot.get('name'), description: snapshot.get('description'));
+  //get all users for chatroom
+  Stream<QuerySnapshot<Map<String, dynamic>>>getAllUsers(){
+    return FirebaseFirestore.instance.collection('users').where('id', isNotEqualTo: FirebaseAuth.instance.currentUser?.uid).snapshots();
   }
 
-  // Get goal by goal name
-  Stream<Goal> getGoalByGoalName(String goalName){
-    return goalCollection.doc(goalName).snapshots().map(goalObjectFromSnapshot);
-  }*/
 
   // Update documents from goal Collection
   Future updateGoal(Goal goal) async{
@@ -105,6 +102,35 @@ class DatabaseService{
       'description': goal.description
     });
   }
+
+  Future updateAccountDetails(ZenFitUser zenfituser) async{
+    final docUser = userInfoCollection.doc(FirebaseAuth.instance.currentUser?.uid);
+    return await docUser.update({
+
+      'about' : zenfituser.about,
+      'name' : zenfituser.name,
+      'birthDate' : zenfituser.birthDate,
+      'gender' : zenfituser.gender,
+      'username' : zenfituser.username
+    });
+  }
+
+  Future<void>updateProfilePicture(File file)async{
+    final ext = file.path.split('.').last;
+    print('Extension : $ext');
+    final ref = storage.ref().child('profile_pictures/${FirebaseAuth.instance.currentUser?.uid}.$ext');
+    await ref
+        .putFile(file, SettableMetadata(contentType: 'image/$ext'))
+        .then((pO){
+          print('Dta Transferred: ${pO.bytesTransferred / 1000} kb');
+    });
+
+    await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser?.uid).update({
+      'image' : await ref.getDownloadURL()
+    });
+
+  }
+
 
   // Delete Goal
   Future deleteGoal(String goalName) async{

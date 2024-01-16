@@ -41,40 +41,20 @@ class _MineState extends State<Mine> {
               color: Colors.white54,
             ),
           ),
+          leading: IconButton(onPressed: (){
+            Navigator.of(context).pop();
+          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
           backgroundColor: Colors.black12,
 
         ),
         body: ListView(
           children: [
-            Card(
-              child: ListTile(
-                title: Text("Example1"),
-                onTap: () {
 
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: Text("Add Program"),
-                onTap: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const AddProgram()),
-                  );
 
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: Text("Example2"),
-                onTap: () {
-
-                },
-              ),
-            ),
           ],
         ),
+
+
 
         bottomNavigationBar: BottomAppBar(
           elevation: 20,

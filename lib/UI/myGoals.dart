@@ -31,6 +31,9 @@ class _My_GoalsState extends State<My_Goals> {
             color: Colors.white54,
           ),
         ),
+        leading: IconButton(onPressed: (){
+          Navigator.of(context).pop();
+        }, icon: const Icon(Icons.arrow_back),color: Colors.white),
         backgroundColor: Colors.black12,
       ),
       bottomNavigationBar: BottomAppBar(
@@ -150,6 +153,7 @@ class _My_GoalsState extends State<My_Goals> {
                                         context: context,
                                         builder: (context) {
                                           return AlertDialog(
+
                                             iconPadding: const EdgeInsets.fromLTRB(250, 0, 0, 0),
                                             icon: IconButton(
                                               icon: const Icon(Icons.close),
@@ -168,7 +172,7 @@ class _My_GoalsState extends State<My_Goals> {
                                                   DatabaseService().deleteGoal("${snapshot.data!.docs[index]['name']}");
                                                   Navigator.pop(context);
                                                 },
-                                                child: const Text('Detele'),
+                                                child: const Text('Delete'),
                                               ),
                                             ],
                                           );

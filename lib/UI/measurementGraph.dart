@@ -33,6 +33,9 @@ class _MeasurementGraphState extends State<MeasurementGraph> {
         backgroundColor: Colors.white60,
         appBar: AppBar(
           title: const Text("Measurement Graph"),
+          leading: IconButton(onPressed: (){
+            Navigator.of(context).pop();
+          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
           backgroundColor: Colors.black26,
 
         ),

@@ -39,6 +39,9 @@ class _ExerciseState extends State<Exercise> {
             color: Colors.white54,
           ),
         ),
+          leading: IconButton(onPressed: (){
+            Navigator.of(context).pop();
+          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
         backgroundColor: Colors.black12,
         bottom:const TabBar(
           tabs: [

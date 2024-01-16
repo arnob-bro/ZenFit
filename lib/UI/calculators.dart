@@ -40,6 +40,9 @@ class _CalculatorsState extends State<Calculators> {
               color: Colors.white54,
             ),
           ),
+          leading: IconButton(onPressed: (){
+            Navigator.of(context).pop();
+          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
           backgroundColor: Colors.black12,
         ),
         body: Padding(

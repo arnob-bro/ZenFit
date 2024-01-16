@@ -1,10 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/welcome.dart';
 import 'firebase_options.dart';
 
+late Size mq;
 
 Future<void> main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +28,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    // TODO: implement initState
+
     super.initState();
   }
    @override

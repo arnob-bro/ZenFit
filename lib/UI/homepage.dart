@@ -66,102 +66,104 @@ class _HomeState extends State<Home>{
             body: Padding(
               padding: const EdgeInsets.all(24.0),
               child: SafeArea(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:  [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: GestureDetector(
-
-                            child:  Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    //color: Color.fromRGBO(88, 86, 98, 8),
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children:  [
+                      SizedBox(height: 100,),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GestureDetector(
+                  
+                              child:  Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      //color: Color.fromRGBO(88, 86, 98, 8),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  height: 200,
+                                  child: const Center(child: Text("Training Log")),
                                 ),
-                                height: 200,
-                                child: const Center(child: Text("Training Log")),
                               ),
+                              onTap: (){ },
+                  
                             ),
-                            onTap: (){ },
-
                           ),
-                        ),
-
-                        Expanded(
-                          child: GestureDetector(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.white,
+                  
+                          Expanded(
+                            child: GestureDetector(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                  ),
+                                  height: 200,
+                                  child: const Center(child: Text("My Goals")),
                                 ),
-                                height: 200,
-                                child: const Center(child: Text("My Goals")),
                               ),
-                            ),
-                            onTap: (){
-                              Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => My_Goals()),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    Row(
-                      children: [
-                        Expanded(
-                          child: GestureDetector(
-
-                            child:  Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  //color: Color.fromRGBO(88, 86, 98, 8),
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                height: 200,
-                                child: const Center(child: Text("Followed Programs")),
-                              ),
-                            ),
                               onTap: (){
                                 Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => const Followed_Programs()),
+                                  MaterialPageRoute(builder: (context) => My_Goals()),
                                 );
-                              }
-                          ),
-                        ),
-
-                        Expanded(
-                          child: GestureDetector(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.white,
-                                ),
-                                height: 200,
-                                child: const Center(child: Text("Chat Room")),
-                              ),
+                              },
                             ),
-                            onTap: (){
-                              Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => const Chat_Room()),
-                              );
-                            },
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                  
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GestureDetector(
+                  
+                              child:  Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    //color: Color.fromRGBO(88, 86, 98, 8),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  height: 200,
+                                  child: const Center(child: Text("Followed Programs")),
+                                ),
+                              ),
+                                onTap: (){
+                                  Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) => const Followed_Programs()),
+                                  );
+                                }
+                            ),
+                          ),
+                  
+                          Expanded(
+                            child: GestureDetector(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                  ),
+                                  height: 200,
+                                  child: const Center(child: Text("Chat Room")),
+                                ),
+                              ),
+                              onTap: (){
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => const Chat_Room()),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

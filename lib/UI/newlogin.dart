@@ -47,6 +47,12 @@ class _NewLoginState extends State<NewLogin> {
       gender: selectedGender!,
       email: emailController.text.trim(),
       pass: passController.text.trim(),
+      isOnline: false,
+      image: '',
+      about: '',
+      createdAt: DateTime.now().millisecondsSinceEpoch.toString(),
+      lastActive: DateTime.now().millisecondsSinceEpoch.toString(),
+      pushToken: '',
 
     );
   }

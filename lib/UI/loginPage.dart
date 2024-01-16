@@ -199,13 +199,43 @@ class _loginPageState extends State<loginPage> {
                                   //escape loading phase
                                   Navigator.of(context).pop();
                                   //showing the problem in login
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+
+                                  if(result== '[firebase_auth/invalid-credential] The supplied auth credential is incorrect, malformed or has expired.'){
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            behavior: SnackBarBehavior.floating,
+                                            // content: Text("Login failed, try again !")
+                                            content: Text("Invalid Email/Password"),
+                                        )
+                                    );
+                                  }
+                                  else if(result== '[firebase_auth/too-many-requests] We have blocked all requests from this device due to unusual activity. Try again later.'){
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
                                           behavior: SnackBarBehavior.floating,
                                           // content: Text("Login failed, try again !")
-                                          content: Text("$result")
-                                      )
-                                  );
+                                          content: Text("We have blocked all requests from this device due to unusual activity. Try again later."),
+                                        )
+                                    );
+                                  }
+                                  else if(result== '[firebase_auth/network-request-failed] A network error (such as timeout, interrupted connection or unreachable host) has occurred.'){
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                          behavior: SnackBarBehavior.floating,
+                                          // content: Text("Login failed, try again !")
+                                          content: Text("Please check your Internet Connection"),
+                                        )
+                                    );
+                                  }
+                                  else{
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            behavior: SnackBarBehavior.floating,
+                                            // content: Text("Login failed, try again !")
+                                            content: Text("$result")
+                                        )
+                                    );
+                                  }
                                 }
                                 else if(result is UserCredential){
                                   //escape loading phase
@@ -217,6 +247,7 @@ class _loginPageState extends State<loginPage> {
                                   Navigator.push(
                                       context, MaterialPageRoute(builder: (context) => const Home()));
                                 }
+
                               },
                               style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(250, 95, 95, 5))),
                               child: const Text(

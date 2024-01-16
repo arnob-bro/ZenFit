@@ -1,7 +1,9 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/UI/graph.dart';
@@ -9,6 +11,9 @@ import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 import 'package:zenfit/UI/startWorkout.dart';
+import 'package:zenfit/UI/update_account.dart';
+
+import '../main.dart';
 
 class Account extends StatefulWidget{
   const Account({super.key});
@@ -29,10 +34,13 @@ class _AccountState extends State<Account> {
   @override
   Widget build (BuildContext context){
     return GestureDetector(
-      onTap: () { setState(() {isCardVisible = false;
+      onTap: () {
+        setState(() {isCardVisible = false;
       });
       },
       child: Scaffold(
+
+
 
           appBar: AppBar(
             backgroundColor: Colors.white,
@@ -72,6 +80,7 @@ class _AccountState extends State<Account> {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Home()),
                 );
+
               }, icon: const Icon(Icons.home)),
               IconButton(onPressed:(){
                 Navigator.push(context,
@@ -152,8 +161,10 @@ class AccountDetails extends StatefulWidget {
 }
 
 class _AccountDetailsState extends State<AccountDetails> {
+
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsetsDirectional.all(24),
@@ -161,24 +172,6 @@ class _AccountDetailsState extends State<AccountDetails> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 150,
-              child: Center(
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.lightBlueAccent, // Set the background color
-                  child: Icon(
-                    Icons.person,
-                    size: 40.0, // Adjust the icon size
-                    color: Colors.white, // Set the icon color
-                  ),
-                ),
-              ),
-
-            ),
-            const Center(child: Text("Profile Information",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 18),),),
-            const Divider(),
-            const SizedBox(height: 5,),
         FutureBuilder<DocumentSnapshot>(
           future: DatabaseService().readUserInfo().doc(FirebaseAuth.instance.currentUser?.uid).get(),
           builder:
@@ -202,7 +195,23 @@ class _AccountDetailsState extends State<AccountDetails> {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
+                  Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(mq.height * .8),
+                      child: CachedNetworkImage(
+                        width: mq.height * .15,
+                        height: mq.height * .15,
+                        fit: BoxFit.cover,
+                        imageUrl: data['image'],
+                        errorWidget: (context,url,error)=> const CircleAvatar(child: Icon(CupertinoIcons.person),),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Center(child: Text("Profile Information",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 18),),),
+                  const Divider(),
+                  const SizedBox(height: 5,),
+                  const Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'Name :',
@@ -218,7 +227,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                     ),
                   ),
 
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'Username : ',
@@ -233,7 +242,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                       title: Text('${data['username']}',style: const TextStyle(fontSize: 18),),
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'Birth Date : ',
@@ -245,10 +254,10 @@ class _AccountDetailsState extends State<AccountDetails> {
                   ),
                   Card(
                     child: ListTile(
-                      title: Text('${data['birthDate'].toString()}',style: const TextStyle(fontSize: 18),),
+                      title: Text(data['birthDate'].toString(),style: const TextStyle(fontSize: 18),),
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'Gender : ',
@@ -263,7 +272,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                       title: Text('${data['gender']}',style: const TextStyle(fontSize: 18),),
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'Email Account : ',
@@ -278,7 +287,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                       title:  Text('${data['email']}',style: const TextStyle(fontSize: 18),),
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
                       'User ID : ',
@@ -293,6 +302,20 @@ class _AccountDetailsState extends State<AccountDetails> {
                       title: Text('${data['id']}',style: const TextStyle(fontSize: 18),),
                     ),
                   ),
+                  SizedBox(height: 10,),
+                  
+                  Center(
+                      child: MaterialButton(
+                        onPressed: (){
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const UpdateAccount()));
+
+                          },
+                        height: 30,
+                        color: Colors.lightBlue,
+                        shape: const StadiumBorder(),
+                        child:const Text("Click to update") ,
+                      )
+                  )
 
 
 

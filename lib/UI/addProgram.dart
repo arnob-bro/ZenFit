@@ -25,28 +25,14 @@ class _AddProgramState extends State<AddProgram> {
             color: Colors.white54,
           ),
         ),
+        leading: IconButton(onPressed: (){
+          Navigator.of(context).pop();
+        }, icon: const Icon(Icons.arrow_back),color: Colors.white),
         backgroundColor: Colors.black12,
 
       ),
       body: ListView(
         children: [
-          Card(
-            child: ListTile(
-              title: Text("1"),
-              onTap: () {
-
-              },
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text("2"),
-              onTap: () {
-
-
-              },
-            ),
-          ),
 
         ],
       ),

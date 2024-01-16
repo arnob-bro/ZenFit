@@ -100,6 +100,9 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
               color: Colors.white54,
             ),
           ),
+          leading: IconButton(onPressed: (){
+            Navigator.of(context).pop();
+          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
           backgroundColor: Colors.black12,
 
         ),
