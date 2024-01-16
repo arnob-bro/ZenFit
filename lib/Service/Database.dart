@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:zenfit/Model/Goal.dart';
+import 'package:zenfit/Model/message.dart';
 import 'package:zenfit/Model/user.dart';
 
 import '../Model/body.dart';
@@ -14,7 +15,7 @@ class DatabaseService{
   final CollectionReference goalCollection = FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser?.uid).collection("goals");
   final CollectionReference bodyMeasurementCollection = FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser?.uid).collection('body measurements');
   final FirebaseStorage storage = FirebaseStorage.instance;
-  //static String? _userid = FirebaseAuth.instance.currentUser?.uid;
+  User get user => FirebaseAuth.instance.currentUser!;
 
   Future collectUserInfo ({required String name,required String username,required bool isOnline, required String birthDate, required String gender, required String email, required String pass, required String image, required String about, required String createdAt, required String lastActive, required String pushToken}) async {
     final docUserInfo = userInfoCollection.doc(FirebaseAuth.instance.currentUser?.uid);
@@ -138,7 +139,58 @@ class DatabaseService{
     return await docGoal.delete();
   }
 
+  ///****************** Chat Screen Related APIs************************
 
+  //chatroom (collection) --> conversation_id (doc) --> messages (collection) --> message (doc)
+
+  //useful for getting conversation id
+  String getConversationID(String id) => user.uid.hashCode <= id.hashCode
+      ? '${user.uid}_$id'
+      : '${id}_${user.uid}';
+
+  //for getting all messages of a specific conversation from firestore database
+  Stream<QuerySnapshot<Map<String, dynamic>>>getAllmessages(ZenFitUser user){
+    return FirebaseFirestore.instance.collection('chatroom').doc(getConversationID(user.id)).collection('messages')
+        .snapshots();
+  }
+
+  // for sending message
+  Future<void> sendMessage(ZenFitUser chatUser, String msg) async {
+
+    final time = DateTime.now().millisecondsSinceEpoch.toString();
+
+    //message to send
+    final Message message = Message(
+        msg: msg,
+        read: '',
+        toId: chatUser.id,
+        //type: Type.text,
+        type: 'text',
+        fromId: user.uid,
+        sent: time
+    );
+
+    final ref = FirebaseFirestore.instance.collection('chatroom').doc(getConversationID(chatUser.id)).collection('messages');
+    await ref.doc(time).set(message.toJson());
+
+  }
+
+  //Update read status of message
+  Future<void> updateMessageReadStatus(Message message) async {
+    await FirebaseFirestore.instance
+        .collection('chatroom/${getConversationID(message.fromId)}/messages/')
+        .doc(message.sent)
+        .update({'read': DateTime.now().millisecondsSinceEpoch.toString()});
+  }
+
+  //get only last message of a specific chat
+  Stream<QuerySnapshot<Map<String, dynamic>>> getLastMessage(ZenFitUser user){
+    return FirebaseFirestore.instance
+        .collection('chatroom/${getConversationID(user.id)}/messages/')
+        .orderBy('sent',descending: true)
+        .limit(1)
+        .snapshots();
+  }
 
 }
 

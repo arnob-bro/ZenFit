@@ -4,6 +4,7 @@ import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/Widgets/chat_user_card.dart';
 
 import '../Model/zenfit_user.dart';
+import '../main.dart';
 
 class Chat_Room extends StatefulWidget {
   const Chat_Room({super.key});
@@ -20,6 +21,7 @@ class _Chat_RoomState extends State<Chat_Room> {
 
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return WillPopScope(
       onWillPop: (){
         if(_isSearching){
