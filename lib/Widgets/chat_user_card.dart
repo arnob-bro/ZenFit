@@ -26,7 +26,9 @@ class _ChatUserCardState extends State<ChatUserCard> {
 
   @override
   Widget build(BuildContext context) {
+
     mq = MediaQuery.of(context).size;
+
     return Card(
       color: Colors.black,
       child: InkWell(

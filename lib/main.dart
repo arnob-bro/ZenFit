@@ -30,6 +30,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
 
     super.initState();
+    DatabaseService().getSelfInfo();
   }
    @override
   Widget build (BuildContext context) {

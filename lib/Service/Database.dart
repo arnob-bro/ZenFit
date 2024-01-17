@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:zenfit/Model/Goal.dart';
 import 'package:zenfit/Model/message.dart';
@@ -15,7 +16,9 @@ class DatabaseService{
   final CollectionReference goalCollection = FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser?.uid).collection("goals");
   final CollectionReference bodyMeasurementCollection = FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser?.uid).collection('body measurements');
   final FirebaseStorage storage = FirebaseStorage.instance;
+  late ZenFitUser me;
   User get user => FirebaseAuth.instance.currentUser!;
+  FirebaseMessaging fMessaging = FirebaseMessaging.instance;
 
   Future collectUserInfo ({required String name,required String username,required bool isOnline, required String birthDate, required String gender, required String email, required String pass, required String image, required String about, required String createdAt, required String lastActive, required String pushToken}) async {
     final docUserInfo = userInfoCollection.doc(FirebaseAuth.instance.currentUser?.uid);
@@ -93,6 +96,19 @@ class DatabaseService{
     return FirebaseFirestore.instance.collection('users').where('id', isNotEqualTo: FirebaseAuth.instance.currentUser?.uid).snapshots();
   }
 
+  //getting self info
+  Future<void> getSelfInfo() async{
+    await FirebaseFirestore.instance.collection('users').doc(user.uid).get().then((user) async{
+
+        if(user.exists){
+          me = ZenFitUser.fromJson(user.data()!);
+          //await getFirebaseMessagingToken();
+          //DatabaseService().updateActiveStatus(true);
+        }
+
+    });
+  }
+
 
   // Update documents from goal Collection
   Future updateGoal(Goal goal) async{
@@ -116,6 +132,7 @@ class DatabaseService{
     });
   }
 
+  //update profile pic of user
   Future<void>updateProfilePicture(File file)async{
     final ext = file.path.split('.').last;
     print('Extension : $ext');
@@ -130,6 +147,22 @@ class DatabaseService{
       'image' : await ref.getDownloadURL()
     });
 
+  }
+
+  //for getting specific user info
+  Stream<QuerySnapshot<Map<String, dynamic>>> getUserInfo(ZenFitUser zenfituser){
+    return FirebaseFirestore.instance
+        .collection('users')
+        .where('id', isNotEqualTo: zenfituser.id)
+        .snapshots();
+  }
+
+  //update online or last active status of user
+  Future<void> updateActiveStatus(bool isOnline)async{
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .update({'isOnline': isOnline, 'lastActive': DateTime.now().millisecondsSinceEpoch.toString(),/*'pushToken': getFirebaseMessagingToken()*/});
   }
 
 
@@ -190,6 +223,20 @@ class DatabaseService{
         .orderBy('sent',descending: true)
         .limit(1)
         .snapshots();
+  }
+
+  Future<String> getFirebaseMessagingToken() async {
+    await fMessaging.requestPermission();
+
+    fMessaging.getToken().then((t){
+      if(t != null){
+        //me.pushToken =t;
+        print('Push Token: $t');
+        return t;
+      }
+    });
+    return '';
+
   }
 
 }

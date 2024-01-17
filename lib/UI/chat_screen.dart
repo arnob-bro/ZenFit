@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:zenfit/Model/zenfit_user.dart';
 import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/Widgets/message_card.dart';
+import 'package:zenfit/helper/my_date_util.dart';
 
 import '../Model/message.dart';
 import '../main.dart';
@@ -51,47 +52,56 @@ class _ChatScreenState extends State<ChatScreen> {
               automaticallyImplyLeading: false,
               backgroundColor: Colors.black,
               flexibleSpace: InkWell(
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: (){
-                        Navigator.of(context).pop();
-                      }, icon: const Icon(Icons.arrow_back),color: Colors.white),
-                
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(mq.height * .03),
-                      child: CachedNetworkImage(
-                        width: mq.height * .05,
-                        height: mq.height * .05,
-                        imageUrl: widget.user.image,
-                        errorWidget: ((context,url,error) => const CircleAvatar(child: Icon(CupertinoIcons.person))),
+                child: StreamBuilder(
+                  stream: DatabaseService().getUserInfo(widget.user),
+                  builder: (context, snapshot) {
+                    final data = snapshot.data?.docs;
+                    final _list = data?.map((e) => ZenFitUser.fromJson(e.data())).toList() ?? [];
+
+                  return Row(
+                    children: [
+                      IconButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        }, icon: const Icon(Icons.arrow_back),color: Colors.white),
+
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(mq.height * .03),
+                        child: CachedNetworkImage(
+                          width: mq.height * .05,
+                          height: mq.height * .05,
+                          imageUrl: widget.user.image,
+                          errorWidget: ((context,url,error) => const CircleAvatar(child: Icon(CupertinoIcons.person))),
+                        ),
                       ),
-                    ),
-                
-                    const SizedBox(width: 10,),
-                
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(widget.user.name,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
+
+                      const SizedBox(width: 10,),
+
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(widget.user.name,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                
-                        const Text("Last seen not available",
-                          style: TextStyle(
-                            fontSize: 13,
-                            //fontWeight: FontWeight.w500,
-                            color: Colors.white,
+
+                          Text(
+                            widget.user.isOnline==true ? 'Online' : MyDateUtil().getLastActiveTime(context: context, lastActive: widget.user.lastActive),
+                            style: const TextStyle(
+                              fontSize: 13,
+                              //fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                      ],
-                    )
-                  ],
+                        ],
+                      )
+                    ],
+                  );
+                }
                 ),
               ),
             ),
