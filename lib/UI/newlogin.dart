@@ -40,7 +40,8 @@ class _NewLoginState extends State<NewLogin> {
   }
 
   void userDataToDatabase() async {
-    await DatabaseService().collectUserInfo(
+
+    await DatabaseService.collectUserInfo(
       name: nameController.text,
       username: usernameController.text,
       birthDate: birthDate.toString().split(" ")[0],

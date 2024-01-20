@@ -27,7 +27,7 @@ class _Create_GoalState extends State<Create_Goal> {
   }
 
   void createGoalToDatabase() async {
-    await DatabaseService().createGoal(
+    await DatabaseService.createGoal(
       date: DateTime.now().toString().split(" ")[0],
       name: nameController.text,
       description: descriptionController.text,

@@ -6,8 +6,10 @@ import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:zenfit/Model/zenfit_user.dart';
 import 'package:zenfit/Service/Database.dart';
+import 'package:zenfit/UI/other_users_profile.dart';
 import 'package:zenfit/Widgets/message_card.dart';
 import 'package:zenfit/helper/my_date_util.dart';
 
@@ -27,7 +29,9 @@ class _ChatScreenState extends State<ChatScreen> {
 
   List<Message> _list = [] ;
   final _textController = TextEditingController();
-  bool _showEmoji = false;
+  bool _showEmoji = false, _isUploading = false;
+  final controller = ScrollController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -52,13 +56,10 @@ class _ChatScreenState extends State<ChatScreen> {
               automaticallyImplyLeading: false,
               backgroundColor: Colors.black,
               flexibleSpace: InkWell(
-                child: StreamBuilder(
-                  stream: DatabaseService().getUserInfo(widget.user),
-                  builder: (context, snapshot) {
-                    final data = snapshot.data?.docs;
-                    final _list = data?.map((e) => ZenFitUser.fromJson(e.data())).toList() ?? [];
-
-                  return Row(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => UsersProfile(user: widget.user)));
+                },
+                child: Row(
                     children: [
                       IconButton(
                         onPressed: (){
@@ -100,9 +101,8 @@ class _ChatScreenState extends State<ChatScreen> {
                         ],
                       )
                     ],
-                  );
-                }
-                ),
+                  )
+
               ),
             ),
                 
@@ -110,14 +110,15 @@ class _ChatScreenState extends State<ChatScreen> {
               children: [
                 Expanded(
                   child: StreamBuilder(
-                      stream: DatabaseService().getAllmessages(widget.user),
+                      stream: DatabaseService.getAllmessages(widget.user),
                       builder: (context, snapshot){
+
                   
                         switch(snapshot.connectionState){
                         //if data is loading
                           case ConnectionState.waiting:
                           case ConnectionState.none:
-                            return SizedBox();
+                            return const SizedBox();
                   
                         //if data is loaded
                           case ConnectionState.active:
@@ -128,11 +129,13 @@ class _ChatScreenState extends State<ChatScreen> {
                 
                             if(_list.isNotEmpty){
                               return ListView.builder(
+                                  reverse: true,
                                   itemCount: _list.length,
                                   physics: const BouncingScrollPhysics(),
                                   itemBuilder: (context,index){
                                     return MessageCard(message: _list[index]);
                                   }
+
                               );
                             }
                             else{
@@ -142,6 +145,19 @@ class _ChatScreenState extends State<ChatScreen> {
                       }
                   ),
                 ),
+
+                //progress indicator for showing uploading
+                if(_isUploading)
+                   const Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 20),
+                        child: CircularProgressIndicator(),
+                      )
+                  ),
+
+                //chat input widget
                 _chatInput(),
                 
                 if(_showEmoji)
@@ -200,11 +216,30 @@ class _ChatScreenState extends State<ChatScreen> {
                       )
                   ),
                   IconButton(
-                      onPressed: (){},
+                      onPressed: ()async{
+                        final ImagePicker picker = ImagePicker();
+                        //pick an image
+                        final List<XFile> images = await picker.pickMultiImage(imageQuality: 70);
+                        for(var image in images){
+                          print('Image path : ${image.path}');
+                          setState(() {_isUploading =true;});
+                          await DatabaseService.sendChatImage(widget.user, File(image.path));
+                          setState(() {_isUploading =false;});
+                        }
+                      },
                       icon: const Icon(Icons.image,color: Color.fromRGBO(0, 148, 210, 8),)
                   ),
                   IconButton(
-                      onPressed: (){},
+                      onPressed: () async {
+                        final ImagePicker picker = ImagePicker();
+                        //pick an image
+                        final XFile? image = await picker.pickImage(source: ImageSource.camera, imageQuality: 70);
+                        if(image!= null){
+                          print('Image path : ${image.path}');
+
+                          await DatabaseService.sendChatImage(widget.user, File(image.path));
+                        }
+                      },
                       icon: const Icon(Icons.camera_alt_rounded,color: Color.fromRGBO(0, 148, 210, 8),)
                   ),
                   SizedBox(width: mq.width * .02,)
@@ -219,7 +254,7 @@ class _ChatScreenState extends State<ChatScreen> {
           shape: const CircleBorder(),
           onPressed: (){
             if(_textController.text.isNotEmpty){
-              DatabaseService().sendMessage(widget.user, _textController.text);
+              DatabaseService.sendMessage(widget.user, _textController.text,'text');
               _textController.text = '';
             }
           },
@@ -227,6 +262,9 @@ class _ChatScreenState extends State<ChatScreen> {
           child: const Icon(Icons.send,color: Colors.white,),
         )
       ],
+
     );
+
   }
+
 }

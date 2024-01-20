@@ -24,9 +24,9 @@ class ZenFitUser {
   late String lastActive;
   late String pushToken;
   late String pass;
-  late String? birthDate;
-  late String? gender;
-  late String? username;
+  late String birthDate;
+  late String gender;
+  late String username;
 
   ZenFitUser.fromJson(Map<String, dynamic> json){
     image = json['image'] ?? '';

@@ -1,5 +1,9 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zenfit/Service/Database.dart';
@@ -12,6 +16,7 @@ import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/startWorkout.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 
+import '../main.dart';
 import 'Chat_Room.dart';
 
 class Home extends StatefulWidget{
@@ -23,7 +28,7 @@ class Home extends StatefulWidget{
 
 class _HomeState extends State<Home>{
   bool isCardVisible= false;
-  final AssetImage backgroundImage = AssetImage('assets/images/traininglogpic.jpg');
+  final AssetImage backgroundImage = const AssetImage('assets/images/traininglogpic.jpg');
 
 
 
@@ -39,19 +44,25 @@ class _HomeState extends State<Home>{
 
     super.initState();
 
-    //DatabaseService().getSelfInfo();
-    DatabaseService().updateActiveStatus(true);
-
-    SystemChannels.lifecycle.setMessageHandler((message){
+    if(FirebaseAuth.instance.currentUser?.uid != null) {
+      DatabaseService.getSelfInfo();
+      DatabaseService.updateActiveStatus(true);
+      SystemChannels.lifecycle.setMessageHandler((message){
       print('Message: $message');
 
-      if(message.toString().contains('pause')) DatabaseService().updateActiveStatus(false);
-      if(message.toString().contains('resumed')) DatabaseService().updateActiveStatus(true);
+      if(message.toString().contains('pause')) DatabaseService.updateActiveStatus(false);
+      if(message.toString().contains('resumed')) DatabaseService.updateActiveStatus(true);
       return Future.value(message);
     });
+    }
   }
   @override
   Widget build (BuildContext context){
+
+    mq = MediaQuery.of(context).size;
+    if(FirebaseAuth.instance.currentUser?.uid != null){
+      DatabaseService.getFirebaseMessagingToken();
+    }
     return SafeArea(
       child: PopScope(
         canPop: false,
@@ -64,7 +75,7 @@ class _HomeState extends State<Home>{
           child: Scaffold(
             backgroundColor: const Color.fromRGBO(23, 23, 23, 9),
             appBar: AppBar(
-              //backgroundColor: Colors.black12,
+              automaticallyImplyLeading: false,
               backgroundColor: const Color.fromRGBO(23, 23, 23, 9),
       
               actions: [
@@ -82,10 +93,75 @@ class _HomeState extends State<Home>{
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Account()),
                 );
-      
+
               },
                 icon: const Icon(Icons.person_sharp),
                 color: Colors.white54,
+              ),
+
+              flexibleSpace: InkWell(
+                child: Center(
+                  child: FutureBuilder<DocumentSnapshot>(
+                      future: FirebaseFirestore.instance.collection('users').doc(DatabaseService.user.uid).get(),
+                      builder: (context, snapshot) {
+
+
+                        if (snapshot.connectionState == ConnectionState.waiting){
+                          return const CircularProgressIndicator();
+                        }
+                        if(snapshot.data == null){
+                          return const Text("No data");
+                        }
+
+                        if (snapshot.connectionState == ConnectionState.done){
+                          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+                        return Row(
+                          children: [
+
+                            const SizedBox(width: 60,),
+
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(mq.height * .03),
+                              child: CachedNetworkImage(
+                                fit: BoxFit.cover,
+                                width: mq.height * .04,
+                                height: mq.height * .04,
+                                imageUrl: data['image'] ?? 'https://firebasestorage.googleapis.com/v0/b/zenfit-e4c1f.appspot.com/o/person.png?alt=media&token=e19ef1d4-cf85-45d0-866a-fe0ca922450d',
+                                errorWidget: ((context,url,error) => const CircleAvatar(child: Icon(CupertinoIcons.person))),
+                              ),
+                            ),
+
+                            const SizedBox(width: 10,),
+
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(data['name'],
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(data['username'],
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.white54,
+                                  ),
+                                ),
+
+                              ],
+                            )
+                          ],
+                        );
+
+                        }
+                        return const Text("No data");
+                      }
+                  ),
+                ),
               ),
             ),
       

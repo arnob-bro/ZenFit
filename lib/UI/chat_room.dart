@@ -70,7 +70,7 @@ class _Chat_RoomState extends State<Chat_Room> {
           ],
         ),
         body: StreamBuilder(
-          stream: DatabaseService().getAllUsers(),
+          stream: DatabaseService.getAllUsers(),
           builder: (context, snapshot){
 
             switch(snapshot.connectionState){

@@ -172,7 +172,7 @@ class _AccountDetailsState extends State<AccountDetails> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
         FutureBuilder<DocumentSnapshot>(
-          future: DatabaseService().readUserInfo().doc(FirebaseAuth.instance.currentUser?.uid).get(),
+          future: DatabaseService.readUserInfo().doc(FirebaseAuth.instance.currentUser?.uid).get(),
           builder:
               (context, snapshot) {
 
@@ -222,7 +222,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                   ),
                   Card(
                     child: ListTile(
-                      title: Text("${data['name']}",style: const TextStyle(fontSize: 18),),
+                      title: Text(DatabaseService.me.name,style: const TextStyle(fontSize: 18),),
                     ),
                   ),
 

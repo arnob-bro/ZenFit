@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/homepage.dart';
 
+import '../Service/Database.dart';
+
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
 
@@ -238,6 +240,7 @@ class _loginPageState extends State<loginPage> {
                                   }
                                 }
                                 else if(result is UserCredential){
+                                  //DatabaseService().updateActiveStatus(true);
                                   //escape loading phase
                                   Navigator.of(context).pop();
                                   //showing login successful

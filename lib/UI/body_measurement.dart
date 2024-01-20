@@ -120,7 +120,7 @@ class _MeasurementsState extends State<Measurements> {
   }
 
   void writeBodyMeasurementsToDatabase()async{
-    await DatabaseService().writeBodyMeasurements(
+    await DatabaseService.writeBodyMeasurements(
         neck: double.parse(neckController.text),
         shoulders: double.parse(shouldersController.text),
         leftUpperArm: double.parse(leftUpperArmController.text),

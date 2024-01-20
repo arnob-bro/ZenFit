@@ -36,7 +36,7 @@ class _ChatUserCardState extends State<ChatUserCard> {
           Navigator.push(context,MaterialPageRoute(builder: (_) => ChatScreen(user: widget.user,)));
         },
         child: StreamBuilder(
-            stream: DatabaseService().getLastMessage(widget.user),
+            stream: DatabaseService.getLastMessage(widget.user),
             builder: (context, snapshot){
               final data = snapshot.data?.docs;
               final _list = data?.map((e) => Message.fromJson(e.data())).toList() ?? [];
@@ -60,13 +60,17 @@ class _ChatUserCardState extends State<ChatUserCard> {
 
                 subtitle: Text(_message != null
                     ?
-                    _message!.msg
+                    _message!.type == 'image'
+                      ?
+                       'image'
+                      :
+                        _message!.msg
                     :
-                    widget.user.about,
+                    "Say Hi! 👋",
                   maxLines: 1,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      color: Colors.white38
+                      color:  (_message != null && _message!.read == '' && _message!.fromId != DatabaseService.user.uid) ? Colors.white : Colors.white38
                   ),
                 ),
 
@@ -75,7 +79,7 @@ class _ChatUserCardState extends State<ChatUserCard> {
                     ?
                     null //show nothing when no message is sent
                     :
-                    _message!.read.isEmpty && _message!.fromId !=DatabaseService().user.uid
+                    widget.user.isOnline
                         ?
                         Container(
                             height: 12,

@@ -211,7 +211,7 @@ class _UpdateAccountDetailsState extends State<UpdateAccountDetails> {
                           setState(() {
                             _image = image.path;
                           });
-                          DatabaseService().updateProfilePicture(File(_image!));
+                          DatabaseService.updateProfilePicture(File(_image!));
                           Navigator.pop(context);
                         }
 
@@ -233,7 +233,7 @@ class _UpdateAccountDetailsState extends State<UpdateAccountDetails> {
                           setState(() {
                             _image = image.path;
                           });
-                          DatabaseService().updateProfilePicture(File(_image!));
+                          DatabaseService.updateProfilePicture(File(_image!));
                           Navigator.pop(context);
                         }
                       },
@@ -293,7 +293,7 @@ class _UpdateAccountDetailsState extends State<UpdateAccountDetails> {
             const Divider(),
             const SizedBox(height: 5,),
             FutureBuilder<DocumentSnapshot>(
-              future: DatabaseService().readUserInfo().doc(FirebaseAuth.instance.currentUser?.uid).get(),
+              future: DatabaseService.readUserInfo().doc(FirebaseAuth.instance.currentUser?.uid).get(),
               builder:
                   (context, snapshot) {
 
@@ -340,8 +340,8 @@ class _UpdateAccountDetailsState extends State<UpdateAccountDetails> {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8,top: 8),
                         child: TextFormField(
-                          initialValue: data['name'],
-                          //controller: nameController,
+                          //initialValue: data['name'],
+                          controller: nameController,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)
@@ -452,7 +452,7 @@ class _UpdateAccountDetailsState extends State<UpdateAccountDetails> {
                             gender: genderController.text,
                             username: usernameController.text
                         );
-                        await DatabaseService().updateAccountDetails(zenfituser);
+                        await DatabaseService.updateAccountDetails(zenfituser);
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Account()));
                       },
                         height: 30,color: Colors.lightBlue,shape: const StadiumBorder(),child:const Text("Confirm update") ,))

@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/UI/calculators.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
@@ -70,11 +71,9 @@ class _settingsState extends State<settings> {
             Card(
               child: ListTile(
                 title: const Text("Log out"),
-                onTap: () async {
-                  await FirebaseAuth.instance.signOut();
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>  const welcomePage()),
-                  );
+                onTap: (){
+                  DatabaseService.updateActiveStatus(false);
+                  SignOut();
       
                 },
               ),
@@ -161,6 +160,12 @@ class _settingsState extends State<settings> {
         )
             : null,
       ),
+    );
+  }
+  void SignOut()async{
+    await FirebaseAuth.instance.signOut();
+    Navigator.push(context,
+      MaterialPageRoute(builder: (context) =>  const welcomePage()),
     );
   }
 }

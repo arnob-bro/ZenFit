@@ -108,7 +108,7 @@ class _My_GoalsState extends State<My_Goals> {
               }),*/
               const SizedBox(height: 10,),
               StreamBuilder(
-                  stream: DatabaseService().readGoals(),
+                  stream: DatabaseService.readGoals(),
                   builder: (context , AsyncSnapshot<QuerySnapshot> snapshot){
                     if(snapshot.connectionState == ConnectionState.waiting)
                     {
@@ -169,7 +169,7 @@ class _My_GoalsState extends State<My_Goals> {
                                             actions: [
                                               TextButton(
                                                 onPressed: () {
-                                                  DatabaseService().deleteGoal("${snapshot.data!.docs[index]['name']}");
+                                                  DatabaseService.deleteGoal("${snapshot.data!.docs[index]['name']}");
                                                   Navigator.pop(context);
                                                 },
                                                 child: const Text('Delete'),
@@ -263,7 +263,7 @@ class GoalCard extends StatelessWidget {
                             actions: [
                               TextButton(
                                 onPressed: () {
-                                  DatabaseService().deleteGoal(goal.name!);
+                                  DatabaseService.deleteGoal(goal.name!);
                                   Navigator.pop(context);
                                 },
                                 child: const Text('Detele'),
