@@ -11,6 +11,7 @@ import 'package:zenfit/UI/addProgram.dart';
 import 'package:zenfit/UI/startWorkout.dart';
 
 import '../Widgets/for user customed programs/show_user_customed_programs.dart';
+import '../main.dart';
 
 
 
@@ -61,6 +62,65 @@ class _MineState extends State<Mine> {
                     child: ListTile(
                         textColor: Colors.white,
                         title: Text("${snapshot.data!.docs[index]['name']}"),
+                        trailing: IconButton(
+                            onPressed: (){
+                              showModalBottomSheet(
+                                backgroundColor: Colors.grey,
+                                context: context,
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20),
+                                        topRight: Radius.circular(20)
+                                    )
+                                ),
+                                builder: (context){
+                                  return ListView(
+                                    shrinkWrap: true,
+                                    padding: const EdgeInsets.only(top: 10,bottom: 15),
+                                    children: [
+                                      Container(
+                                        height: 4,
+                                        margin: EdgeInsets.symmetric(horizontal: mq.width * .4),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey, borderRadius: BorderRadius.circular(8),
+                                        ),
+                                      ),
+
+                                      InkWell(
+                                        onTap: (){
+                                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => AddProgram(programName: snapshot.data!.docs[index]['name'])));
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                              left: mq.width * .05,
+                                              top: mq.height * .02,
+                                              bottom: mq.height * .02
+                                          ),
+                                          child: const Row(children: [ Icon(Icons.download_rounded,color: Colors.blue,size: 26,),Flexible(child: Text('    Edit Program',style: TextStyle(fontSize: 15,color: Colors.black54,letterSpacing: 0.5),))],),
+                                        ),
+                                      ),
+
+                                      InkWell(
+                                          onTap: ()async{
+                                              await FirebaseFirestore.instance.collection('programs').doc('mine').collection('userIDs').doc(DatabaseService.user.uid).collection('program').doc(snapshot.data!.docs[index]['name']).delete();
+                                              Navigator.pop(context);
+                                          },
+                                          child: Padding(
+                                            padding: EdgeInsets.only(
+                                                left: mq.width * .05,
+                                                top: mq.height * .02,
+                                                bottom: mq.height * .02
+                                            ),
+                                            child: const Row(children: [ Icon(Icons.delete_forever,color: Colors.red,size: 26,),Flexible(child: Text('    Delete Program',style: TextStyle(fontSize: 15,color: Colors.red,letterSpacing: 0.5),))],),
+                                          ),
+                                        ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            icon: const Icon(Icons.menu_sharp)
+                        ),
                         onTap: (){
                           Navigator.push(context,  MaterialPageRoute(builder: (context) => Show_User_Program(programName: snapshot.data!.docs[index]['name'],)));
                         }
@@ -176,7 +236,7 @@ class _MineState extends State<Mine> {
                               if(_formKey.currentState!.validate()){
                                 _formKey.currentState!.save();
                                 await FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(programName).set({'name': programName});
-                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => AddProgram(programName: programName)));
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => AddProgram(programName: programName)));
                               }
                             },
                                 child: const Text("Create program",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),)

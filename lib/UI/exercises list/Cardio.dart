@@ -6,7 +6,12 @@ import 'package:zenfit/UI/trainingProgram.dart';
 import 'package:zenfit/UI/exercise.dart';
 
 class Cardio extends StatefulWidget {
-  const Cardio({super.key});
+  final String programName;
+  final String weektime;
+  final String workouttime;
+  final String workoutName;
+  final String category;
+  const Cardio({super.key, required this.programName, required this.weektime, required this.workouttime, required this.workoutName, required this.category});
 
   @override
   State<Cardio> createState() => _CardioState();

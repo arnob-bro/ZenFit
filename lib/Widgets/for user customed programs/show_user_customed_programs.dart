@@ -33,13 +33,13 @@ class _Show_User_ProgramState extends State<Show_User_Program> {
       body: Column(
         children: [
           Card(
-            color: Colors.white10,
+            color: Colors.redAccent,
             child: ListTile(
                 title: const Center(child: Text(
                   'Start following program',
                   style: TextStyle(
                     fontSize: 18.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                   ),
                 ),
                 ),
@@ -51,17 +51,17 @@ class _Show_User_ProgramState extends State<Show_User_Program> {
 
           StreamBuilder(
               stream: FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(widget.programName).collection('weeks').snapshots(),
-              builder: (context,snapshot){
-                if(snapshot.connectionState == ConnectionState.waiting)
+              builder: (context,weekshot){
+                if(weekshot.connectionState == ConnectionState.waiting)
                 {
                   return const Center(child: LinearProgressIndicator(),);
                 }
-                else if(snapshot.hasData){
+                else if(weekshot.hasData){
                   return Expanded(
                     child: ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
-                        itemCount: snapshot.data!.docs.length,
+                        itemCount: weekshot.data!.docs.length,
                         itemBuilder: (context,index){
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +69,7 @@ class _Show_User_ProgramState extends State<Show_User_Program> {
                               Padding(
                                   padding: const EdgeInsets.only(top: 50, left: 10,bottom:5),
                                   child: Text(
-                                    'Week: ${snapshot.data!.docs[index]['week']}',
+                                    'Week: ${index+1}',
                                     style: const TextStyle(
                                       fontSize: 25.0,
                                       color: Colors.white,
@@ -82,7 +82,7 @@ class _Show_User_ProgramState extends State<Show_User_Program> {
                               SingleChildScrollView(
                                 child: ShowWorkoutCard(
                                   programName: widget.programName,
-                                  week: snapshot.data!.docs[index]['week'],
+                                  week: weekshot.data!.docs[index]['time'],
                                 ),
                               )
                             ],
@@ -98,6 +98,6 @@ class _Show_User_ProgramState extends State<Show_User_Program> {
           )
         ],
       ),
-    );;
+    );
   }
 }

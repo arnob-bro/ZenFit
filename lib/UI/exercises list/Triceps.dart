@@ -10,10 +10,15 @@ import 'package:zenfit/UI/exercise.dart';
 import 'package:flutter/material.dart';
 
 import '../../Exercise List/exercise_list.dart';
+import '../../Service/Database.dart';
 
 class Triceps extends StatefulWidget {
   final String category;
-  const Triceps({super.key, required this.category});
+  final String programName;
+  final String weektime;
+  final String workouttime;
+  final String workoutName;
+  const Triceps({super.key, required this.category, required this.programName, required this.weektime, required this.workouttime, required this.workoutName});
 
   @override
   State<Triceps> createState() => _TricepsState();
@@ -33,10 +38,27 @@ class _TricepsState extends State<Triceps> {
                   child: ListTile(
                       title: Text(tricep[index],style: const TextStyle(color: Colors.white54),),
                       onTap: ()async{
-                        if(widget.category == 'mine'){
+                        String time = DateTime.now().millisecondsSinceEpoch.toString();
+                        await FirebaseFirestore.instance
+                            .collection('programs').doc(widget.category)
+                            .collection("userIDs").doc(DatabaseService.user.uid)
+                            .collection("program").doc(widget.programName)
+                            .collection("weeks").doc(widget.weektime)
+                            .collection("workout").doc(widget.workouttime)
+                            .collection("exercise").doc(time)
+                            .set({"time": time,"name": tricep[index],"sets": 0,"reps" : 0});
 
-                        }
+                        await FirebaseFirestore.instance
+                            .collection('programs').doc(widget.category)
+                            .collection("userIDs").doc(DatabaseService.user.uid)
+                            .collection("program").doc(widget.programName)
+                            .collection("weeks").doc(widget.weektime)
+                            .collection("workout").doc(widget.workouttime)
+                            .collection("exercise").doc(time)
+                            .collection("set").doc(time)
+                            .set({"time": time,"weight": 0,"reps" : 0});
 
+                        Navigator.pop(context);
                       }
                   ),
                 );

@@ -11,10 +11,7 @@ class startWorkout extends StatefulWidget {
 
 class startWorkoutState extends State<startWorkout> {
   void navigateToexercise() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const Exercise(category: '',)),
-    );
+    //Navigator.push(context, MaterialPageRoute(builder: (context) => const Exercise(category: '',)),);
   }
 
   Widget _card1() {

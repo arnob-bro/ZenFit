@@ -18,7 +18,7 @@ import '../Model/zenfit_user.dart';
 class DatabaseService{
   static final CollectionReference userInfoCollection = FirebaseFirestore.instance.collection("users");
   static final CollectionReference goalCollection = FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser?.uid).collection("goals");
-  static final CollectionReference bodyMeasurementCollection = FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser?.uid).collection('body measurements');
+  static final CollectionReference bodyMeasurementCollection = FirebaseFirestore.instance.collection('bodymeasurement');
   static final FirebaseStorage storage = FirebaseStorage.instance;
   static User get user => FirebaseAuth.instance.currentUser!;
   static FirebaseMessaging fMessaging = FirebaseMessaging.instance;
@@ -61,7 +61,7 @@ class DatabaseService{
 
   //write body measurements
   static Future<void> writeBodyMeasurements({required double neck,required double shoulders,required double leftUpperArm,required double rightUpperArm,required double leftForearm,required double rightForearm,required double leftThigh,required double rightThigh,required double leftCalf,required double rightCalf,required double bodyWeight,required double chest,required double waist,required double hips,required String date }) async{
-    final mybody = bodyMeasurementCollection.doc(date);
+    final mybody = bodyMeasurementCollection.doc(user.uid).collection("time").doc(date);
     final Body body = Body(
       neck : neck,
       shoulders : shoulders,

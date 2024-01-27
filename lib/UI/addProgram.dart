@@ -43,97 +43,95 @@ class _AddProgramState extends State<AddProgram> {
       ),
       body: StreamBuilder(
           stream: FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(widget.programName).collection('weeks').snapshots(),
-          builder: (context,snapshot){
-            if(snapshot.connectionState == ConnectionState.waiting)
+          builder: (context,weekshot){
+            if(weekshot.connectionState == ConnectionState.waiting)
             {
-              return const Center(child: LinearProgressIndicator(),);
+              return const Center(child: CircularProgressIndicator(),);
             }
-            else if(snapshot.hasData){
+            else if(weekshot.hasData){
 
-              return Expanded(
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: snapshot.data!.docs.length,
-                    itemBuilder: (context,indexofweek){
-                      weektime = snapshot.data!.docs[indexofweek]['time'];
-                      int workout = 1;
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                              padding: const EdgeInsets.only(top: 50, left: 10,bottom:5),
-                              child: ListTile(
-                                leading: Text(
-                                  'Week: ${indexofweek+1}',
-                                  style: const TextStyle(
-                                    fontSize: 25.0,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    //fontWeight: FontWeight.bold,
-                                  ),
+              return ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: weekshot.data!.docs.length,
+                  itemBuilder: (context,indexofweek){
+                    weektime = weekshot.data!.docs[indexofweek]['time'];
+                    int workout = 1;
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: const EdgeInsets.only(top: 50, left: 10,bottom:5),
+                            child: ListTile(
+                              leading: Text(
+                                'Week: ${indexofweek+1}',
+                                style: const TextStyle(
+                                  fontSize: 25.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  //fontWeight: FontWeight.bold,
                                 ),
-
-                                trailing: IconButton(onPressed: ()async{await FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(widget.programName).collection('weeks').doc('$weektime').delete();}, icon: const Icon(Icons.delete,color: Colors.redAccent,))
-                              )
-                          ),
-
-                          SingleChildScrollView(
-                            child: Card(
-                              color: Colors.black,
-                              child: StreamBuilder(
-                                  stream: FirebaseFirestore.instance.collection('programs/mine/userIDs/${DatabaseService.user.uid}/program/${widget.programName}/weeks/$weektime/workout/').snapshots(),
-                                  builder: (context,snapshot){
-
-                                    if(snapshot.connectionState == ConnectionState.waiting)
-                                    {
-                                      return const Center(child: LinearProgressIndicator(),);
-                                    }
-                                    else if(snapshot.hasData){
-                                      return ListView.builder(
-                                          shrinkWrap: true,
-                                          scrollDirection: Axis.vertical,
-                                          primary: false,
-                                          itemCount: snapshot.data!.docs.length,
-                                          itemBuilder: (context,index){
-                                            workouttime = snapshot.data!.docs[index]['time'];
-                                            workout = snapshot.data!.docs.length+1;
-                                            return Padding(
-                                                padding: const EdgeInsets.all(10),
-                                                child: Card(
-                                                  color: Colors.blueGrey,
-                                                  child: ListTile(
-                                                      title: Text('${snapshot.data!.docs[index]['name']}', style: const TextStyle(fontSize: 20.0, color: Colors.white,),),
-                                                      trailing: IconButton(onPressed: ()async{
-                                                        await FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(widget.programName).collection('weeks').doc("$weektime").collection('workout').doc('$workouttime').delete();
-                                                        } , icon: Icon(Icons.delete)
-                                                      ),
-                                                    onTap: (){
-                                                        Navigator.push(context, MaterialPageRoute(builder: (context)=> workoutEdit(programName: widget.programName, weektime: weektime, workouttime: workouttime, workoutName: snapshot.data!.docs[index]['name'],)));
-                                                    },
-                                                  )
-                                                )
-                                            );
-                                          }
-                                      );
-                                    }
-                                    else{
-                                      return const Text("No Data has been found");
-                                    }
-                                  }
                               ),
+
+                              trailing: IconButton(onPressed: ()async{await FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(widget.programName).collection('weeks').doc('${weekshot.data!.docs[indexofweek]['time']}').delete();}, icon: const Icon(Icons.delete,color: Colors.redAccent,))
                             )
-                          ),
-                          Center(child: TextButton(onPressed: ()async{
-                            workouttime = DateTime.now().millisecondsSinceEpoch.toString();
-                            await FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(widget.programName).collection('weeks').doc("$weektime").collection('workout').doc('${workouttime}').set({'name': 'new workout','time': workouttime});
-                          },
-                              child: const Text("Add Workout",style: TextStyle(color: Colors.blueGrey),))
-                          ),
-                        ],
-                      );
-                    }
-                ),
+                        ),
+
+                        SingleChildScrollView(
+                          child: Card(
+                            color: Colors.black,
+                            child: StreamBuilder(
+                                stream: FirebaseFirestore.instance.collection('programs/mine/userIDs/${DatabaseService.user.uid}/program/${widget.programName}/weeks/${weekshot.data!.docs[indexofweek]['time']}/workout/').snapshots(),
+                                builder: (context,snapshot){
+
+                                  if(snapshot.connectionState == ConnectionState.waiting)
+                                  {
+                                    return const Center(child: LinearProgressIndicator(),);
+                                  }
+                                  else if(snapshot.hasData){
+                                    return ListView.builder(
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.vertical,
+                                        primary: false,
+                                        itemCount: snapshot.data!.docs.length,
+                                        itemBuilder: (context,index){
+                                          workouttime = snapshot.data!.docs[index]['time'];
+                                          workout = snapshot.data!.docs.length+1;
+                                          return Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Card(
+                                                color: Colors.blueGrey,
+                                                child: ListTile(
+                                                    title: Text('${snapshot.data!.docs[index]['name']} ${index+1}', style: const TextStyle(fontSize: 20.0, color: Colors.white,),),
+                                                    trailing: IconButton(onPressed: ()async{
+                                                      await FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(widget.programName).collection('weeks').doc("${weekshot.data!.docs[indexofweek]['time']}").collection('workout').doc('${snapshot.data!.docs[index]['time']}').delete();
+                                                      } , icon: Icon(Icons.delete)
+                                                    ),
+                                                  onTap: (){
+                                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> workoutEdit(programName: widget.programName, weektime: weekshot.data!.docs[indexofweek]['time'], workouttime: snapshot.data!.docs[index]['time'], workoutName: snapshot.data!.docs[index]['name'],)));
+                                                  },
+                                                )
+                                              )
+                                          );
+                                        }
+                                    );
+                                  }
+                                  else{
+                                    return const Text("No Data has been found");
+                                  }
+                                }
+                            ),
+                          )
+                        ),
+                        Center(child: TextButton(onPressed: ()async{
+                          workouttime = DateTime.now().millisecondsSinceEpoch.toString();
+                          await FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(widget.programName).collection('weeks').doc("${weekshot.data!.docs[indexofweek]['time']}").collection('workout').doc('${workouttime}').set({'name': 'new workout','time': workouttime});
+                        },
+                            child: const Text("Add Workout",style: TextStyle(color: Colors.blueGrey),))
+                        ),
+                      ],
+                    );
+                  }
               );
             }
             else{
