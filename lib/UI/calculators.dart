@@ -1,12 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:zenfit/UI/calorieCalculator.dart';
+import 'package:zenfit/UI/all%20calculators/calorieCalculator.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
-import 'package:zenfit/UI/1rmCalculator.dart';
+import 'package:zenfit/UI/all%20calculators/1rmCalculator.dart';
 import 'package:zenfit/UI/startWorkout.dart';
 
 class Calculators extends StatefulWidget {

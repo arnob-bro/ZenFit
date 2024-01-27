@@ -13,7 +13,7 @@ class startWorkoutState extends State<startWorkout> {
   void navigateToexercise() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const Exercise()),
+      MaterialPageRoute(builder: (context) => const Exercise(category: '',)),
     );
   }
 

@@ -6,10 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/Service/Database.dart';
-import 'package:zenfit/UI/graph.dart';
-import 'package:zenfit/UI/homepage.dart';
-import 'package:zenfit/UI/settings.dart';
-import 'package:zenfit/UI/trainingProgram.dart';
 import 'package:zenfit/UI/startWorkout.dart';
 import 'package:zenfit/UI/update_account.dart';
 
@@ -52,62 +48,7 @@ class _AccountState extends State<Account> {
             ),
           ),
           body: const AccountDetails(),
-        /* body: Stack(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: const AssetImage('assets/images/account.jpg'),
-                    fit: BoxFit.cover,
-                   // colorFilter: ColorFilter.mode(
-                     //   Colors.black38.withOpacity(.8), BlendMode.dstATop),
-                  )
-              ),
-            ),
-            Positioned.fill(
-              child: const AccountDetails(), // Replace with your actual content widget
-            ),
-          ],
-        ),*/
-        bottomNavigationBar: BottomAppBar(
-          elevation: 20,
-          height: 60,
-          color: Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(onPressed:(){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Home()),
-                );
 
-              }, icon: const Icon(Icons.home)),
-              IconButton(onPressed:(){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Graph()),
-                );
-
-              }, icon: const Icon(Icons.show_chart)),
-              IconButton(onPressed:(){
-                setState(() {
-                  isCardVisible = !isCardVisible;
-                });
-              }, icon: const Icon(Icons.add_circle_outlined)),
-              IconButton(onPressed:(){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TrainingProgram()),
-                );
-
-              }, icon: const Icon(Icons.note_alt)),
-              IconButton(onPressed:(){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const settings()),
-                );
-              }, icon: const Icon(Icons.settings)),
-
-            ],
-          ),
-        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: isCardVisible
             ? Column(
@@ -168,167 +109,136 @@ class _AccountDetailsState extends State<AccountDetails> {
       child: Padding(
         padding: const EdgeInsetsDirectional.all(24),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-        FutureBuilder<DocumentSnapshot>(
-          future: DatabaseService.readUserInfo().doc(FirebaseAuth.instance.currentUser?.uid).get(),
-          builder:
-              (context, snapshot) {
+            Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(mq.height * .8),
+                child: CachedNetworkImage(
+                  width: mq.height * .15,
+                  height: mq.height * .15,
+                  fit: BoxFit.cover,
+                  imageUrl: DatabaseService.me.image,
+                  errorWidget: (context,url,error)=> const CircleAvatar(child: Icon(CupertinoIcons.person),),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Center(child: Text("Profile Information",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 18),),),
+            const Divider(),
+            const SizedBox(height: 5,),
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Name :',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  //fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title: Text(DatabaseService.me.name,style: const TextStyle(fontSize: 18),),
+              ),
+            ),
 
-                if (snapshot.connectionState == ConnectionState.waiting){
-                  return const LinearProgressIndicator();
-                }
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Username : ',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  //fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title: Text("@${DatabaseService.me.username}",style: const TextStyle(fontSize: 18),),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Birth Date : ',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  //fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title: Text(DatabaseService.me.birthDate.toString(),style: const TextStyle(fontSize: 18),),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Gender : ',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  //fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title: Text(DatabaseService.me.gender,style: const TextStyle(fontSize: 18),),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Email Account : ',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  //fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title:  Text(DatabaseService.me.email,style: const TextStyle(fontSize: 18),),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'User ID : ',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  //fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title: Text(DatabaseService.me.id,style: const TextStyle(fontSize: 18),),
+              ),
+            ),
+            const SizedBox(height: 10,),
 
-            if (snapshot.hasError) {
-              return const Text("Something went wrong");
-            }
+            Center(
+                child: MaterialButton(
+                  onPressed: (){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const UpdateAccount()));
 
-            if(snapshot.data == null){
-              return const Text("No data");
-            }
-
-            if (snapshot.connectionState == ConnectionState.done) {
-              Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-              //return Text("Full Name: ${data['name']}");
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(mq.height * .8),
-                      child: CachedNetworkImage(
-                        width: mq.height * .15,
-                        height: mq.height * .15,
-                        fit: BoxFit.cover,
-                        imageUrl: data['image'],
-                        errorWidget: (context,url,error)=> const CircleAvatar(child: Icon(CupertinoIcons.person),),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  const Center(child: Text("Profile Information",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 18),),),
-                  const Divider(),
-                  const SizedBox(height: 5,),
-                  const Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Name :',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Card(
-                    child: ListTile(
-                      title: Text(DatabaseService.me.name,style: const TextStyle(fontSize: 18),),
-                    ),
-                  ),
-
-                  const Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Username : ',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Card(
-                    child: ListTile(
-                      title: Text('${data['username']}',style: const TextStyle(fontSize: 18),),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Birth Date : ',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Card(
-                    child: ListTile(
-                      title: Text(data['birthDate'].toString(),style: const TextStyle(fontSize: 18),),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Gender : ',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Card(
-                    child: ListTile(
-                      title: Text('${data['gender']}',style: const TextStyle(fontSize: 18),),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Email Account : ',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Card(
-                    child: ListTile(
-                      title:  Text('${data['email']}',style: const TextStyle(fontSize: 18),),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'User ID : ',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Card(
-                    child: ListTile(
-                      title: Text('${data['id']}',style: const TextStyle(fontSize: 18),),
-                    ),
-                  ),
-                  SizedBox(height: 10,),
-                  
-                  Center(
-                      child: MaterialButton(
-                        onPressed: (){
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const UpdateAccount()));
-
-                          },
-                        height: 30,
-                        color: Colors.lightBlue,
-                        shape: const StadiumBorder(),
-                        child:const Text("Click to update") ,
-                      )
-                  )
+                  },
+                  height: 30,
+                  color: Colors.lightBlue,
+                  shape: const StadiumBorder(),
+                  child:const Text("Click to update") ,
+                )
+            )
 
 
 
 
 
-                ],
-              );
-            }
-
-            return const Text("loading");
-          },
-        )
           ],
-        ),
+        )
       ),
     );
   }

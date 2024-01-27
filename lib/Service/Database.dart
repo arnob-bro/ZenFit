@@ -24,6 +24,7 @@ class DatabaseService{
   static FirebaseMessaging fMessaging = FirebaseMessaging.instance;
   static late ZenFitUser me;
 
+  //collect user information
   static Future collectUserInfo ({required String name,required String username,required bool isOnline, required String birthDate, required String gender, required String email, required String pass, required String image, required String about, required String createdAt, required String lastActive, required String pushToken}) async {
     final docUserInfo = userInfoCollection.doc(FirebaseAuth.instance.currentUser?.uid);
     final zenfituser = ZenFitUser(
@@ -45,6 +46,7 @@ class DatabaseService{
     return await userInfoCollection.doc(FirebaseAuth.instance.currentUser?.uid).set(zenfituser.toJson());
   }
 
+  //create goal
   static Future<void> createGoal ({required String date, required String name,required String description}) async {
     final my_Goal = goalCollection.doc(name);
     final Goal goal = Goal(
@@ -57,6 +59,7 @@ class DatabaseService{
     return await my_Goal.set(jsonGoal);
   }
 
+  //write body measurements
   static Future<void> writeBodyMeasurements({required double neck,required double shoulders,required double leftUpperArm,required double rightUpperArm,required double leftForearm,required double rightForearm,required double leftThigh,required double rightThigh,required double leftCalf,required double rightCalf,required double bodyWeight,required double chest,required double waist,required double hips,required String date }) async{
     final mybody = bodyMeasurementCollection.doc(date);
     final Body body = Body(
@@ -80,9 +83,7 @@ class DatabaseService{
     return await mybody.set(jsonMyBody);
 }
 
-
-
-//read goals from database
+  //read goals from database
   static Stream <QuerySnapshot>readGoals(){
     return goalCollection.snapshots();
   }
@@ -92,10 +93,12 @@ class DatabaseService{
       return userInfoCollection;
   }
 
+
   //get all users for chatroom
   static Stream<QuerySnapshot<Map<String, dynamic>>>getAllUsers(){
     return FirebaseFirestore.instance.collection('users').where('id', isNotEqualTo: FirebaseAuth.instance.currentUser?.uid).snapshots();
   }
+
 
   //getting self info
   static Future<void> getSelfInfo()async{
@@ -104,7 +107,7 @@ class DatabaseService{
         me = ZenFitUser.fromJson(user.data()!);
         print('user self info has been copied into me');
       }else{
-        print(' failed tp copy user self info into me');
+        print(' failed to copy user self info into me');
       }
     });
   }
@@ -120,15 +123,17 @@ class DatabaseService{
     });
   }
 
-  static Future updateAccountDetails(ZenFitUser zenfituser) async{
-    final docUser = userInfoCollection.doc(FirebaseAuth.instance.currentUser?.uid);
+  //update user account details
+  static Future updateAccountDetails() async{
+    final docUser = userInfoCollection.doc(user.uid);
+    print("account has been updated");
     return await docUser.update({
 
-      'about' : zenfituser.about,
-      'name' : zenfituser.name,
-      'birthDate' : zenfituser.birthDate,
-      'gender' : zenfituser.gender,
-      'username' : zenfituser.username
+      'about' : me.about,
+      'name' : me.name,
+      'birthDate' : me.birthDate,
+      'gender' : me.gender,
+      'username' : me.username
     });
   }
 
@@ -174,7 +179,7 @@ class DatabaseService{
 
   ///****************** Chat Screen Related APIs************************
 
-  //chatroom (collection) --> conversation_id (doc) --> messages (collection) --> message (doc)
+
 
   //useful for getting conversation id
   static String getConversationID(String id) => user.uid.hashCode <= id.hashCode

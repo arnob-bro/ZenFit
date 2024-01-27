@@ -1,17 +1,13 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:zenfit/UI/ArnoldsBasicMassRoutine.dart';
-import 'package:zenfit/UI/Bodybuilding313.dart';
+import 'package:zenfit/UI/workout%20programs/inbuilt/ArnoldsBasicMassRoutine.dart';
+import 'package:zenfit/UI/workout%20programs/inbuilt/Bodybuilding313.dart';
+import 'package:zenfit/UI/workout%20programs/inbuilt/german_volume_training_3daysperweek.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 import 'package:zenfit/UI/startWorkout.dart';
-import 'package:zenfit/UI/ArnoldsBasicMassRoutine.dart';
-
-
-
 
 class Programs extends StatefulWidget {
   const Programs({super.key});
@@ -26,7 +22,7 @@ class _ProgramsState extends State<Programs> {
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => startWorkout()),
+      MaterialPageRoute(builder: (context) => const startWorkout()),
     );
   }
   @override
@@ -36,12 +32,13 @@ class _ProgramsState extends State<Programs> {
       });
       },
       child: Scaffold(
-        backgroundColor: Color(0xff37393D),
+        //backgroundColor: Color(0xff37393D),
+        backgroundColor: Colors.black,
         appBar: AppBar(
           title: const Text(
               "Programs",
             style: TextStyle(
-              color: Colors.white54,
+              color: Colors.white,
             ),
           ),
           leading: IconButton(onPressed: (){
@@ -58,38 +55,42 @@ class _ProgramsState extends State<Programs> {
                   "Arnold's Basic Mass Routine",
                   style: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                     //fontWeight: FontWeight.bold,
                   ),
                 )
             ),
 
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("6 days/weeks"),
+                  textColor: Colors.white,
+                  title: const Text("6 days/weeks"),
                   onTap: (){
                     Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const ArnoldsBasicMassRoutine()),
+                      MaterialPageRoute(builder: (context) => const ABMR6DP1W()),
                     );
 
                   }
               ),
             ),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   "Bodybuilding 313",
                   style: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                     //fontWeight: FontWeight.bold,
                   ),
                 )
             ),
 
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("5-6 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("5-6 days/week"),
                   onTap: (){
                     Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const BodyBuilding313()),
@@ -98,153 +99,173 @@ class _ProgramsState extends State<Programs> {
               ),
             ),
 
-            Padding(
+            const Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   "Bodybuilding Ballet",
                   style: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                     //fontWeight: FontWeight.bold,
                   ),
                 )
             ),
 
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("6 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("6 days/week"),
                   onTap: (){
 
                   }
               ),
             ),
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("4 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("4 days/week"),
                   onTap: (){
 
                   }
               ),
             ),
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("5 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("5 days/week"),
                   onTap: (){
 
                   }
               ),
             ),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   "Bodybuilding Blitz",
                   style: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                     //fontWeight: FontWeight.bold,
                   ),
                 )
             ),
 
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("5 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("5 days/week"),
                   onTap: (){
 
                   }
               ),
             ),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   "Bodybuilding for Bigginers",
                   style: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                     //fontWeight: FontWeight.bold,
                   ),
                 )
             ),
 
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("3 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("3 days/week"),
                   onTap: (){
 
                   }
               ),
             ),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   "Full Body",
                   style: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                     //fontWeight: FontWeight.bold,
                   ),
                 )
             ),
 
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("2 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("2 days/week"),
                   onTap: (){
 
                   }
               ),
             ),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   "German Volume Training",
                   style: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                     //fontWeight: FontWeight.bold,
                   ),
                 )
             ),
 
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("3 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("3 days/week"),
                   onTap: (){
-
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const GVT3D1W()));
                   }
               ),
             ),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   "Push/Pull/Legs",
                   style: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                     //fontWeight: FontWeight.bold,
                   ),
                 )
             ),
 
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("Advanced,6 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("Advanced,6 days/week"),
                   onTap: (){
 
                   }
               ),
             ),
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("Intermediate,6 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("Intermediate,6 days/week"),
                   onTap: (){
 
                   }
               ),
             ),
             Card(
+              color: Colors.blueGrey,
               child: ListTile(
-                  title: Text("Intermediate,3 days/week"),
+                  textColor: Colors.white,
+                  title: const Text("Intermediate,3 days/week"),
                   onTap: (){
 
                   }
@@ -254,6 +275,7 @@ class _ProgramsState extends State<Programs> {
 
           ],
         ),
+
 
         bottomNavigationBar: BottomAppBar(
           elevation: 20,
@@ -305,14 +327,14 @@ class _ProgramsState extends State<Programs> {
                 color: Colors.transparent,
                 child: Center(
                   child: Card(
-                    color: Color.fromRGBO(250, 95, 95,5),
+                    color: const Color.fromRGBO(250, 95, 95,5),
                     child: InkWell(
                       onTap: () {
                         print("tapped");
                         navigateTostartWorkout();
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

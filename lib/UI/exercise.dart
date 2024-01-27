@@ -3,22 +3,23 @@ import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
-import 'package:zenfit/UI/Abs.dart';
-import 'package:zenfit/UI/Back.dart';
-import 'package:zenfit/UI/Biceps.dart';
-import 'package:zenfit/UI/Chest.dart';
-import 'package:zenfit/UI/Forearms.dart';
-import 'package:zenfit/UI/Glutes.dart';
-import 'package:zenfit/UI/Hamstrings.dart';
-import 'package:zenfit/UI/LowerLegs.dart';
-import 'package:zenfit/UI/Quads.dart';
-import 'package:zenfit/UI/Shoulders.dart';
-import 'package:zenfit/UI/Triceps.dart';
-import 'package:zenfit/UI/Cardio.dart';
+import 'package:zenfit/UI/exercises%20list/Abs.dart';
+import 'package:zenfit/UI/exercises%20list/Back.dart';
+import 'package:zenfit/UI/exercises%20list/Biceps.dart';
+import 'package:zenfit/UI/exercises%20list/Chest.dart';
+import 'package:zenfit/UI/exercises%20list/Forearms.dart';
+import 'package:zenfit/UI/exercises%20list/Glutes.dart';
+import 'package:zenfit/UI/exercises%20list/Hamstrings.dart';
+import 'package:zenfit/UI/exercises%20list/LowerLegs.dart';
+import 'package:zenfit/UI/exercises%20list/Quads.dart';
+import 'package:zenfit/UI/exercises%20list/Shoulders.dart';
+import 'package:zenfit/UI/exercises%20list/Triceps.dart';
+import 'package:zenfit/UI/exercises%20list/Cardio.dart';
 
 
 class Exercise extends StatefulWidget {
-  const Exercise({super.key});
+  final String category;
+  const Exercise({super.key, required this.category});
 
   @override
   State<Exercise> createState() => _ExerciseState();
@@ -64,20 +65,20 @@ class _ExerciseState extends State<Exercise> {
 
       ),
 
-      body: const TabBarView(
+      body: TabBarView(
         children: [
-          Abs(),
-          Back(),
-          Biceps(),
-          Chest(),
-          Forearms(),
-          Glutes(),
-          Hamstrings(),
-          LowerLegs(),
-          Quads(),
-          Shoulders(),
-          Triceps(),
-          Cardio(),
+          Abs(category: widget.category,),
+          Back(category: widget.category,),
+          Biceps(category: widget.category,),
+          Chest(category: widget.category,),
+          Forearms(category: widget.category,),
+          Glutes(category: widget.category,),
+          Hamstrings(category: widget.category,),
+          LowerLegs(category: widget.category,),
+          Quads(category: widget.category,),
+          Shoulders(category: widget.category,),
+          Triceps(category: widget.category,),
+          const Cardio(),
         ],
       ),
 

@@ -1,5 +1,5 @@
 
-List<String>triceps = [
+List<String>tricep = [
   'Bar Muscle-Up',
   'Barbell Standing Tricep Extension',
   'Bench Dip',
@@ -13,7 +13,7 @@ List<String>triceps = [
   'Tricep Pushdown with Bar',
   'Tricep Pushdown With Rope',
 ];
-List<String>biceps = [
+List<String>bicep = [
   'Barbell Curl',
   'Barbel Preacher Curl',
   'Bodyweight Curls',
@@ -29,7 +29,7 @@ List<String>biceps = [
   'Seated Dumbbell Curl',
   'Spider Curl'
 ];
-List<String>abs = [
+List<String>ab = [
   'Cable Crunch',
   'Crunch',
   'Hanging Knee Raise',
@@ -48,7 +48,7 @@ List<String>abs = [
   'Vacuum Training'
 ];
 
-List<String>back = [
+List<String>backs = [
   'Back Extension',
   'Barbell Row',
   'Barbell Shrug',
@@ -71,7 +71,7 @@ List<String>back = [
   ''
 ];
 
-List<String> chest = [
+List<String> chests = [
   'Bench Press',
   'Cable Chest Press',
   'Close Grip Push Up',
@@ -92,7 +92,7 @@ List<String> chest = [
   'Standing Cable Chest Fly'
 ];
 
-List<String> forearms = [
+List<String> fore = [
   'Barbell Wrist Curl',
   'Barbell Wrist Curl Behind The Back',
   'Barbell Wrist Extension',
@@ -104,7 +104,7 @@ List<String> forearms = [
   'Wrist Curl With Cable'
 ];
 
-List<String> glutes = [
+List<String> glut = [
   'Barbell Lunge',
   'Barbell Walking Lunges',
   'Cable Glute Kickback',
@@ -118,7 +118,7 @@ List<String> glutes = [
   'Machine Glute Kickback',
   'Romanian Deadlift',
 ];
-List<String> hamstrings = [
+List<String> hamstrin = [
   'Bulgarian Split Squat',
   'Lying Leg Curl',
   'Lying Hamstring Machine',
@@ -126,7 +126,7 @@ List<String> hamstrings = [
   'Seated Leg Curl',
   'Stiff-legged Deadlift',
 ];
-List<String> quads = [
+List<String> qua = [
   'Hack Squat',
   'Hack Squat Machine',
   'Landmine Hack Squat',
@@ -137,7 +137,7 @@ List<String> quads = [
   'Smith Machine Squat',
   'Squat'
 ];
-List<String> shoulders = [
+List<String> shoulde = [
   'Arnold Press',
   'Barbell Upright Row',
   'Cable Front Raise',
@@ -158,12 +158,12 @@ List<String> shoulders = [
   'Seated Smith Machine Shoulder Press',
   ''
 ];
-List<String> lowerlegs = [
+List<String> lowerle = [
   'Seated Calf Raise',
   'Standing Calf Raise'
 ];
 
-List<String> cardio = [
+List<String> cardi = [
   'Running',
   'Swimming',
   'Cycling',

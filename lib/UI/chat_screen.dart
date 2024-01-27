@@ -1,9 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -32,6 +29,12 @@ class _ChatScreenState extends State<ChatScreen> {
   bool _showEmoji = false, _isUploading = false;
   final controller = ScrollController();
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _textController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +136,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                   itemCount: _list.length,
                                   physics: const BouncingScrollPhysics(),
                                   itemBuilder: (context,index){
-                                    return MessageCard(message: _list[index]);
+                                    return MessageCard(message: _list[index],textEditingController: _textController,);
                                   }
 
                               );
@@ -199,6 +202,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   Expanded(
                       child: TextField(
+
                         controller: _textController,
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
@@ -254,7 +258,7 @@ class _ChatScreenState extends State<ChatScreen> {
           shape: const CircleBorder(),
           onPressed: (){
             if(_textController.text.isNotEmpty){
-              DatabaseService.sendMessage(widget.user, _textController.text,'text');
+              DatabaseService.sendMessage(widget.user, _textController.text.trim(),'text');
               _textController.text = '';
             }
           },

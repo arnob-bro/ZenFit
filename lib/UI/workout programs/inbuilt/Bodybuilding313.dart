@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zenfit/UI/ArnoldsBasicMassRoutine.dart';
+import 'package:zenfit/UI/workout%20programs/inbuilt/ArnoldsBasicMassRoutine.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/graph.dart';
