@@ -20,7 +20,7 @@ class _StrengthGraphState extends State<StrengthGraph> {
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const startWorkout()),
+      MaterialPageRoute(builder: (context) => startWorkout(workouttime: DateTime.now().millisecondsSinceEpoch.toString(),)),
     );
   }
   @override

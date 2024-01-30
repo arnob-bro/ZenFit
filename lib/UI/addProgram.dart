@@ -8,6 +8,7 @@ import 'package:zenfit/UI/workout_edit.dart';
 
 import '../Service/Database.dart';
 import '../Widgets/for user customed programs/show_workout_card.dart';
+import 'mine.dart';
 
 
 
@@ -23,7 +24,8 @@ class AddProgram extends StatefulWidget {
 class _AddProgramState extends State<AddProgram> {
 
   var weektime,workouttime;
-
+  final _formKey = GlobalKey<FormState>();
+  late String program;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,8 @@ class _AddProgramState extends State<AddProgram> {
         leading: IconButton(onPressed: (){
           Navigator.of(context).pop();
         }, icon: const Icon(Icons.arrow_back),color: Colors.white),
+
+
         backgroundColor: Colors.black12,
       ),
       body: StreamBuilder(

@@ -40,24 +40,40 @@ class _LowerLegsState extends State<LowerLegs> {
                       title: Text(lowerle[index],style: const TextStyle(color: Colors.white54),),
                       onTap: ()async{
                         String time = DateTime.now().millisecondsSinceEpoch.toString();
-                        await FirebaseFirestore.instance
-                            .collection('programs').doc(widget.category)
-                            .collection("userIDs").doc(DatabaseService.user.uid)
-                            .collection("program").doc(widget.programName)
-                            .collection("weeks").doc(widget.weektime)
-                            .collection("workout").doc(widget.workouttime)
-                            .collection("exercise").doc(time)
-                            .set({"time": time,"name": lowerle[index],"sets": 0,"reps" : 0});
+                        if(widget.category == "mine"){
+                          await FirebaseFirestore.instance
+                              .collection('programs').doc(widget.category)
+                              .collection("userIDs").doc(DatabaseService.user.uid)
+                              .collection("program").doc(widget.programName)
+                              .collection("weeks").doc(widget.weektime)
+                              .collection("workout").doc(widget.workouttime)
+                              .collection("exercise").doc(time)
+                              .set({"time": time,"name": ab[index],"sets": 0,"reps" : 0});
 
-                        await FirebaseFirestore.instance
-                            .collection('programs').doc(widget.category)
-                            .collection("userIDs").doc(DatabaseService.user.uid)
-                            .collection("program").doc(widget.programName)
-                            .collection("weeks").doc(widget.weektime)
-                            .collection("workout").doc(widget.workouttime)
-                            .collection("exercise").doc(time)
-                            .collection("set").doc(time)
-                            .set({"time": time,"weight": 0,"reps" : 0});
+                          await FirebaseFirestore.instance
+                              .collection('programs').doc(widget.category)
+                              .collection("userIDs").doc(DatabaseService.user.uid)
+                              .collection("program").doc(widget.programName)
+                              .collection("weeks").doc(widget.weektime)
+                              .collection("workout").doc(widget.workouttime)
+                              .collection("exercise").doc(time)
+                              .collection("set").doc(time)
+                              .set({"time": time,"weight": 0,"reps" : 0});
+                        }
+                        else if(widget.category == "startworkout"){
+                          await FirebaseFirestore.instance
+                              .collection('traininglog').doc(DatabaseService.user.uid)
+                              .collection("workout").doc(widget.workouttime)
+                              .collection("exercise").doc(time)
+                              .set({"time": time,"name": ab[index],"sets": 0,"reps" : 0});
+
+                          await FirebaseFirestore.instance
+                              .collection('traininglog').doc(DatabaseService.user.uid)
+                              .collection("workout").doc(widget.workouttime)
+                              .collection("exercise").doc(time)
+                              .collection("set").doc(time)
+                              .set({"time": time,"weight": 0,"reps" : 0});
+                        }
 
                         Navigator.pop(context);
                       }

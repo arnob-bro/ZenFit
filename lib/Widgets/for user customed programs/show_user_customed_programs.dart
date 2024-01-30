@@ -26,6 +26,7 @@ class _Show_User_ProgramState extends State<Show_User_Program> {
         leading: IconButton(onPressed: (){
           Navigator.of(context).pop();
         }, icon: const Icon(Icons.arrow_back),color: Colors.white),
+
         backgroundColor: Colors.black12,
 
       ),
@@ -43,8 +44,10 @@ class _Show_User_ProgramState extends State<Show_User_Program> {
                   ),
                 ),
                 ),
-                onTap: (){
-
+                onTap: ()async{
+                    await FirebaseFirestore.instance.collection("followedprograms").doc(DatabaseService.user.uid).collection('mine').doc(widget.programName).set(
+                        {"program": widget.programName, "week": 1, "workout": 1});
+                    Navigator.pop(context);
                 }
             ),
           ),
