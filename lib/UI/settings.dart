@@ -32,7 +32,7 @@ class _settingsState extends State<settings> {
       });
       },
       child: Scaffold(
-        backgroundColor: const Color(0xff37393D),
+        backgroundColor: const Color.fromRGBO(26, 26, 26, 9),
         //backgroundColor: const Color.fromRGBO(35, 35, 35, 5),
         appBar: AppBar(
           title: const Text(
@@ -44,7 +44,8 @@ class _settingsState extends State<settings> {
           leading: IconButton(onPressed: (){
             Navigator.of(context).pop();
           }, icon: const Icon(Icons.arrow_back),color: Colors.white),
-          backgroundColor: Colors.black12,
+          backgroundColor: const Color.fromRGBO(23, 23, 23, 9),
+
           //backgroundColor: const Color.fromRGBO(15, 15, 15, 9),
         ),
         body: ListView(
@@ -59,9 +60,6 @@ class _settingsState extends State<settings> {
                 }
               ),
             ),*/
-
-
-
 
 
 
@@ -271,7 +269,7 @@ class _settingsState extends State<settings> {
                 onTap: (){
                   DatabaseService.updateActiveStatus(false);
                   SignOut();
-      
+
                 },
               ),
             ),*/
