@@ -49,6 +49,8 @@ dependencies:
   http: ^0.13.5
   flutter_notification_channel: ^2.0.0
   gallery_saver: ^2.3.2
+  fl_chart: ^0.66.1
+  sqflite: ^2.3.2
 
 dev_dependencies:
   flutter_test:
