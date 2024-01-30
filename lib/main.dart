@@ -4,7 +4,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notification_channel/flutter_notification_channel.dart';
 import 'package:flutter_notification_channel/notification_importance.dart';
-import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/welcome.dart';
 import 'firebase_options.dart';

@@ -5,9 +5,9 @@ import '../../Service/Database.dart';
 
 
 class ShowWorkoutExercises extends StatefulWidget {
-  final int workoutNo;
+  final String workoutNo;
   final String programName;
-  final int week;
+  final String week;
   const ShowWorkoutExercises( {super.key, required this.workoutNo, required this.programName, required this.week});
 
   @override

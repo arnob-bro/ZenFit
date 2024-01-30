@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/Widgets/for%20inbuilt%20programs/workout_day_card.dart';
 
+import '../../../Service/Database.dart';
 import '../../../main.dart';
 
 class GVT3D1W extends StatefulWidget {
@@ -33,18 +34,20 @@ class _GVT3D1WState extends State<GVT3D1W> {
       body: Column(
         children: [
           Card(
-            color: Colors.white10,
+            color: Colors.redAccent,
             child: ListTile(
                 title: const Center(child: Text(
                   'Start following program',
                   style: TextStyle(
                     fontSize: 18.0,
-                    color: Colors.white54,
+                    color: Colors.white,
                   ),
                 ),
                 ),
-                onTap: (){
-      
+                onTap: ()async{
+                  await FirebaseFirestore.instance.collection("followedprograms").doc(DatabaseService.user.uid).collection('other').doc("German Volume Training - 3 days per week").set(
+                      {"program": "Arnold's Basic Mass Routine - 6 days per week", "week": 1, "workout": 1});
+                  Navigator.pop(context);
                 }
             ),
           ),

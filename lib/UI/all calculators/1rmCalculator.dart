@@ -19,9 +19,10 @@ class _RM_CalculatorState extends State<RM_Calculator> {
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => startWorkout()),
+      MaterialPageRoute(builder: (context) => startWorkout(workouttime: DateTime.now().millisecondsSinceEpoch.toString(),)),
     );
   }
+
 
   bool isCalculated = false;
   double? oneRM;

@@ -19,7 +19,11 @@ import 'package:zenfit/UI/exercises%20list/Cardio.dart';
 
 class Exercise extends StatefulWidget {
   final String category;
-  const Exercise({super.key, required this.category});
+  final String programName;
+  final String weektime;
+  final String workouttime;
+  final String workoutName;
+  const Exercise({super.key, required this.category, required this.programName, required this.weektime, required this.workouttime, required this.workoutName});
 
   @override
   State<Exercise> createState() => _ExerciseState();
@@ -67,18 +71,18 @@ class _ExerciseState extends State<Exercise> {
 
       body: TabBarView(
         children: [
-          Abs(category: widget.category,),
-          Back(category: widget.category,),
-          Biceps(category: widget.category,),
-          Chest(category: widget.category,),
-          Forearms(category: widget.category,),
-          Glutes(category: widget.category,),
-          Hamstrings(category: widget.category,),
-          LowerLegs(category: widget.category,),
-          Quads(category: widget.category,),
-          Shoulders(category: widget.category,),
-          Triceps(category: widget.category,),
-          const Cardio(),
+          Abs(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Back(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Biceps(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Chest(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Forearms(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Glutes(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Hamstrings(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          LowerLegs(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Quads(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Shoulders(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Triceps(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Cardio(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
         ],
       ),
 

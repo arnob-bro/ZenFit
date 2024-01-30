@@ -5,7 +5,7 @@ import 'package:zenfit/Widgets/for%20user%20customed%20programs/show_workout_exe
 
 class ShowWorkoutCard extends StatefulWidget {
   final String programName;
-  final int week;
+  final String week;
   const ShowWorkoutCard({super.key, required this.programName, required this.week});
 
   @override
@@ -50,7 +50,7 @@ class _ShowWorkoutCardState extends State<ShowWorkoutCard> {
                             padding: const EdgeInsets.only(bottom: 30),
                             child: Card(
                               color: Colors.blueGrey,
-                              child: ShowWorkoutExercises(workoutNo: snapshot.data!.docs[index]['no'], week: widget.week, programName: widget.programName,),
+                              child: ShowWorkoutExercises(workoutNo: snapshot.data!.docs[index]['time'], week: widget.week, programName: widget.programName,),
                             ),
                           ),
 
