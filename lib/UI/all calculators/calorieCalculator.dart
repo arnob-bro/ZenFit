@@ -20,7 +20,7 @@ class _Calorie_CalculatorState extends State<Calorie_Calculator> {
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => startWorkout()),
+      MaterialPageRoute(builder: (context) => startWorkout(workouttime: DateTime.now().millisecondsSinceEpoch.toString(),)),
     );
   }
   int? selectedValue;

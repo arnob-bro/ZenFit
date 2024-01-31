@@ -20,7 +20,7 @@ class _Followed_ProgramsState extends State<Followed_Programs> {
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => startWorkout()),
+      MaterialPageRoute(builder: (context) => startWorkout(workouttime: DateTime.now().millisecondsSinceEpoch.toString(),)),
     );
   }
   @override

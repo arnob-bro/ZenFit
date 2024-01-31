@@ -22,7 +22,7 @@ class _settingsState extends State<settings> {
   void navigateTostartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const startWorkout()),
+      MaterialPageRoute(builder: (context) => startWorkout(workouttime: DateTime.now().millisecondsSinceEpoch.toString(),)),
     );
   }
   @override
@@ -81,6 +81,8 @@ class _settingsState extends State<settings> {
           ],
         ),
         bottomNavigationBar: BottomAppBar(
+          shadowColor: Colors.black,
+          surfaceTintColor: Colors.black,
           elevation: 20,
           height: 60,
           color: Colors.white,
@@ -114,7 +116,7 @@ class _settingsState extends State<settings> {
               }, icon: const Icon(Icons.note_alt)),
               IconButton(onPressed:(){
       
-              }, icon: const Icon(Icons.settings)),
+              }, icon: const Icon(Icons.settings,color: Colors.red,)),
       
             ],
           ),

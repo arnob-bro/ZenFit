@@ -85,27 +85,7 @@ class _My_GoalsState extends State<My_Goals> {
 
       body: ListView(
         children: [
-          /*StreamBuilder<List<Goal>>(
-              stream: DatabaseService().readGoals(),
-              builder: (context, snapshot) {
-                if(snapshot.connectionState == ConnectionState.waiting)
-                  {
-                    return const Center(child: CircularProgressIndicator(),);
-                  }
-                else {
-                  if (snapshot.hasData) {
-                    final goalList = snapshot.data;
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: goalList!
-                          .map((goal) => GoalCard(goal: goal))
-                          .toList(),
-                    );
-                  } else {
-                    return const Center(child: Text("Data Not found"));
-                  }
-                }
-              }),*/
+
               const SizedBox(height: 10,),
               StreamBuilder(
                   stream: DatabaseService.readGoals(),

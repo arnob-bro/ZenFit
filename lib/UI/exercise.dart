@@ -3,22 +3,27 @@ import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
-import 'package:zenfit/UI/Abs.dart';
-import 'package:zenfit/UI/Back.dart';
-import 'package:zenfit/UI/Biceps.dart';
-import 'package:zenfit/UI/Chest.dart';
-import 'package:zenfit/UI/Forearms.dart';
-import 'package:zenfit/UI/Glutes.dart';
-import 'package:zenfit/UI/Hamstrings.dart';
-import 'package:zenfit/UI/LowerLegs.dart';
-import 'package:zenfit/UI/Quads.dart';
-import 'package:zenfit/UI/Shoulders.dart';
-import 'package:zenfit/UI/Triceps.dart';
-import 'package:zenfit/UI/Cardio.dart';
+import 'package:zenfit/UI/exercises%20list/Abs.dart';
+import 'package:zenfit/UI/exercises%20list/Back.dart';
+import 'package:zenfit/UI/exercises%20list/Biceps.dart';
+import 'package:zenfit/UI/exercises%20list/Chest.dart';
+import 'package:zenfit/UI/exercises%20list/Forearms.dart';
+import 'package:zenfit/UI/exercises%20list/Glutes.dart';
+import 'package:zenfit/UI/exercises%20list/Hamstrings.dart';
+import 'package:zenfit/UI/exercises%20list/LowerLegs.dart';
+import 'package:zenfit/UI/exercises%20list/Quads.dart';
+import 'package:zenfit/UI/exercises%20list/Shoulders.dart';
+import 'package:zenfit/UI/exercises%20list/Triceps.dart';
+import 'package:zenfit/UI/exercises%20list/Cardio.dart';
 
 
 class Exercise extends StatefulWidget {
-  const Exercise({super.key});
+  final String category;
+  final String programName;
+  final String weektime;
+  final String workouttime;
+  final String workoutName;
+  const Exercise({super.key, required this.category, required this.programName, required this.weektime, required this.workouttime, required this.workoutName});
 
   @override
   State<Exercise> createState() => _ExerciseState();
@@ -64,20 +69,20 @@ class _ExerciseState extends State<Exercise> {
 
       ),
 
-      body: const TabBarView(
+      body: TabBarView(
         children: [
-          Abs(),
-          Back(),
-          Biceps(),
-          Chest(),
-          Forearms(),
-          Glutes(),
-          Hamstrings(),
-          LowerLegs(),
-          Quads(),
-          Shoulders(),
-          Triceps(),
-          Cardio(),
+          Abs(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Back(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Biceps(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Chest(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Forearms(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Glutes(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Hamstrings(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          LowerLegs(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Quads(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Shoulders(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Triceps(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
+          Cardio(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,),
         ],
       ),
 

@@ -21,7 +21,7 @@ class _StrengthGraphState extends State<StrengthGraph> {
   void navigateToStartWorkout() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => startWorkout()),
+      MaterialPageRoute(builder: (context) => startWorkout(workouttime: DateTime.now().millisecondsSinceEpoch.toString(),)),
     );
   }
   // Replace with database-related code to fetch data

@@ -5,17 +5,19 @@ import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 import 'package:zenfit/UI/exercise.dart';
 
-
-import 'package:flutter/material.dart';
-
-class Forearms extends StatefulWidget {
-  const Forearms({super.key});
+class Cardio extends StatefulWidget {
+  final String programName;
+  final String weektime;
+  final String workouttime;
+  final String workoutName;
+  final String category;
+  const Cardio({super.key, required this.programName, required this.weektime, required this.workouttime, required this.workoutName, required this.category});
 
   @override
-  State<Forearms> createState() => _ForearmsState();
+  State<Cardio> createState() => _CardioState();
 }
 
-class _ForearmsState extends State<Forearms> {
+class _CardioState extends State<Cardio> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,7 @@ class _ForearmsState extends State<Forearms> {
               Card(
                 color: Colors.white10,
                 child: ListTile(
-                    title: Text("Barbell Wrist Curl",style: TextStyle(color: Colors.white54),),
+                    title: const Text("Running",style: TextStyle(color: Colors.white54),),
                     onTap: (){
 
                     }
@@ -35,7 +37,7 @@ class _ForearmsState extends State<Forearms> {
               Card(
                 color: Colors.white10,
                 child: ListTile(
-                    title: Text("Barbell Wrist Curl Behind The Back",style: TextStyle(color: Colors.white54),),
+                    title: const Text("Swimming",style: TextStyle(color: Colors.white54),),
                     onTap: (){
 
                     }
@@ -44,7 +46,7 @@ class _ForearmsState extends State<Forearms> {
               Card(
                 color: Colors.white10,
                 child: ListTile(
-                    title: Text("Barbell Wrist Extension",style: TextStyle(color: Colors.white54),),
+                    title: const Text("Cycling",style: TextStyle(color: Colors.white54),),
                     onTap: (){
 
                     }
@@ -53,7 +55,7 @@ class _ForearmsState extends State<Forearms> {
               Card(
                 color: Colors.white10,
                 child: ListTile(
-                    title: Text("Dumbbell Wrist Curl",style: TextStyle(color: Colors.white54),),
+                    title: const Text("Walking",style: TextStyle(color: Colors.white54),),
                     onTap: (){
 
                     }
@@ -62,7 +64,7 @@ class _ForearmsState extends State<Forearms> {
               Card(
                 color: Colors.white10,
                 child: ListTile(
-                    title: Text("Dumbbell Wrist Curl",style: TextStyle(color: Colors.white54),),
+                    title: const Text("Rowing",style: TextStyle(color: Colors.white54),),
                     onTap: (){
 
                     }
@@ -71,7 +73,7 @@ class _ForearmsState extends State<Forearms> {
               Card(
                 color: Colors.white10,
                 child: ListTile(
-                    title: Text("Farmers Walk",style: TextStyle(color: Colors.white54),),
+                    title: const Text("Cross Trainer",style: TextStyle(color: Colors.white54),),
                     onTap: (){
 
                     }
@@ -80,36 +82,15 @@ class _ForearmsState extends State<Forearms> {
               Card(
                 color: Colors.white10,
                 child: ListTile(
-                    title: Text("One Hand Wrist Curl With Cable",style: TextStyle(color: Colors.white54),),
+                    title: const Text("Jump Rope",style: TextStyle(color: Colors.white54),),
                     onTap: (){
 
                     }
                 ),
               ),
-              Card(
-                color: Colors.white10,
-                child: ListTile(
-                    title: Text("One Hand Sidewise Wrist Extension",style: TextStyle(color: Colors.white54),),
-                    onTap: (){
-
-                    }
-                ),
-              ),
-              Card(
-                color: Colors.white10,
-                child: ListTile(
-                    title: Text("Wrist Curl With Cable",style: TextStyle(color: Colors.white54),),
-                    onTap: (){
-
-                    }
-                ),
-              ),
-
-
             ],
           ),
         )
-
     );
   }
 }

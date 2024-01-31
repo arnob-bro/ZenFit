@@ -9,9 +9,10 @@ import '../Model/message.dart';
 import '../main.dart';
 
 class MessageCard extends StatefulWidget {
-  const MessageCard({super.key, required this.message});
+  const MessageCard({super.key, required this.message, required this.textEditingController});
 
   final Message message;
+  final TextEditingController textEditingController;
 
   @override
   State<MessageCard> createState() => _MessageCardState();
@@ -29,7 +30,7 @@ class _MessageCardState extends State<MessageCard> {
               topRight: Radius.circular(20)
           )
       ),
-      builder: (_){
+      builder: (context){
         return ListView(
           shrinkWrap: true,
           padding: const EdgeInsets.only(top: 10,bottom: 15),
@@ -165,7 +166,10 @@ class _MessageCardState extends State<MessageCard> {
     bool isMe = DatabaseService.user.uid == widget.message.fromId;
     return InkWell(
       onLongPress: (){
-        _showBottomSheet(isMe);
+
+        if(context.mounted) {
+          _showBottomSheet(isMe);
+        }
       },
         child: isMe? _purpleMessage() : _greyMessage());
   }
