@@ -14,6 +14,7 @@ import 'package:zenfit/UI/myGoals.dart';
 import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/startWorkout.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
+import 'package:zenfit/UI/Training%20Log/training_log.dart';
 import '../main.dart';
 import 'Chat_Room.dart';
 
@@ -66,6 +67,7 @@ class _HomeState extends State<Home>{
         canPop: false,
         child: GestureDetector(
           onTap: () {
+            FocusScope.of(context).unfocus();
             setState(() {
               isCardVisible = false;
             });
@@ -252,7 +254,14 @@ class _HomeState extends State<Home>{
                                 ),
                                 //child: const Center(child: Text("Chat Room")),
                               ),
-                              onTap: (){ },
+                              onTap: (){ 
+                                if(!isCardVisible) Navigator.push(context, MaterialPageRoute(builder: (context)=> TrainingLog()));
+                                else if(isCardVisible) {
+                                  setState(() {
+                                    isCardVisible = false;
+                                  });
+                                }
+                              },
       
                             ),
                           ),
@@ -340,9 +349,15 @@ class _HomeState extends State<Home>{
                                 //child: const Center(child: Text("Chat Room")),
                               ),
                               onTap: (){
-                                Navigator.push(context,
+                                if(!isCardVisible)
+                                  Navigator.push(context,
                                   MaterialPageRoute(builder: (context) => My_Goals()),
                                 );
+                                else if(isCardVisible){
+                                  setState(() {
+                                    isCardVisible = false;
+                                  });
+                                }
                               },
                             ),
                           ),
@@ -432,9 +447,16 @@ class _HomeState extends State<Home>{
                                   //child: const Center(child: Text("Chat Room")),
                                 ),
                                 onTap: (){
-                                  Navigator.push(context,
+                                  if(!isCardVisible){
+                                    Navigator.push(context,
                                     MaterialPageRoute(builder: (context) => const Followed_Programs()),
-                                  );
+                                  );}
+                                  else if(isCardVisible) {
+                                    setState(() {
+                                      isCardVisible = false;
+                                    }
+                                    );
+                                  }
                                 }
                             ),
                           ),
@@ -525,9 +547,15 @@ class _HomeState extends State<Home>{
                               ),
                               onTap: (){
                                 //await DatabaseService().updateActiveStatus(true);
-                                Navigator.push(context,
+                                if(!isCardVisible)
+                                  Navigator.push(context,
                                   MaterialPageRoute(builder: (context) => const Chat_Room()),
                                 );
+                                else if(isCardVisible) {
+                                  setState(() {
+                                    isCardVisible = false;
+                                  });
+                                }
                               },
                             ),
                           ),
