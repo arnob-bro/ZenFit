@@ -32,22 +32,26 @@ class _settingsState extends State<settings> {
       });
       },
       child: Scaffold(
+
         backgroundColor: Colors.black,
+
         appBar: AppBar(
           title: const Text(
-              "Settings",
+            "Settings",
             style: TextStyle(
-              color: Colors.white54,
+              color: Colors.white,
             ),
           ),
           leading: IconButton(onPressed: (){
             Navigator.of(context).pop();
           }, icon: const Icon(Icons.arrow_back),color: Colors.white),
-          backgroundColor: Colors.black12,
+          backgroundColor: const Color.fromRGBO(23, 23, 23, 9),
+
+          //backgroundColor: const Color.fromRGBO(15, 15, 15, 9),
         ),
         body: ListView(
           children: [
-            Card(
+            /*Card(
               child: ListTile(
                 title: const Text("Account"),
                 onTap: (){
@@ -56,8 +60,135 @@ class _settingsState extends State<settings> {
                   );
                 }
               ),
+            ),*/
+
+
+
+            Padding(
+              padding: EdgeInsets.only(left: 10,right: 10,top: 8),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Account()),
+                  );
+
+                },
+
+                child: Container(
+                  decoration: BoxDecoration(
+                    //color: Color.fromRGBO(15, 15, 15, 9),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Icon(
+                            Icons.account_circle_outlined,
+                            color: Colors.white70,
+                            size: 30,
+                          ),
+                        ),
+                        Expanded(child:Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            "Account",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              //fontWeight: FontWeight.w900,
+                              //fontStyle: FontStyle.italic,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                        ),
+
+                        Padding(
+                          padding: EdgeInsets.only(left: 5,top: 5,bottom: 5,right: 5),
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white70,
+                            size: 20,
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ),
-            Card(
+
+            Divider(
+              height: 1,
+              color: Colors.white10,
+              thickness: .5,
+            ),
+
+
+
+            Padding(
+              padding: EdgeInsets.only(left: 10,right: 10,top: 8),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Calculators()),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    //color: Color.fromRGBO(15, 15, 15, 9),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Icon(
+                            Icons.calculate_outlined,
+                            color: Colors.white70,
+                            size: 30,
+                          ),
+                        ),
+                        Expanded(child:Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            "Calculators",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              //fontWeight: FontWeight.w900,
+                              //fontStyle: FontStyle.italic,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                        ),
+
+                        Padding(
+                          padding: EdgeInsets.only(left: 5,top: 5,bottom: 5,right: 5),
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white70,
+                            size: 20,
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+
+
+
+
+            /*Card(
               child: ListTile(
                 title: const Text("Calculators"),
                 onTap: (){
@@ -66,20 +197,86 @@ class _settingsState extends State<settings> {
                   );
                 }
               ),
+            ),*/
+
+            Divider(
+              height: 1,
+              color: Colors.white10,
+              thickness: .5,
             ),
 
-            Card(
+
+            Padding(
+              padding: EdgeInsets.only(left: 10,right: 10,top: 8),
+              child: InkWell(
+                onTap: () {
+                  DatabaseService.updateActiveStatus(false);
+                  SignOut();
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    //color: Color.fromRGBO(15, 15, 15, 9),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Icon(
+                            Icons.logout,
+                            color: Colors.white70,
+                            size: 30,
+                          ),
+                        ),
+                        Expanded(child:Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            "Log out",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              //fontWeight: FontWeight.w900,
+                              //fontStyle: FontStyle.italic,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                        ),
+
+                        Padding(
+                          padding: EdgeInsets.only(left: 5,top: 5,bottom: 5,right: 5),
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white70,
+                            size: 20,
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+
+
+
+
+            /* Card(
               child: ListTile(
                 title: const Text("Log out"),
                 onTap: (){
                   DatabaseService.updateActiveStatus(false);
                   SignOut();
-      
+
                 },
               ),
-            ),
+            ),*/
           ],
         ),
+
           bottomNavigationBar: BottomAppBar(
             shadowColor: Colors.black,
             surfaceTintColor: Colors.black,
@@ -118,6 +315,7 @@ class _settingsState extends State<settings> {
 
               ],
             ),
+
           ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: isCardVisible
