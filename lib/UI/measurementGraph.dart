@@ -24,18 +24,128 @@ class _MeasurementGraphState extends State<MeasurementGraph> {
       MaterialPageRoute(builder: (context) => startWorkout(workouttime: DateTime.now().millisecondsSinceEpoch.toString(),)),
     );
   }
+  // Replace with database-related code to fetch data
+  List<DataPoint> fetchDataFromDatabase() {
+    // database fetching logic here
+    // Return a list of DataPoint objects
+    // Each DataPoint should have an x and y value
+    return [
+      DataPoint(0, 2),
+      DataPoint(1, 4),
+      DataPoint(2, 8),
+      DataPoint(4, 6),
+      DataPoint(2, 9),
+      DataPoint(3, 10),
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () { setState(() {isCardVisible = false;
-      });
+      onTap: () {
+        setState(() {
+          isCardVisible = false;
+        });
       },
       child: Scaffold(
-        backgroundColor: Colors.white60,
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text("Strength Graph"),
-          backgroundColor: Colors.black26,
+          title: Text(
+            "Measurement Graph",
+            style: TextStyle(color: Colors.white),
+          ),
+          leading: IconButton(onPressed: (){
+            Navigator.of(context).pop();
+          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
+          backgroundColor: Colors.black,
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RotatedBox(
+                    quarterTurns: -1,
+                    child: Text(
+                      "Measurement (cm)",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Transform.scale(
+                    scale: 12.8, // Adjust the scale factor as needed
+                    child: Icon(
+                      Icons.arrow_upward,
+                      size: 2,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: 500, // Adjust the width as needed
+                      height: 500, // Adjust the height as needed
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.transparent, width: 1),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: LineChart(
+                          LineChartData(
+                            borderData: FlBorderData(
+                              show: true,
+                              border: Border.all(
+                                color: const Color(0xFF37434D),
+                                width: 1,
+                              ),
+                            ),
+                            minX: 0,
+                            maxX: 10,
+                            minY: 0,
+                            maxY: 10,
+                            lineBarsData: [
+                              LineChartBarData(
+                                spots: fetchDataFromDatabase().map((dataPoint) {
+                                  return FlSpot(
+                                      dataPoint.x.toDouble(),
+                                      dataPoint.y.toDouble());
+                                }).toList(),
+                                isCurved: true,
+                                color: Colors.blue,
+                                dotData: FlDotData(show: false),
+                                belowBarData: BarAreaData(show: false),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(width: 10),
+                  Transform.scale(
+                    scale: 12.8,
+                    child: Icon(
+                      Icons.arrow_forward,
+                      size: 2,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    "Time (days)",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ],
+              ),
 
+            ],
+          ),
         ),
 
         bottomNavigationBar: BottomAppBar(
@@ -121,4 +231,11 @@ class _MeasurementGraphState extends State<MeasurementGraph> {
       ),
     );
   }
+}
+
+class DataPoint {
+  final double x;
+  final double y;
+
+  DataPoint(this.x, this.y);
 }
