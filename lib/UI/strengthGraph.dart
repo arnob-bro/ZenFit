@@ -146,9 +146,11 @@ class _StrengthGraphState extends State<StrengthGraph> {
         ),
 
         bottomNavigationBar: BottomAppBar(
+          shadowColor: Colors.black,
+          surfaceTintColor: Colors.black,
           elevation: 20,
           height: 60,
-          color: Colors.white,
+          color: Colors.black,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -159,7 +161,7 @@ class _StrengthGraphState extends State<StrengthGraph> {
                       MaterialPageRoute(builder: (context) => const Home()),
                     );
                   },
-                  icon: const Icon(Icons.home)),
+                  icon: const Icon(Icons.home,color: Colors.white)),
               IconButton(
                   onPressed: () {
                     Navigator.push(
@@ -167,14 +169,14 @@ class _StrengthGraphState extends State<StrengthGraph> {
                       MaterialPageRoute(builder: (context) => const Graph()),
                     );
                   },
-                  icon: const Icon(Icons.show_chart)),
+                  icon: const Icon(Icons.show_chart,color: Colors.white)),
               IconButton(
                   onPressed: () {
                     setState(() {
                       isCardVisible = !isCardVisible;
                     });
                   },
-                  icon: const Icon(Icons.add_circle_outlined)),
+                  icon: const Icon(Icons.add_circle_outlined,color: Colors.white)),
               IconButton(
                   onPressed: () {
                     Navigator.push(
@@ -183,7 +185,7 @@ class _StrengthGraphState extends State<StrengthGraph> {
                           builder: (context) => const TrainingProgram()),
                     );
                   },
-                  icon: const Icon(Icons.note_alt)),
+                  icon: const Icon(Icons.note_alt,color: Colors.white)),
               IconButton(
                   onPressed: () {
                     Navigator.push(
@@ -191,7 +193,7 @@ class _StrengthGraphState extends State<StrengthGraph> {
                       MaterialPageRoute(builder: (context) => const settings()),
                     );
                   },
-                  icon: const Icon(Icons.settings)),
+                  icon: const Icon(Icons.settings,color: Colors.white)),
             ],
           ),
         ),
