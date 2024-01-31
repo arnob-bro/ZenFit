@@ -32,8 +32,9 @@ class _settingsState extends State<settings> {
       });
       },
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(26, 26, 26, 9),
-        //backgroundColor: const Color.fromRGBO(35, 35, 35, 5),
+
+        backgroundColor: Colors.black,
+
         appBar: AppBar(
           title: const Text(
             "Settings",
@@ -275,47 +276,47 @@ class _settingsState extends State<settings> {
             ),*/
           ],
         ),
-        bottomNavigationBar: BottomAppBar(
-          shadowColor: Colors.black,
-          surfaceTintColor: Colors.black,
-          elevation: 20,
-          height: 60,
-          color: Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(onPressed:(){
-                Navigator.of(context).popUntil((route) => route.isFirst);
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Home()),
-                );
 
-              }, icon: const Icon(Icons.home)),
-              IconButton(onPressed:(){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Graph()),
-                );
+          bottomNavigationBar: BottomAppBar(
+            shadowColor: Colors.black,
+            surfaceTintColor: Colors.black,
+            elevation: 20,
+            height: 60,
+            color: Colors.black,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(onPressed:(){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Home()),
+                  );
+                }, icon: const Icon(Icons.home,color: Colors.white)),
+                IconButton(onPressed:(){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Graph()),
+                  );
 
-              }, icon: const Icon(Icons.show_chart)),
-              IconButton(onPressed:(){
-                setState(() {
-                  isCardVisible = !isCardVisible;
-                });
+                }, icon: const Icon(Icons.show_chart,color: Colors.white)),
+                IconButton(onPressed:(){
+                  setState(() {
+                    isCardVisible = true;
+                  });
 
-              }, icon: const Icon(Icons.add_circle_outlined)),
-              IconButton(onPressed:(){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TrainingProgram()),
-                );
+                }, icon: const Icon(Icons.add_circle_outlined,color: Colors.white,)),
+                IconButton(onPressed:(){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const TrainingProgram()),
+                  );
 
-              }, icon: const Icon(Icons.note_alt)),
-              IconButton(onPressed:(){
+                }, icon: const Icon(Icons.note_alt,color: Colors.white)),
+                IconButton(onPressed:(){
 
-              }, icon: const Icon(Icons.settings,color: Colors.red,)),
+                }, icon: const Icon(Icons.settings,color: Colors.red)),
 
-            ],
+              ],
+            ),
+
           ),
-        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: isCardVisible
             ? Column(

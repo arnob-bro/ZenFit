@@ -23,7 +23,7 @@ class _My_GoalsState extends State<My_Goals> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff37393D),
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text(
             "My Goals",
@@ -34,12 +34,14 @@ class _My_GoalsState extends State<My_Goals> {
         leading: IconButton(onPressed: (){
           Navigator.of(context).pop();
         }, icon: const Icon(Icons.arrow_back),color: Colors.white),
-        backgroundColor: Colors.black12,
+        backgroundColor: Colors.black,
       ),
       bottomNavigationBar: BottomAppBar(
+        shadowColor: Colors.black,
+        surfaceTintColor: Colors.black,
         elevation: 20,
         height: 60,
-        color: Colors.white,
+        color: Colors.black,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -47,28 +49,28 @@ class _My_GoalsState extends State<My_Goals> {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Home()),
               );
-            }, icon: const Icon(Icons.home)),
+            }, icon: const Icon(Icons.home,color: Colors.white,)),
             IconButton(onPressed:(){
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Graph()),
               );
 
-            }, icon: const Icon(Icons.show_chart)),
+            }, icon: const Icon(Icons.show_chart,color: Colors.white)),
             IconButton(onPressed:(){
 
 
-            }, icon: const Icon(Icons.add_circle_outlined)),
+            }, icon: const Icon(Icons.add_circle_outlined,color: Colors.white)),
             IconButton(onPressed:(){
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const TrainingProgram()),
               );
 
-            }, icon: const Icon(Icons.note_alt)),
+            }, icon: const Icon(Icons.note_alt,color: Colors.white)),
             IconButton(onPressed:(){
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const settings()),
               );
-            }, icon: const Icon(Icons.settings)),
+            }, icon: const Icon(Icons.settings,color: Colors.white)),
 
           ],
         ),

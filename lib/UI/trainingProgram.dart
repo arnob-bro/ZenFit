@@ -32,7 +32,7 @@ class _TrainingProgramState extends State<TrainingProgram> {
       });
       },
       child: Scaffold(
-        backgroundColor: Color(0xff37393D),
+        backgroundColor: Colors.black,
         appBar: AppBar(
           title: const Text(
               "Training Programs",
@@ -40,6 +40,9 @@ class _TrainingProgramState extends State<TrainingProgram> {
               color: Colors.white54,
             ),
           ),
+          leading: IconButton(onPressed: (){
+            Navigator.of(context).pop();
+          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
           backgroundColor: Colors.black12,
       
         ),
@@ -72,9 +75,11 @@ class _TrainingProgramState extends State<TrainingProgram> {
           ],
         ),
         bottomNavigationBar: BottomAppBar(
+          shadowColor: Colors.black,
+          surfaceTintColor: Colors.black,
           elevation: 20,
           height: 60,
-          color: Colors.white,
+          color: Colors.black,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -82,29 +87,29 @@ class _TrainingProgramState extends State<TrainingProgram> {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Home()),
                 );
-              }, icon: const Icon(Icons.home)),
+              }, icon: const Icon(Icons.home,color: Colors.white)),
               IconButton(onPressed:(){
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Graph()),
                 );
-      
-              }, icon: const Icon(Icons.show_chart)),
+
+              }, icon: const Icon(Icons.show_chart,color: Colors.white)),
               IconButton(onPressed:(){
                 setState(() {
-                  isCardVisible = !isCardVisible;
+                  isCardVisible = true;
                 });
-      
-              }, icon: const Icon(Icons.add_circle_outlined)),
+
+              }, icon: const Icon(Icons.add_circle_outlined,color: Colors.white,)),
               IconButton(onPressed:(){
-      
-              }, icon: const Icon(Icons.note_alt)),
+
+
+              }, icon: const Icon(Icons.note_alt,color: Colors.red)),
               IconButton(onPressed:(){
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const settings()),
                 );
-      
-              }, icon: const Icon(Icons.settings)),
-      
+              }, icon: const Icon(Icons.settings,color: Colors.white)),
+
             ],
           ),
         ),
