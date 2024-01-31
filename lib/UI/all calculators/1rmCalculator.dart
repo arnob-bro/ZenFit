@@ -132,18 +132,18 @@ class _RM_CalculatorState extends State<RM_Calculator> {
       });
       },
       child: Scaffold(
-        backgroundColor: const Color(0xff37393D),
+        backgroundColor: Colors.black,
         appBar: AppBar(
           title: const Text(
               "1RM Calculator",
             style: TextStyle(
-              color: Colors.white54,
+              color: Colors.white,
             ),
           ),
           leading: IconButton(onPressed: (){
             Navigator.of(context).pop();
           }, icon: const Icon(Icons.arrow_back),color: Colors.white),
-          backgroundColor: Colors.black12,
+          backgroundColor: Colors.black,
 
         ),
         body: SafeArea(
