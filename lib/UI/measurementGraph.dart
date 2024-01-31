@@ -6,6 +6,7 @@ import 'package:zenfit/UI/settings.dart';
 import 'package:zenfit/UI/trainingProgram.dart';
 import 'package:zenfit/UI/graph.dart';
 import 'package:zenfit/UI/startWorkout.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class MeasurementGraph extends StatefulWidget {
   const MeasurementGraph({super.key});
@@ -32,10 +33,7 @@ class _MeasurementGraphState extends State<MeasurementGraph> {
       child: Scaffold(
         backgroundColor: Colors.white60,
         appBar: AppBar(
-          title: const Text("Measurement Graph"),
-          leading: IconButton(onPressed: (){
-            Navigator.of(context).pop();
-          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
+          title: Text("Strength Graph"),
           backgroundColor: Colors.black26,
 
         ),
@@ -62,6 +60,7 @@ class _MeasurementGraphState extends State<MeasurementGraph> {
                 setState(() {
                   isCardVisible = !isCardVisible;
                 });
+
               }, icon: const Icon(Icons.add_circle_outlined)),
               IconButton(onPressed:(){
                 Navigator.push(context,
