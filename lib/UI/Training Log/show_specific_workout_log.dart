@@ -61,7 +61,10 @@ class SpecificWorkoutLogState extends State<SpecificWorkoutLog> {
                                 child: Row(
 
                                   children: [
-                                    Text(exerciseshot.data!.docs[indexofexercise]['name'],style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(exerciseshot.data!.docs[indexofexercise]['name'],style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
+                                    ),
                                     const Expanded(child: SizedBox()),
 
                                   ],
@@ -89,11 +92,26 @@ class SpecificWorkoutLogState extends State<SpecificWorkoutLog> {
                                                     Row(
                                                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                       children: [
-                                                        Text("set ${index+1}",style: const TextStyle(color: Colors.white),),
-                                                        Text("${snapshot.data!.docs[index]['weight']}"),
-                                                        const Text("kg",style: TextStyle(color: Colors.white),),
-                                                        Text("${snapshot.data!.docs[index]['reps']}"),
-                                                        const Text("reps",style: TextStyle(color: Colors.white),),
+                                                        Expanded(child: Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: Text("set ${index+1}",style: const TextStyle(color: Colors.white),),
+                                                        )),
+                                                        Expanded(child: Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: Text("${snapshot.data!.docs[index]['weight']}",style: TextStyle(color: Colors.white),),
+                                                        )),
+                                                        const Expanded(child: Padding(
+                                                          padding: EdgeInsets.all(8.0),
+                                                          child: Text("kg",style: TextStyle(color: Colors.white),),
+                                                        )),
+                                                        Expanded(child: Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: Text("${snapshot.data!.docs[index]['reps']}",style: TextStyle(color: Colors.white),),
+                                                        )),
+                                                        const Expanded(child: Padding(
+                                                          padding: EdgeInsets.all(8.0),
+                                                          child: Text("reps",style: TextStyle(color: Colors.white),),
+                                                        )),
                                                       ],
                                                     )
                                                   ],

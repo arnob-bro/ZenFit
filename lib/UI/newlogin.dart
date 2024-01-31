@@ -12,10 +12,17 @@ class NewLogin extends StatefulWidget {
 
 class _NewLoginState extends State<NewLogin> {
 
+  final _formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passController = TextEditingController();
+  late String name;
+  late String username;
+  late String email;
+  late String pass;
+
+
   DateTime birthDate = DateTime.now();
   bool isBirthdateSelected = false;
   String? selectedGender;
@@ -40,6 +47,7 @@ class _NewLoginState extends State<NewLogin> {
   }
 
   void userDataToDatabase() async {
+    if(selectedGender == null) selectedGender = 'none';
 
     await DatabaseService.collectUserInfo(
       name: nameController.text,
@@ -49,7 +57,7 @@ class _NewLoginState extends State<NewLogin> {
       email: emailController.text.trim(),
       pass: passController.text.trim(),
       isOnline: false,
-      image: '',
+      image: 'https://firebasestorage.googleapis.com/v0/b/zenfit-e4c1f.appspot.com/o/person.png?alt=media&token=e19ef1d4-cf85-45d0-866a-fe0ca922450d',
       about: '',
       createdAt: DateTime.now().millisecondsSinceEpoch.toString(),
       lastActive: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -121,200 +129,215 @@ class _NewLoginState extends State<NewLogin> {
           ),
         ),
         child: SafeArea(
-          child: ListView(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Text(
-                  'Name',
-                  style: TextStyle(
-                    fontSize: 22.0,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10, left: 10),
-                child: TextField(
-                  controller: nameController,
-                  style: const TextStyle(color: Colors.black), // Set text color to black
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    hintText: 'Enter your name',
-                    hintStyle: const TextStyle(fontSize:18,color: Colors.black54), // Set hint text color
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Text(
-                  'Username',
-                  style: TextStyle(
-                    fontSize: 22.0,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10, left: 10),
-                child: TextField(
-                  controller: usernameController,
-                  style: const TextStyle(color: Colors.black), // Set text color to black
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    hintText: 'Enter your username',
-                    hintStyle: const TextStyle(fontSize:18,color: Colors.black54),// Set hint text color
-                  ),
-                ),
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10,),
-                          child: Text(
-                            'Birth Date',
-                            style: TextStyle(
-                              fontSize: 22.0,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0, left: 8.0),
-                          child: ElevatedButton(
-                            onPressed: _showDatePicker,
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(250, 95, 95, 1.0),),
-                            ),
-                            child: isBirthdateSelected
-                                ? Text(birthDate.toString().split(" ")[0])
-                                : const Text(
-                              "Choose Date",
-                              style: TextStyle(fontSize:17,color: Colors.white),
-                            ),
-                          ),
-                        ),
-
-                      ],
+          child: Form(
+            key: _formKey,
+            child: ListView(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 10, left: 10),
+                  child: Text(
+                    'Name',
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      color: Colors.white,
                     ),
                   ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: Text(
-                            'Gender',
-                            style: TextStyle(
-                              fontSize: 22.0,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10, left: 10),
-                          child: DropdownButton(
-                            hint: const Text('Choose',style: TextStyle(color: Colors.white),),
-                            dropdownColor: Colors.white54,
-
-                            value: selectedGender,
-                            items: const [
-                              DropdownMenuItem(
-                                value: 'Man',
-                                child: Text('Man',style: TextStyle(color: Colors.white),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10, left: 10),
+                  child: TextFormField(
+                    controller: nameController,
+                    onSaved: (val) => name = val ?? "",
+                    validator: (val) => val != null && val.isNotEmpty ? null : "Required Name",
+                    style: const TextStyle(color: Colors.black), // Set text color to black
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      hintText: 'Enter your name',
+                      hintStyle: const TextStyle(fontSize:18,color: Colors.black54), // Set hint text color
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10, left: 10),
+                  child: Text(
+                    'Username',
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10, left: 10),
+                  child: TextFormField(
+                    controller: usernameController,
+                    onSaved: (val) => username = val ?? "",
+                    validator: (val) => val != null && val.isNotEmpty ? null : "Required Username",
+                    style: const TextStyle(color: Colors.black), // Set text color to black
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      hintText: 'Enter your username',
+                      hintStyle: const TextStyle(fontSize:18,color: Colors.black54),// Set hint text color
+                    ),
+                  ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 10,),
+                            child: Text(
+                              'Birth Date',
+                              style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white,
                               ),
-                              DropdownMenuItem(
-                                value: 'Woman',
-                                child: Text('Woman',style: TextStyle(color: Colors.white),),
-                              ),
-                            ],
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedGender = newValue;
-                              });
-                            },
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Text(
-                  'Email',
-                  style: TextStyle(
-                    fontSize: 22.0,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10, left: 10),
-                child: TextField(
-                  controller: emailController,
-                  style: const TextStyle(color: Colors.black), // Set text color to black
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    hintText: 'Enter your email',
-                    hintStyle: const TextStyle(fontSize:18,color: Colors.black54),
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Text(
-                  'Password',
-                  style: TextStyle(
-                    fontSize: 22.0,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10, left: 10),
-                child: TextField(
-                  controller: passController,
-                  obscureText: true,
-                  style: const TextStyle(color: Colors.black), // Set text color to black
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    hintText: 'Enter your password',
-                    hintStyle: const TextStyle(fontSize:18,color: Colors.black54),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10,),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+                            child: ElevatedButton(
+                              onPressed: _showDatePicker,
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(250, 95, 95, 1.0),),
+                              ),
+                              child: isBirthdateSelected
+                                  ? Text(birthDate.toString().split(" ")[0])
+                                  : const Text(
+                                "Choose Date",
+                                style: TextStyle(fontSize:17,color: Colors.white),
+                              ),
+                            ),
+                          ),
 
-                TextButton(
-                  onPressed: () {
-                    signUpToFirebase();
-                  },
-                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(250, 95, 95, 5))),
-                  child: const Text("Submit",style: TextStyle(fontSize: 20.0, color: Colors.white),),
-                ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Text(
+                              'Gender',
+                              style: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
+                            child: DropdownButton(
+                              hint: const Text('Choose',style: TextStyle(color: Colors.white),),
+                              dropdownColor: Colors.white54,
 
-            ],
+                              value: selectedGender,
+                              items: const [
+                                DropdownMenuItem(
+                                  value: 'Man',
+                                  child: Text('Man',style: TextStyle(color: Colors.white),),
+                                ),
+                                DropdownMenuItem(
+                                  value: 'Woman',
+                                  child: Text('Woman',style: TextStyle(color: Colors.white),),
+                                ),
+                              ],
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  selectedGender = newValue;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10, left: 10),
+                  child: Text(
+                    'Email',
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10, left: 10),
+                  child: TextFormField(
+                    controller: emailController,
+                    onSaved: (val) => email = val ?? "",
+                    validator: (val) => val != null && val.isNotEmpty ? null : "Required Email",
+                    style: const TextStyle(color: Colors.black), // Set text color to black
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      hintText: 'Enter your email',
+                      hintStyle: const TextStyle(fontSize:18,color: Colors.black54),
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10, left: 10),
+                  child: Text(
+                    'Password',
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10, left: 10),
+                  child: TextFormField(
+                    controller: passController,
+                    onSaved: (val) => pass = val ?? "",
+                    validator: (val) => val != null && val.isNotEmpty ? null : "Required Password",
+                    obscureText: true,
+                    style: const TextStyle(color: Colors.black), // Set text color to black
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      hintText: 'Enter your password',
+                      hintStyle: const TextStyle(fontSize:18,color: Colors.black54),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10,),
+
+                  TextButton(
+                    onPressed: (){
+                      if(_formKey.currentState!.validate()){
+                        _formKey.currentState!.save();
+                        signUpToFirebase();
+                      }
+
+                    },
+                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(250, 95, 95, 5))),
+                    child: const Text("Submit",style: TextStyle(fontSize: 20.0, color: Colors.white),),
+                  ),
+
+              ],
+            ),
           ),
         ),
       ),
