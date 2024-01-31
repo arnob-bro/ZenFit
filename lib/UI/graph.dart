@@ -27,59 +27,103 @@ class _GraphState extends State<Graph> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () { setState(() {isCardVisible = false;
-      });
+      onTap: () {
+        setState(() {
+          isCardVisible = false;
+        });
       },
       child: Scaffold(
-        backgroundColor: Color(0xff37393D),
+        backgroundColor: Color(0x000000FF),
         appBar: AppBar(
           title: const Text(
-              "My Graphs",
+            "My Graphs",
             style: TextStyle(
               color: Colors.white54,
             ),
           ),
-          leading: IconButton(onPressed: (){
-            Navigator.of(context).pop();
-          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
-          backgroundColor: Colors.black12,
-
+          leading: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(Icons.arrow_back),
+              color: Colors.white),
+          backgroundColor: Colors.black,
         ),
         body: SafeArea(
           child: ListView(
             children: [
-              Card(
-                child: ListTile(
-                  title: Text("Measurement Graph"),
-                  onTap: () {
-                    Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const MeasurementGraph()),
-                    );
-
-
-                  },
+              // Measurement Graph Card
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MeasurementGraph()),
+                  );
+                },
+                child: Card(
+                  color: Colors.blueGrey, // Adjust the color as needed
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.auto_graph_outlined,
+                        size: 80.0,
+                        color: Colors.white,
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "Measurement Graph",
+                        style: TextStyle(
+                          fontSize: 40.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white.withOpacity(0.6),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Card(
-                child: ListTile(
-                  title: Text("Strength Graph"),
-                  onTap: () {
-                    Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const StrengthGraph()),
-                    );
 
-                  },
+              // Strength Graph Card
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const StrengthGraph()),
+                  );
+                },
+                child: Card(
+                  color: Color.fromRGBO(100,100, 120, 5), // Adjust the color as needed
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.fitness_center,
+                        size: 80.0,
+                        color: Colors.white,
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "Strength Graph",
+                        style: TextStyle(
+                          fontSize: 40.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white.withOpacity(0.6),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-
-
             ],
           ),
         ),
         bottomNavigationBar: BottomAppBar(
+          shadowColor: Colors.black,
+          surfaceTintColor: Colors.black,
           elevation: 20,
           height: 60,
-          color: Colors.white,
+          color: Colors.black,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -87,29 +131,28 @@ class _GraphState extends State<Graph> {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Home()),
                 );
-              }, icon: const Icon(Icons.home)),
+              }, icon: const Icon(Icons.home,color: Colors.white,)),
               IconButton(onPressed:(){
 
 
-              }, icon: const Icon(Icons.show_chart)),
+              }, icon: const Icon(Icons.show_chart,color: Colors.red)),
               IconButton(onPressed:(){
                 setState(() {
-                  isCardVisible = !isCardVisible;
+                  isCardVisible = true;
                 });
 
-              }, icon: const Icon(Icons.add_circle_outlined)),
+              }, icon: const Icon(Icons.add_circle_outlined,color: Colors.white,)),
               IconButton(onPressed:(){
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const TrainingProgram()),
                 );
 
-              }, icon: const Icon(Icons.note_alt)),
+              }, icon: const Icon(Icons.note_alt,color: Colors.white)),
               IconButton(onPressed:(){
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const settings()),
                 );
-
-              }, icon: const Icon(Icons.settings)),
+              }, icon: const Icon(Icons.settings,color: Colors.white)),
 
             ],
           ),
