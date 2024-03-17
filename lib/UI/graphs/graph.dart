@@ -1,12 +1,16 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:zenfit/UI/graphs/intermediate_measurement.dart';
 import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/graphs/measurementGraph.dart';
 import 'package:zenfit/UI/settings.dart';
-import 'package:zenfit/UI/trainingProgram.dart';
-import 'package:zenfit/UI/measurementGraph.dart';
-import 'package:zenfit/UI/strengthGraph.dart';
+import 'package:zenfit/UI/workout%20programs/trainingProgram.dart';
+import 'package:zenfit/UI/graphs/strengthGraph.dart';
 import 'package:zenfit/UI/startWorkout.dart';
+
+import '../../Service/Database.dart';
 
 class Graph extends StatefulWidget {
   const Graph({super.key});
@@ -16,13 +20,87 @@ class Graph extends StatefulWidget {
 }
 
 class _GraphState extends State<Graph> {
+  final _formKey = GlobalKey<FormState>();
+  late String workoutName;
   bool isCardVisible= false;
 
   void navigateTostartWorkout() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => startWorkout(workouttime: DateTime.now().millisecondsSinceEpoch.toString(),)),
+    showDialog(
+        context: context,
+        builder: (context){
+          return AlertDialog(
+            contentPadding: const EdgeInsets.only(left: 24,right: 24,top: 20,bottom: 10),
+            backgroundColor: Colors.blueGrey,
+            title: const Text('Create Program',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.white),textAlign: TextAlign.center,),
+            content: SizedBox(
+              height: 100,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Name',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: SizedBox(
+                        height: 50,
+                        child: TextFormField(
+                          initialValue: 'New Workout',
+                          onSaved: (val) => workoutName = val ?? "",
+                          validator: (val) => val != null && val.isNotEmpty ? null : "Required program name",
+                          cursorColor: Colors.white,
+                          cursorHeight: 18,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(color: Colors.white,fontSize: 16,letterSpacing: 1),
+                          maxLines: 1,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.black,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20)
+                              )
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            actions: [
+              const Divider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Cancel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),),
+                  ),
+
+                  TextButton(onPressed: ()async{
+                    if(_formKey.currentState!.validate()){
+                      _formKey.currentState!.save();
+                      String time = DateTime.now().millisecondsSinceEpoch.toString();
+                      await FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection("workout").doc(time).set({'name': workoutName,"time": time});
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => startWorkout(workouttime: time,workoutName: workoutName,category: "startworkout", programName: '', weektime: '',)),
+                      );
+                    }
+                  },
+                      child: const Text("Start Workout",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),)
+                  )
+                ],
+              )
+
+            ],
+          );
+        }
     );
+
   }
   @override
   Widget build(BuildContext context) {
@@ -55,9 +133,9 @@ class _GraphState extends State<Graph> {
               // Measurement Graph Card
               InkWell(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const MeasurementGraph()),
+                    MaterialPageRoute(builder: (context) => const Intermediate_measurement()),
                   );
                 },
                 child: Card(

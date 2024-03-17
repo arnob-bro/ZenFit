@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:zenfit/Model/zenfit_user.dart';
 import 'package:zenfit/Service/Database.dart';
-import 'package:zenfit/UI/other_users_profile.dart';
+import 'package:zenfit/UI/account/other_users_profile.dart';
 import 'package:zenfit/Widgets/message_card.dart';
 import 'package:zenfit/helper/my_date_util.dart';
 
-import '../Model/message.dart';
-import '../main.dart';
+import '../../Model/message.dart';
+import '../../main.dart';
 
 class ChatScreen extends StatefulWidget {
 

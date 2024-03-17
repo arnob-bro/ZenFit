@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:zenfit/UI/workout%20programs/inbuilt/ArnoldsBasicMassRoutine.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
-import 'package:zenfit/UI/graph.dart';
-import 'package:zenfit/UI/trainingProgram.dart';
+import 'package:zenfit/UI/graphs/graph.dart';
+import 'package:zenfit/UI/workout%20programs/trainingProgram.dart';
 import 'package:zenfit/UI/startWorkout.dart';
 
 class BodyBuilding313 extends StatefulWidget {

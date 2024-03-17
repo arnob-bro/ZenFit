@@ -13,7 +13,7 @@ class Body{
   double? chest;
   double? waist;
   double? hips;
-  String? date;
+  int? date;
 
   Body({
     required this.neck,

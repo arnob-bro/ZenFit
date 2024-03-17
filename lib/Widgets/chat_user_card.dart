@@ -6,7 +6,7 @@ import 'package:zenfit/Model/zenfit_user.dart';
 import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/helper/my_date_util.dart';
 
-import '../UI/chat_screen.dart';
+import '../UI/chat system/chat_screen.dart';
 import '../main.dart';
 
 class ChatUserCard extends StatefulWidget {

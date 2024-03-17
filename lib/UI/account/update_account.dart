@@ -24,12 +24,6 @@ class UpdateAccount extends StatefulWidget{
 class _UpdateAccountState extends State<UpdateAccount> {
   bool isCardVisible= false;
 
-  void navigateTostartWorkout() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => startWorkout(workouttime: DateTime.now().millisecondsSinceEpoch.toString(),)),
-    );
-  }
   @override
   Widget build (BuildContext context){
     return GestureDetector(

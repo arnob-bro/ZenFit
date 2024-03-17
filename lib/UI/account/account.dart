@@ -7,9 +7,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/UI/startWorkout.dart';
-import 'package:zenfit/UI/update_account.dart';
+import 'package:zenfit/UI/account/update_account.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 class Account extends StatefulWidget{
   const Account({super.key});

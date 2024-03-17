@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/loginPage.dart';
-import 'package:zenfit/UI/newlogin.dart';
+import 'package:zenfit/UI/Auth/newlogin.dart';
 
 
 class welcomePage extends StatefulWidget {
@@ -60,7 +60,7 @@ class _welcomePageState extends State<welcomePage> {
                           ),
                           ),
                           onTap: (){
-                            Navigator.push(context,
+                            Navigator.pushReplacement(context,
                               MaterialPageRoute(builder: (context) => const NewLogin()),
                             );
 
@@ -95,7 +95,7 @@ class _welcomePageState extends State<welcomePage> {
                           ),
                           ),
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const loginPage()));
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const loginPage()));
 
                           }
                       ),

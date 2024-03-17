@@ -11,6 +11,7 @@ import 'package:http/http.dart';
 import 'package:zenfit/Model/Goal.dart';
 import 'package:zenfit/Model/message.dart';
 import 'package:zenfit/Model/user.dart';
+import 'package:zenfit/helper/my_date_util.dart';
 
 import '../Model/body.dart';
 import '../Model/zenfit_user.dart';
@@ -60,8 +61,8 @@ class DatabaseService{
   }
 
   //write body measurements
-  static Future<void> writeBodyMeasurements({required double neck,required double shoulders,required double leftUpperArm,required double rightUpperArm,required double leftForearm,required double rightForearm,required double leftThigh,required double rightThigh,required double leftCalf,required double rightCalf,required double bodyWeight,required double chest,required double waist,required double hips,required String date }) async{
-    final mybody = bodyMeasurementCollection.doc(user.uid).collection("time").doc(date);
+  static Future<void> writeBodyMeasurements({required double neck,required double shoulders,required double leftUpperArm,required double rightUpperArm,required double leftForearm,required double rightForearm,required double leftThigh,required double rightThigh,required double leftCalf,required double rightCalf,required double bodyWeight,required double chest,required double waist,required double hips,required int date }) async{
+    final mybody = bodyMeasurementCollection.doc(user.uid).collection("time").doc(DateTime.fromMillisecondsSinceEpoch(date).year.toString()).collection(MyDateUtil().getMonth(DateTime.fromMillisecondsSinceEpoch(date))).doc(DateTime.fromMillisecondsSinceEpoch(date).day.toString());
     final Body body = Body(
       neck : neck,
       shoulders : shoulders,
@@ -110,6 +111,38 @@ class DatabaseService{
         print(' failed to copy user self info into me');
       }
     });
+  }
+
+
+  //follow a program
+  static Future<void> followthisprogram(String programType, String programName,String programName2) async {
+    if(programType == "mine")
+      {
+        var details = await FirebaseFirestore.instance.collection("programs").doc(programType).collection("userIDs").doc(me.id).collection("program").doc(programName).get();
+        if(!details["follow"]){
+          await FirebaseFirestore.instance.collection("programs").doc(programType).collection("userIDs").doc(me.id).collection("program").doc(programName).set({"follow": true});
+        }
+        else
+          {
+            await FirebaseFirestore.instance.collection("programs").doc(programType).collection("userIDs").doc(me.id).collection("program").doc(programName).set({"follow": false});
+          }
+      }
+    else
+      {
+        var details = await FirebaseFirestore.instance.collection("programs").doc("other").collection(programName).doc(programName2).get();
+        if(details["follow"].contains(me.id)){
+          var data = await FirebaseFirestore.instance.collection("programs").doc("other").collection(programName).doc(programName2).get();
+          String res = data["follow"];
+          String res2= res.replaceAll(me.id,"");
+          await FirebaseFirestore.instance.collection("programs").doc("other").collection(programName).doc(programName2).set({"follow": res2});
+        }
+        else
+        {
+          String res = details["follow"];
+          res = res + me.id;
+          await FirebaseFirestore.instance.collection("programs").doc("other").collection(programName).doc(programName2).set({"follow": res});
+        }
+      }
   }
 
 

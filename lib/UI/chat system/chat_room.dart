@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/Widgets/chat_user_card.dart';
 
-import '../Model/zenfit_user.dart';
-import '../main.dart';
+import '../../Model/zenfit_user.dart';
+import '../../main.dart';
 
 class Chat_Room extends StatefulWidget {
   const Chat_Room({super.key});

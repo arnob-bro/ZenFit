@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/homepage.dart';
-import 'package:zenfit/UI/graph.dart';
+import 'package:zenfit/UI/graphs/graph.dart';
 import 'package:zenfit/UI/settings.dart';
-import 'package:zenfit/UI/trainingProgram.dart';
+import 'package:zenfit/UI/workout%20programs/trainingProgram.dart';
 import 'package:zenfit/UI/exercises%20list/Abs.dart';
 import 'package:zenfit/UI/exercises%20list/Back.dart';
 import 'package:zenfit/UI/exercises%20list/Biceps.dart';

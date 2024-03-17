@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/welcome.dart';
 
 import '../Service/Database.dart';
 
@@ -26,42 +27,7 @@ class _loginPageState extends State<loginPage> {
   }
 
 
-/*  Future signInToFirebase() async {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passController.text.trim(),
-      );
 
-      Navigator.of(context).pop();
-
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Log in successfull")));
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const Home()));
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('===========================No user found for that email.');
-        Navigator.of(context).pop();
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Center(child: Text("No user in this email"))));
-
-      } else if (e.code == 'wrong-password') {
-        print('=========================Wrong password provided for that user.');
-        Navigator.of(context).pop();
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Center(child: Text("Wrong Password"))));
-      }
-    }
-
-  }
-*/
   Future signInToFirebase() async {
     showDialog(
       context: context,
@@ -91,7 +57,7 @@ class _loginPageState extends State<loginPage> {
       appBar: AppBar(
         backgroundColor: Colors.black12,
         leading: IconButton(onPressed: (){
-          Navigator.pop(context);
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const welcomePage()));
         }, icon: const Icon(Icons.arrow_back),color: Colors.white),
         title: const Text(
           'Sign In',
@@ -247,7 +213,7 @@ class _loginPageState extends State<loginPage> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(content: Text("Log in successfull")));
                                   //routing to homepage
-                                  Navigator.push(
+                                  Navigator.pushReplacement(
                                       context, MaterialPageRoute(builder: (context) => const Home()));
                                 }
 

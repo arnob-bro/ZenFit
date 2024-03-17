@@ -1,9 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
-import 'package:zenfit/UI/trainingProgram.dart';
-import 'package:zenfit/UI/graph.dart';
+import 'package:zenfit/UI/workout%20programs/trainingProgram.dart';
+import 'package:zenfit/UI/graphs/graph.dart';
 
 class Body_Measurement extends StatefulWidget{
   const Body_Measurement({super.key});
@@ -17,58 +18,24 @@ class _Body_MeasurementState extends State<Body_Measurement> {
 
   @override
   Widget build (BuildContext context){
-    return Scaffold(
-      backgroundColor: const Color(0xff37393D),
-      appBar: AppBar(
-        backgroundColor: Colors.black12,
-        title: const Text(
-            "Body Measurement",
-          style: TextStyle(
-            color: Colors.white54,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color(0xff37393D),
+        appBar: AppBar(
+          backgroundColor: Colors.black12,
+          title: const Text(
+              "Body Measurement",
+            style: TextStyle(
+              color: Colors.white54,
+            ),
           ),
+          leading: IconButton(onPressed: (){
+            Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const Home()),
+            );
+          }, icon: const Icon(Icons.arrow_back),color: Colors.white),
         ),
-        leading: IconButton(onPressed: (){
-          Navigator.of(context).pop();
-        }, icon: const Icon(Icons.arrow_back),color: Colors.white),
-      ),
-      body: const Measurements(),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 20,
-        height: 60,
-        color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Home()),
-              );
-            }, icon: const Icon(Icons.home)),
-            IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Graph()),
-              );
-
-            }, icon: const Icon(Icons.show_chart)),
-            IconButton(onPressed:(){
-
-            }, icon: const Icon(Icons.add_circle_outlined)),
-            IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const TrainingProgram()),
-              );
-
-
-
-            }, icon: const Icon(Icons.note_alt)),
-            IconButton(onPressed:(){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const settings()),
-              );
-            }, icon: const Icon(Icons.settings)),
-
-          ],
-        ),
+        body: const Measurements(),
       ),
     );
   }
@@ -120,6 +87,7 @@ class _MeasurementsState extends State<Measurements> {
   }
 
   void writeBodyMeasurementsToDatabase()async{
+    /*
     await DatabaseService.writeBodyMeasurements(
         neck: double.parse(neckController.text),
         shoulders: double.parse(shouldersController.text),
@@ -135,11 +103,28 @@ class _MeasurementsState extends State<Measurements> {
         chest: double.parse(chestController.text),
         waist: double.parse(waistController.text),
         hips: double.parse(hipsController.text),
-        date: DateTime.now().toString().split(" ")[0]
-    );
+        date: DateTime.now().millisecondsSinceEpoch
+    );*/
+    String time = DateTime.now().millisecondsSinceEpoch.toString();
+    DocumentReference measurement = await FirebaseFirestore.instance.collection("bodymeasurement").doc(DatabaseService.me.id);
+    measurement.collection("bodyweight").doc(time).set({"data":double.parse(bodyWeightController.text)});
+    measurement.collection("neck").doc(time).set({"data":double.parse(neckController.text)});
+    measurement.collection("shoulders").doc(time).set({"data":double.parse(shouldersController.text)});
+    measurement.collection("leftUpperArm").doc(time).set({"data":double.parse(leftUpperArmController.text)});
+    measurement.collection("rightUpperArm").doc(time).set({"data":double.parse(rightUpperArmController.text)});
+    measurement.collection("leftForearm").doc(time).set({"data":double.parse(leftForearmController.text)});
+    measurement.collection("rightForearm").doc(time).set({"data":double.parse(rightForearmController.text)});
+    measurement.collection("leftThigh").doc(time).set({"data":double.parse(leftThighController.text)});
+    measurement.collection("rightThigh").doc(time).set({"data":double.parse(rightThighController.text)});
+    measurement.collection("leftCalf").doc(time).set({"data":double.parse(leftCalfController.text)});
+    measurement.collection("rightCalf").doc(time).set({"data":double.parse(rightCalfController.text)});
+    measurement.collection("chest").doc(time).set({"data":double.parse(chestController.text)});
+    measurement.collection("hips").doc(time).set({"data":double.parse(hipsController.text)});
+    measurement.collection("waist").doc(time).set({"data":double.parse(waistController.text)});
+
     ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Submitted successfully")));
-    Navigator.of(context).pop();
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Home()));
   }
 
 

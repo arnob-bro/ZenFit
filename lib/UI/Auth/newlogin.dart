@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/UI/homepage.dart';
+import 'package:zenfit/UI/welcome.dart';
 
 class NewLogin extends StatefulWidget {
   const NewLogin({super.key});
@@ -83,7 +84,7 @@ class _NewLoginState extends State<NewLogin> {
 
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Center(child: Text("Sign up complete"))));
       userDataToDatabase();
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Home()));
 
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -110,7 +111,7 @@ class _NewLoginState extends State<NewLogin> {
       appBar: AppBar(
         backgroundColor: Colors.black38,
         leading: IconButton(onPressed: (){
-          Navigator.pop(context);
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const welcomePage()));
           }, icon: const Icon(Icons.arrow_back),color: Colors.white),
         title: const Text(
           'Welcome!',

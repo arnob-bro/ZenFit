@@ -45,15 +45,26 @@ class _Show_User_ProgramState extends State<Show_User_Program> {
                 ),
                 ),
                 onTap: ()async{
-                    await FirebaseFirestore.instance.collection("followedprograms").doc(DatabaseService.user.uid).collection('mine').doc(widget.programName).set(
-                        {"program": widget.programName, "week": 1, "workout": 1});
+                    await FirebaseFirestore.instance.collection("followedprograms")
+                        .doc(DatabaseService.user.uid)
+                        .collection('mine')
+                        .doc(widget.programName)
+                        .set({"program": widget.programName, "week": 1, "workout": 1});
                     Navigator.pop(context);
                 }
             ),
           ),
 
           StreamBuilder(
-              stream: FirebaseFirestore.instance.collection('programs').doc('mine').collection("userIDs").doc(DatabaseService.user.uid).collection('program').doc(widget.programName).collection('weeks').snapshots(),
+              stream: FirebaseFirestore.instance
+                  .collection('programs')
+                  .doc('mine')
+                  .collection("userIDs")
+                  .doc(DatabaseService.user.uid)
+                  .collection('program')
+                  .doc(widget.programName)
+                  .collection('weeks')
+                  .snapshots(),
               builder: (context,weekshot){
                 if(weekshot.connectionState == ConnectionState.waiting)
                 {

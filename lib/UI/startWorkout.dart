@@ -7,11 +7,12 @@ import '../main.dart';
 
 
 class startWorkout extends StatefulWidget {
-  final String programName = 'null';
-  final String weektime = 'null';
-  final String workoutName = 'New Workout';
+  final String programName;
+  final String weektime;
+  final String workoutName;
   final String workouttime;
-  const startWorkout({Key? key, required this.workouttime});
+  final String category;
+  const startWorkout({Key? key, required this.workouttime, required this.category, required this.workoutName, required this.programName, required this.weektime});
 
   @override
   State<startWorkout> createState() => startWorkoutState();
@@ -23,7 +24,7 @@ class startWorkoutState extends State<startWorkout> {
   void navigateToexercise() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Exercise(category: 'startworkout', programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,)),
+      MaterialPageRoute(builder: (context) => Exercise(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,)),
     );
   }
 
@@ -68,8 +69,11 @@ class startWorkoutState extends State<startWorkout> {
           }, icon: const Icon(Icons.arrow_back),color: Colors.white),
           actions: [
             IconButton(
-                onPressed: null,
-                icon: const Icon(Icons.menu_sharp,color: Colors.grey,)
+                onPressed: () async {
+                  await FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection("workout").doc(widget.workouttime).delete();
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.menu_sharp,color: Colors.grey,)
             )
           ],
         ),
@@ -78,6 +82,7 @@ class startWorkoutState extends State<startWorkout> {
             StreamBuilder(
                 stream: FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection("workout").doc(widget.workouttime).collection("exercise").snapshots(),
                 builder: (context,exerciseshot){
+
                   if(exerciseshot.hasData){
 
                     return Expanded(
@@ -111,7 +116,15 @@ class startWorkoutState extends State<startWorkout> {
                                     child: Card(
                                       color: Colors.black,
                                       child: StreamBuilder(
-                                          stream: FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection('workout').doc(widget.workouttime).collection('exercise').doc("${exerciseshot.data!.docs[indexofexercise]['time']}").collection("set").snapshots(),
+                                          stream: FirebaseFirestore.instance
+                                              .collection('traininglog')
+                                              .doc(DatabaseService.user.uid)
+                                              .collection('workout')
+                                              .doc(widget.workouttime)
+                                              .collection('exercise')
+                                              .doc("${exerciseshot.data!.docs[indexofexercise]['time']}")
+                                              .collection("set")
+                                              .snapshots(),
                                           builder: (context,snapshot){
                                             if(snapshot.connectionState == ConnectionState.waiting)
                                             {
@@ -142,7 +155,16 @@ class startWorkoutState extends State<startWorkout> {
                                                                   textAlign: TextAlign.center,
                                                                   onChanged: (value) async{
 
-                                                                    await FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection('workout').doc(widget.workouttime).collection('exercise').doc("${exerciseshot.data!.docs[indexofexercise]['time']}").collection("set").doc("${snapshot.data!.docs[index]['time']}").update({'weight' : int.parse(value)});
+                                                                    await FirebaseFirestore.instance
+                                                                        .collection('traininglog')
+                                                                        .doc(DatabaseService.user.uid)
+                                                                        .collection('workout')
+                                                                        .doc(widget.workouttime)
+                                                                        .collection('exercise')
+                                                                        .doc("${exerciseshot.data!.docs[indexofexercise]['time']}")
+                                                                        .collection("set")
+                                                                        .doc("${snapshot.data!.docs[index]['time']}")
+                                                                        .update({'weight' : int.parse(value)});
 
                                                                   },
 
@@ -164,7 +186,15 @@ class startWorkoutState extends State<startWorkout> {
                                                                   textAlign: TextAlign.center,
                                                                   onChanged: (value) async{
 
-                                                                    await FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection('workout').doc(widget.workouttime).collection('exercise').doc("${exerciseshot.data!.docs[indexofexercise]['time']}").collection("set").doc("${snapshot.data!.docs[index]['time']}").update({'reps' : int.parse(value)});
+                                                                    await FirebaseFirestore.instance.collection('traininglog')
+                                                                        .doc(DatabaseService.user.uid)
+                                                                        .collection('workout')
+                                                                        .doc(widget.workouttime)
+                                                                        .collection('exercise')
+                                                                        .doc("${exerciseshot.data!.docs[indexofexercise]['time']}")
+                                                                        .collection("set")
+                                                                        .doc("${snapshot.data!.docs[index]['time']}")
+                                                                        .update({'reps' : int.parse(value)});
 
                                                                   },
 
@@ -177,7 +207,16 @@ class startWorkoutState extends State<startWorkout> {
                                                             const Text("reps",style: TextStyle(color: Colors.white),),
                                                             IconButton(
                                                                 onPressed: ()async{
-                                                                  await FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection('workout').doc(widget.workouttime).collection('exercise').doc("${exerciseshot.data!.docs[indexofexercise]['time']}").collection("set").doc("${snapshot.data!.docs[index]['time']}").delete();
+                                                                  await FirebaseFirestore.instance
+                                                                      .collection('traininglog')
+                                                                      .doc(DatabaseService.user.uid)
+                                                                      .collection('workout')
+                                                                      .doc(widget.workouttime)
+                                                                      .collection('exercise')
+                                                                      .doc("${exerciseshot.data!.docs[indexofexercise]['time']}")
+                                                                      .collection("set")
+                                                                      .doc("${snapshot.data!.docs[index]['time']}")
+                                                                      .delete();
                                                                 },
                                                                 icon: const Icon(Icons.delete,color: Colors.grey,)
                                                             ),
@@ -199,7 +238,16 @@ class startWorkoutState extends State<startWorkout> {
                                   Align(alignment:Alignment.bottomRight ,child: IconButton(
                                       onPressed: ()async{
                                         String time = DateTime.now().millisecondsSinceEpoch.toString();
-                                        await FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection('workout').doc(widget.workouttime).collection('exercise').doc("${exerciseshot.data!.docs[indexofexercise]['time']}").collection("set").doc(time).set({"time": time,"reps": 0,"weight": 0});
+                                        await FirebaseFirestore.instance
+                                            .collection('traininglog')
+                                            .doc(DatabaseService.user.uid)
+                                            .collection('workout')
+                                            .doc(widget.workouttime)
+                                            .collection('exercise')
+                                            .doc("${exerciseshot.data!.docs[indexofexercise]['time']}")
+                                            .collection("set")
+                                            .doc(time)
+                                            .set({"time": time,"reps": 0,"weight": 0});
                                       },
                                       icon: const Icon(Icons.add,color: Colors.redAccent,)),
                                   )
@@ -211,6 +259,7 @@ class startWorkoutState extends State<startWorkout> {
                     );
                   }
                   else if (exerciseshot.connectionState == ConnectionState.waiting){
+
                     return const CircularProgressIndicator();
                   }
                   else{
@@ -220,7 +269,7 @@ class startWorkoutState extends State<startWorkout> {
                 }
             ),
 
-            _card1(),
+            if(widget.category == "startworkout")_card1(),
           ],
         ),
       ),

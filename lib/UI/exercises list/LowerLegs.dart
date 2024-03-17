@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/Exercise%20List/exercise_list.dart';
-import 'package:zenfit/UI/graph.dart';
+import 'package:zenfit/UI/graphs/graph.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
-import 'package:zenfit/UI/trainingProgram.dart';
+import 'package:zenfit/UI/workout%20programs/trainingProgram.dart';
 import 'package:zenfit/UI/exercise.dart';
 
 
@@ -48,7 +48,7 @@ class _LowerLegsState extends State<LowerLegs> {
                               .collection("weeks").doc(widget.weektime)
                               .collection("workout").doc(widget.workouttime)
                               .collection("exercise").doc(time)
-                              .set({"time": time,"name": ab[index],"sets": 0,"reps" : 0});
+                              .set({"time": time,"name": lowerle[index],"sets": 0,"reps" : 0});
 
                           await FirebaseFirestore.instance
                               .collection('programs').doc(widget.category)
@@ -65,7 +65,7 @@ class _LowerLegsState extends State<LowerLegs> {
                               .collection('traininglog').doc(DatabaseService.user.uid)
                               .collection("workout").doc(widget.workouttime)
                               .collection("exercise").doc(time)
-                              .set({"time": time,"name": ab[index],"sets": 0,"reps" : 0});
+                              .set({"time": time,"name": lowerle[index],"sets": 0,"reps" : 0});
 
                           await FirebaseFirestore.instance
                               .collection('traininglog').doc(DatabaseService.user.uid)

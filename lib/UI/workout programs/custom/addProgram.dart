@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/settings.dart';
-import 'package:zenfit/UI/graph.dart';
-import 'package:zenfit/UI/trainingProgram.dart';
+import 'package:zenfit/UI/graphs/graph.dart';
+import 'package:zenfit/UI/workout%20programs/trainingProgram.dart';
 import 'package:zenfit/UI/workout_edit.dart';
 
-import '../Service/Database.dart';
-import '../Widgets/for user customed programs/show_workout_card.dart';
+import '../../../Service/Database.dart';
+import '../../../Widgets/for user customed programs/show_workout_card.dart';
 import 'mine.dart';
 
 

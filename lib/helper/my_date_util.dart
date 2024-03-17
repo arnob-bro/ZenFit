@@ -14,7 +14,7 @@ class MyDateUtil{
       return TimeOfDay.fromDateTime(sent).format(context);
     }
 
-    return showYear ? '${sent.day} ${_getMonth(sent)} ${sent.year}' : '${sent.day} ${_getMonth(sent)}';
+    return showYear ? '${sent.day} ${getMonth(sent)} ${sent.year}' : '${sent.day} ${getMonth(sent)}';
   }
 
   String getMessageTime({required BuildContext context,required String time}){
@@ -26,8 +26,8 @@ class MyDateUtil{
       return formatterTime;
     }
     return now.year == sent.year
-        ? '$formatterTime - ${sent.day} ${_getMonth(sent)}'
-        : '$formatterTime - ${sent.day} ${_getMonth(sent)} ${sent.year}';
+        ? '$formatterTime - ${sent.day} ${getMonth(sent)}'
+        : '$formatterTime - ${sent.day} ${getMonth(sent)} ${sent.year}';
 
   }
 
@@ -45,13 +45,13 @@ class MyDateUtil{
       return 'Last seen today at $formattedTime';
     }
 
-    String month = _getMonth(time);
+    String month = getMonth(time);
     return 'Last seen on ${time.day} $month on $formattedTime';
 
   }
 
   //get month name from month no. or index
-  String _getMonth(DateTime date){
+  String getMonth(DateTime date){
     switch (date.month){
       case 1 :
         return 'Jan';
