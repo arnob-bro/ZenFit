@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:zenfit/UI/followedprograms/startworkout_fromprogram.dart';
 import 'package:zenfit/Widgets/for%20user%20customed%20programs/show_user_customed_programs.dart';
 
 import '../../UI/workout programs/custom/addProgram.dart';
@@ -20,6 +22,9 @@ class FollowedUserPrograms extends StatefulWidget {
 }
 
 class _FollowedUserProgramsState extends State<FollowedUserPrograms> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +54,7 @@ class _FollowedUserProgramsState extends State<FollowedUserPrograms> {
                       child: ListTile(
                           textColor: Colors.white,
                           title: Text("${snapshot.data!.docs[index]['program']}"),
-                          subtitle: Text("week ${snapshot.data!.docs[index]['week']}, workout ${snapshot.data!.docs[index]['workout']}"),
+                          subtitle: Text("week ${snapshot.data!.docs[index]['week'].toString()}, workout ${snapshot.data!.docs[index]['workout'].toString()}"),
                           trailing: IconButton(
                               onPressed: (){
                                 showModalBottomSheet(
@@ -77,7 +82,13 @@ class _FollowedUserProgramsState extends State<FollowedUserPrograms> {
 
                                         InkWell(
                                           onTap: ()async{
-                                            await FirebaseFirestore.instance.collection('followedprograms').doc(DatabaseService.me.id).collection('mine').doc("${snapshot.data!.docs[index]['program']}").delete();
+                                            await FirebaseFirestore.instance
+                                                .collection('followedprograms')
+                                                .doc(DatabaseService.me.id.toString())
+                                                .collection('mine')
+                                                .doc(snapshot.data!.docs[index]['program'].toString())
+                                                .delete();
+
                                             Navigator.pop(context);
                                           },
                                           child: Padding(
@@ -96,8 +107,72 @@ class _FollowedUserProgramsState extends State<FollowedUserPrograms> {
                               },
                               icon: const Icon(Icons.menu_sharp)
                           ),
-                          onTap: (){
-                            Navigator.push(context,  MaterialPageRoute(builder: (context) => Show_User_Program(programName: snapshot.data!.docs[index]['name'],)));
+                          onTap: ()async{
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              },
+                            );
+                            int time = DateTime.now().millisecondsSinceEpoch;
+
+                            QuerySnapshot<Map<String, dynamic>> weekquery = await FirebaseFirestore.instance
+                                .collection("programs")
+                                .doc("mine")
+                                .collection("userIDs")
+                                .doc(DatabaseService.me.id)
+                                .collection("program")
+                                .doc("${snapshot.data!.docs[index]['program']}")
+                                .collection("weeks")
+                                .get();
+
+                            // Get the nth document
+                            DocumentSnapshot<Map<String, dynamic>> weekthDocument = weekquery.docs[snapshot.data!.docs[index]["week"]-1];
+                            //print(weekthDocument);
+                            
+                            QuerySnapshot<Map<String,dynamic>>  workoutquery = await weekthDocument.reference.collection("workout").get();
+
+                            DocumentSnapshot<Map<String,dynamic>> workoutthDocument = workoutquery.docs[snapshot.data!.docs[index]["workout"]-1];
+                            //print(workoutthDocument.data());
+                            CollectionReference sourceCollection = workoutthDocument.reference.collection("exercise");
+                            //print(sourceCollection.toString());
+
+                           await  FirebaseFirestore.instance
+                                .collection('traininglog')
+                                .doc(DatabaseService.me.id)
+                                .collection('workout')
+                                .doc(time.toString())
+                                .set({"name": workoutthDocument["name"],"time":time.toString()});
+
+
+                            CollectionReference targetCollection = FirebaseFirestore.instance
+                                .collection('traininglog')
+                                .doc(DatabaseService.me.id)
+                                .collection('workout')
+                                .doc(time.toString())
+                                .collection('exercise');
+
+                            // Replace 'sourceCollection' and 'targetCollection' with your collection paths
+                            await FirestoreCopy().copyCollection(sourceCollection, targetCollection).then((_) {
+                              print('Collection copied successfully');
+                            }).catchError((error) {
+                              print('Error copying collection: $error');
+                            });
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => startWorkout_fromprogram(
+                                        logCollection: targetCollection,
+                                        workoutName: workoutthDocument["name"],
+                                        workoutTime: time.toString(), 
+                                      WeekQuery: weekquery, 
+                                      programName: snapshot.data!.docs[index]['program'], category: 'mine', workoutQuery: workoutquery,
+                                    )
+                                )
+                            );
                           }
                       ),
                     );
@@ -152,3 +227,74 @@ class _FollowedUserProgramsState extends State<FollowedUserPrograms> {
     );
   }
 }
+
+
+
+
+
+class FirestoreCopy {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  Future<void> copyCollection(CollectionReference sourceCollectionPath, CollectionReference targetCollectionPath) async {
+    try {
+      QuerySnapshot sourceSnapshot = await sourceCollectionPath.get();
+
+      for (QueryDocumentSnapshot doc in sourceSnapshot.docs) {
+        Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+        if (kDebugMode) {
+          print(data);
+        }
+        DocumentReference newDocRef = await targetCollectionPath.add(data);
+        if (kDebugMode) {
+          print(newDocRef.toString());
+        }
+
+        // Copy subcollections recursively
+        await _copySubcollections(doc.reference, newDocRef);
+      }
+    } catch (error) {
+      print('Error copying collection: $error');
+      // Handle error gracefully
+    }
+  }
+
+  Future<void> _copySubcollections(DocumentReference sourceDocRef, DocumentReference targetDocRef) async {
+    try {
+      // Copy "exercise" subcollection
+      QuerySnapshot exerciseSnapshot = await sourceDocRef.collection('set').get();
+
+      for (QueryDocumentSnapshot exerciseDoc in exerciseSnapshot.docs) {
+        Map<String, dynamic> exerciseData = exerciseDoc.data() as Map<String, dynamic>;
+
+        DocumentReference newExerciseRef = await targetDocRef.collection('set').add(exerciseData);
+        if (kDebugMode) {
+          print(exerciseDoc.reference.toString());
+        }
+        // Copy "sets" subcollection
+        //await _copySetsCollection(exerciseDoc.reference, newExerciseRef);
+      }
+    } catch (error) {
+      print('Error copying "exercise" subcollection: $error');
+      // Handle error gracefully
+    }
+  }
+
+  /*Future<void> _copySetsCollection(DocumentReference sourceExerciseRef, DocumentReference targetExerciseRef) async {
+    try {
+      // Copy "set" subcollection
+      QuerySnapshot setsSnapshot = await sourceExerciseRef.collection('set').get();
+
+      for (QueryDocumentSnapshot setDoc in setsSnapshot.docs) {
+        Map<String, dynamic> setData = setDoc.data() as Map<String, dynamic>;
+        if (kDebugMode) {
+          print(setData);
+        }
+        await targetExerciseRef.collection('set').add(setData);
+      }
+    } catch (error) {
+      print('Error copying "sets" subcollection: $error');
+      // Handle error gracefully
+    }
+  }*/
+}
+

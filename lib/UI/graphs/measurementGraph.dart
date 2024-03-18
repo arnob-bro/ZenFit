@@ -56,7 +56,10 @@ class LineChartWidget extends StatelessWidget {
               }
 
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
+                return Container(
+                  height: 2,
+                    width: mq.width*1,
+                    child: const LinearProgressIndicator());
               }
 
               // Process data and create chart data

@@ -2,55 +2,28 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:zenfit/Service/Database.dart';
 import 'package:zenfit/UI/exercise.dart';
+import 'package:zenfit/main.dart';
 
-import '../main.dart';
 
 
-class startWorkout extends StatefulWidget {
+
+class startWorkout_fromprogram extends StatefulWidget {
+  final CollectionReference logCollection ;
   final String programName;
-  final String weektime;
-  final String workoutName;
-  final String workouttime;
   final String category;
-  const startWorkout({Key? key, required this.workouttime, required this.category, required this.workoutName, required this.programName, required this.weektime});
+  final QuerySnapshot WeekQuery;
+  final QuerySnapshot workoutQuery;
+  final String workoutName;
+  final String workoutTime;
+  const startWorkout_fromprogram({super.key, required this.logCollection, required this.workoutName, required this.workoutTime, required this.WeekQuery, required this.programName, required this.category, required this.workoutQuery,});
 
   @override
-  State<startWorkout> createState() => startWorkoutState();
+  State<startWorkout_fromprogram> createState() => startWorkout_fromprogramState();
 }
 
-class startWorkoutState extends State<startWorkout> {
+class startWorkout_fromprogramState extends State<startWorkout_fromprogram> {
 
 
-  void navigateToexercise() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Exercise(category: widget.category, programName: widget.programName, weektime: widget.weektime, workouttime: widget.workouttime, workoutName: widget.workoutName,)),
-    );
-  }
-
-  Widget _card1() {
-    return Card(
-      color: Colors.redAccent,
-      //elevation: 10,
-      child: InkWell(
-        onTap: () {
-          navigateToexercise(); // Call the method to navigate to SecondPage
-        },
-        child: const Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.add, color: Colors.white),
-              SizedBox(height: 10),
-              Text('Exercise', style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold, color: Colors.white,),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 
 
   @override
@@ -70,9 +43,42 @@ class startWorkoutState extends State<startWorkout> {
 
             actions: [
               IconButton(
-                  onPressed: () {
+                  onPressed: () async{
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    );
+                    int weeksize = widget.WeekQuery.docs.length;
+                    int workoutsize = widget.workoutQuery.docs.length;
+                    if(widget.category == 'mine'){
+                      await FirebaseFirestore.instance.collection("followedprograms").doc(DatabaseService.me.id).collection("mine").doc(widget.programName).get().then(
+                            (DocumentSnapshot doc) async {
+                          final data = doc.data() as Map<String, dynamic>;
+                          int week= data['week'];
+                          int workout = data['workout'];
+                          if((workout+1 <=workoutsize) && (week <= weeksize) )
+                            {
+                              await FirebaseFirestore.instance.collection("followedprograms").doc(DatabaseService.me.id).collection("mine").doc(widget.programName).set({"week":week, "workout": workout+1,"program": widget.programName});
+                            }
+                          else if((workout+1 >workoutsize) && (week+1 <= weeksize))
+                            {
+                              await FirebaseFirestore.instance.collection("followedprograms").doc(DatabaseService.me.id).collection("mine").doc(widget.programName).set({"week": week+1, "workout": 1,"program": widget.programName});
+                            }
+                          else if((workout+1 >workoutsize) && (week+1 > weeksize)){
+                            await FirebaseFirestore.instance.collection("followedprograms").doc(DatabaseService.me.id).collection("mine").doc(widget.programName).set({"week": 1, "workout": 1,"program": widget.programName});
+                          }
+                        },
+                        onError: (e) => print("Error getting document: $e"),
+                      );
+                    }
 
                     Navigator.pop(context);
+                    Navigator.pop(context);
+
                   },
                   icon: Icon(Icons.save,color: Colors.grey,)
               )
@@ -81,7 +87,7 @@ class startWorkoutState extends State<startWorkout> {
           body: Column(
             children: [
               StreamBuilder(
-                  stream: FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection("workout").doc(widget.workouttime).collection("exercise").snapshots(),
+                  stream: widget.logCollection.snapshots(),
                   builder: (context,exerciseshot){
 
                     if(exerciseshot.hasData){
@@ -103,10 +109,10 @@ class startWorkoutState extends State<startWorkout> {
 
                                         children: [
                                           Text(exerciseshot.data!.docs[indexofexercise]['name'],style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
-                                          Expanded(child: SizedBox()),
+
                                           IconButton(
                                               onPressed: ()async{
-                                                await FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection("workout").doc(widget.workouttime).collection("exercise").doc(exerciseshot.data!.docs[indexofexercise]['time']).delete();
+                                                await FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection("workout").doc(widget.workoutTime).collection("exercise").doc(exerciseshot.data!.docs[indexofexercise]['time']).delete();
                                               },
                                               icon: Icon(Icons.delete,color: Colors.redAccent,)
                                           )
@@ -117,7 +123,16 @@ class startWorkoutState extends State<startWorkout> {
                                       child: Card(
                                         color: Colors.black,
                                         child: StreamBuilder(
-                                            stream: exerciseshot.data!.docs[indexofexercise].reference.collection("set").snapshots(),
+                                            /*stream: FirebaseFirestore.instance
+                                                .collection('traininglog')
+                                                .doc(DatabaseService.user.uid)
+                                                .collection('workout')
+                                                .doc(widget.workoutTime)
+                                                .collection('exercise')
+                                                .doc("${exerciseshot.data!.docs[indexofexercise]['time']}")
+                                                .collection("set")
+                                                .snapshots(),*/
+                                            stream: exerciseshot.data!.docs[indexofexercise].reference.collection('set').snapshots(),
                                             builder: (context,snapshot){
                                               if(snapshot.connectionState == ConnectionState.waiting)
                                               {
@@ -148,9 +163,8 @@ class startWorkoutState extends State<startWorkout> {
                                                                     textAlign: TextAlign.center,
                                                                     onChanged: (value) async{
 
-                                                                      await exerciseshot.data!.docs[indexofexercise].reference
-                                                                          .collection("set")
-                                                                          .doc("${snapshot.data!.docs[index]['time']}")
+                                                                      await snapshot.data!
+                                                                          .docs[index].reference
                                                                           .update({'weight' : int.parse(value)});
 
                                                                     },
@@ -173,9 +187,8 @@ class startWorkoutState extends State<startWorkout> {
                                                                     textAlign: TextAlign.center,
                                                                     onChanged: (value) async{
 
-                                                                      await exerciseshot.data!.docs[indexofexercise].reference
-                                                                          .collection("set")
-                                                                          .doc("${snapshot.data!.docs[index]['time']}")
+                                                                      await snapshot.data!
+                                                                          .docs[index].reference
                                                                           .update({'reps' : int.parse(value)});
 
                                                                     },
@@ -189,9 +202,8 @@ class startWorkoutState extends State<startWorkout> {
                                                               const Text("reps",style: TextStyle(color: Colors.white),),
                                                               IconButton(
                                                                   onPressed: ()async{
-                                                                    await exerciseshot.data!.docs[indexofexercise].reference
-                                                                        .collection("set")
-                                                                        .doc("${snapshot.data!.docs[index]['time']}")
+                                                                    await snapshot.data!
+                                                                        .docs[index].reference
                                                                         .delete();
                                                                   },
                                                                   icon: const Icon(Icons.delete,color: Colors.grey,)
@@ -214,10 +226,10 @@ class startWorkoutState extends State<startWorkout> {
                                     Align(alignment:Alignment.bottomRight ,child: IconButton(
                                         onPressed: ()async{
                                           String time = DateTime.now().millisecondsSinceEpoch.toString();
-                                          await exerciseshot.data!.docs[indexofexercise].reference
-                                              .collection("set")
-                                              .doc(time)
-                                              .set({"time": time,"reps": 0,"weight": 0});
+                                          await exerciseshot.data!
+                                              .docs[indexofexercise].reference
+                                              .collection('set')
+                                              .add({"time": time,"reps": 0,"weight": 0});
                                         },
                                         icon: const Icon(Icons.add,color: Colors.redAccent,)),
                                     )
@@ -239,7 +251,6 @@ class startWorkoutState extends State<startWorkout> {
                   }
               ),
 
-              if(widget.category == "startworkout")_card1(),
             ],
           ),
         ),

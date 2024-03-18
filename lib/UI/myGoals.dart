@@ -76,12 +76,14 @@ class _My_GoalsState extends State<My_Goals> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blueGrey,
+          shape: const CircleBorder(),
         onPressed: (){
           Navigator.push(context,
             MaterialPageRoute(builder: (context) => const Create_Goal()),
           );
         },
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add,color: Colors.lightGreen,),
 
       ),
 
@@ -103,7 +105,7 @@ class _My_GoalsState extends State<My_Goals> {
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context,index){
                             return Card(
-                              color: Colors.white54,
+                              color: Colors.blueGrey,
                               child: Row(
                                 children: [
                                   Expanded(
@@ -117,11 +119,11 @@ class _My_GoalsState extends State<My_Goals> {
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(right: 10, left: 10),
-                                          child: Text("${snapshot.data!.docs[index]['description']}",style: const TextStyle(fontSize: 15)),
+                                          child: Text("${snapshot.data!.docs[index]['description']}",style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w500)),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
-                                          child: Text("${snapshot.data!.docs[index]['date']}",style: const TextStyle(fontSize: 10)),
+                                          child: Text("${snapshot.data!.docs[index]['date']}",style: const TextStyle(fontSize: 10,fontWeight: FontWeight.w500)),
                                         ),
                                       ],
 

@@ -73,7 +73,7 @@ class SpecificWorkoutLogState extends State<SpecificWorkoutLog> {
                               child: Card(
                                 color: Colors.black,
                                 child: StreamBuilder(
-                                    stream: FirebaseFirestore.instance.collection('traininglog').doc(DatabaseService.user.uid).collection('workout').doc(widget.workouttime).collection('exercise').doc("${exerciseshot.data!.docs[indexofexercise]['time']}").collection("set").snapshots(),
+                                    stream: exerciseshot.data!.docs[indexofexercise].reference.collection('set').snapshots(),
                                     builder: (context,snapshot){
                                       if(snapshot.connectionState == ConnectionState.waiting)
                                       {

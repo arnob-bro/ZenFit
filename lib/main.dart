@@ -4,6 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notification_channel/flutter_notification_channel.dart';
 import 'package:flutter_notification_channel/notification_importance.dart';
+import 'package:zenfit/UI/SplashScreen.dart';
 import 'package:zenfit/UI/homepage.dart';
 import 'package:zenfit/UI/welcome.dart';
 import 'firebase_options.dart';
@@ -57,7 +58,8 @@ class _MyAppState extends State<MyApp> {
 
      return MaterialApp(
        debugShowCheckedModeBanner: false,
-       home: isLoggedIn ? const Home() : const welcomePage(),
+       //home: isLoggedIn ? const Home() : const welcomePage(),
+       home: MySplashScreen(),
        routes: {
           "home" : (context)=> const Home(),
      },

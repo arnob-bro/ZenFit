@@ -1,5 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:zenfit/UI/welcome.dart';
+import '../Service/Database.dart';
 import 'homepage.dart';
 
 class MySplashScreen extends StatefulWidget {
@@ -35,7 +38,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
                   height: 50,
                 ),
 
-                Text(
+                const Text(
                   "ZenFit",
                   style: TextStyle(
                     color: Colors.white,
@@ -48,7 +51,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
             ),
           ),
 
-          nextScreen: Home(),
+          nextScreen: (FirebaseAuth.instance.currentUser == null)? welcomePage() : Home(),
           //splashTransition: SplashTransition.fadeTransition,
           splashTransition: SplashTransition.slideTransition,
           backgroundColor: Color.fromRGBO(0, 0, 0, 9),

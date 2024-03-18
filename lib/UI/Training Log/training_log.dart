@@ -46,7 +46,7 @@ class _TrainingLogState extends State<TrainingLog> {
                           title: Text(workoutshot.data!.docs[indexofworkout]["name"],style: const TextStyle(color: Colors.white),),
                           trailing: Text(MyDateUtil().getMessageTime(context: context, time: workoutshot.data!.docs[indexofworkout]["time"]),style: TextStyle(color: Colors.white54),),
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> SpecificWorkoutLog(workouttime: workoutshot.data!.docs[indexofworkout]["time"], workoutName: workoutshot.data!.docs[indexofworkout]["name"])));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> SpecificWorkoutLog(workouttime: workoutshot.data!.docs[indexofworkout]["time"].toString(), workoutName: workoutshot.data!.docs[indexofworkout]["name"])));
                           },
                         ),
                       );
